@@ -270,9 +270,14 @@ function endQ(text,ctx,choices,correct,explain){
   return {prompt:text.replace('__','<span class="blank">'+correct+'?</span>')+(ctx?' <span class="ctx">('+ctx+')</span>':''),
     options:choices.map(c=>({label:c,correct:c===correct})), explain:explain};
 }
-// patch the blank to just show a line, not the answer
+// patch the blank to just show a line, not the answer.
+// `after` is stored with the ending baked in (e.g. "e Code"); strip that ending
+// so it isn't revealed next to the blank.
 function endQ2(before,after,ctx,choices,correct,explain){
-  return {prompt:before+'<span class="blank">…</span>'+after+(ctx?' <span class="ctx">'+ctx+'</span>':''),
+  const ending=correct.replace('-','');
+  let rest=after;
+  if(rest.slice(0,ending.length).toLowerCase()===ending.toLowerCase()) rest=rest.slice(ending.length);
+  return {prompt:before+'<span class="blank">…</span>'+rest+(ctx?' <span class="ctx">'+ctx+'</span>':''),
     options:choices.map(c=>({label:c,correct:c===correct})), explain:explain};
 }
 function decl(correct){
