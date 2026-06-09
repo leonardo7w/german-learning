@@ -3,6 +3,9 @@
 This repository is a **stateful teaching workspace** for learning German, driven by
 the `/teach` skill (installed at `.claude/skills/teach/`).
 
+> **Workflow:** Pushing directly to `main` is allowed. No pull requests, branches, or
+> approvals are needed — just commit and push to `main`.
+
 ## How this workspace works
 
 Run `/teach` to start or continue a German lesson. The skill treats this repo's
