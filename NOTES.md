@@ -34,11 +34,17 @@
    - Repeatable mixed-review drill — Lesson 0003 (cases-heavy spaced repetition tool).
 3. ✅ Prepositions + cases (Akk/Dat sets + two-way Wohin/Wo) — Lesson 0004. NO warm-up (per user).
    Used varied verbs (legen/liegen/stellen/stehen…) + a verb+preposition (feste Präp.) taster.
-4. ← NEXT lesson: **opens with a 3–4 question case warm-up** (warm-up convention starts here, per user).
-   Strong candidate: **der-words & ein-words / determiners** — diese, alle, welche, jeden, eigenen,
-   etc. (user explicitly asked for this "eventually"). Ties straight back to cases + adjective endings.
-5. Verb tenses: Perfekt vs Präteritum → Konjunktiv II → Passiv.
+4. ✅ Determiners: der-words & ein-words (dieser/jeder/welche/alle/kein/mein + the "eigen" trap) —
+   Lesson 0005. First lesson to **open with a case warm-up** (convention now established).
+5. ← NEXT: Verb tenses — Perfekt vs Präteritum → Konjunktiv II → Passiv. (Open with case warm-up.)
 6. Connectors/fluency + topic vocabulary (software/IT, Behörden).
+
+## Lesson UX conventions (added per user request)
+- Every lesson has **prev/next navigation** + "All lessons" (hub) link at the bottom, and a top Hub link.
+- File mentions are **real hyperlinks**, including to the **.md files** (Glossary.md, Mission.md) and
+  the HTML cheat sheets — no more plain-text/`<code>` references.
+- The hub (index.html) has a **Workspace** section linking MISSION/GLOSSARY/RESOURCES .md files.
+- New lessons open with a 3–4 question **case warm-up** (spaced repetition).
 
 > Note on file numbering: lessons/0003 is the review drill, so the prepositions lesson is file 0004.
 > User refers to prepositions as "L3" verbally — the warm-up they want "in L4" = the NEXT teaching

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 5 — Determiners: dieser, jeder, kein, mein…</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --der:#1d7a46; --ein:#1f5fb0; --der-bg:#e7f5ec; --ein-bg:#e7f0fb;
+    --accent:#1f5fb0; --warm:#b8521a; --good:#1d7a46; --good-bg:#e7f5ec; --bad:#c0392b; --bad-bg:#fbeaea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 80px;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.9rem; margin:.12em 0 .1em; line-height:1.15;}
+  .lead{color:var(--muted); font-size:1.05rem; margin:.2em 0 0;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  .warmup{border:1px dashed var(--warm); background:#fdf6f0;}
+  h2{font-size:1.22rem; margin:.1em 0 .5em;}
+  h2 .n{display:inline-grid; place-items:center; min-width:1.7em; height:1.7em; background:var(--accent);
+    color:#fff; border-radius:50%; font-size:.8rem; margin-right:.5em; vertical-align:middle; padding:0 .2em;}
+  h2.wu .n{background:var(--warm);}
+  h3{font-size:1.02rem; margin:1.05em 0 .3em;}
+  p{margin:.55em 0;}
+  .de{font-weight:600;} .en{color:var(--muted);}
+  .pill{display:inline-block; padding:1px 9px; border-radius:20px; font-size:.72rem; font-weight:800; color:#fff; vertical-align:middle;}
+  .pill.der{background:var(--der)} .pill.ein{background:var(--ein)} .pill.warm{background:var(--warm)}
+  .grp{border-radius:10px; padding:12px 14px; margin:8px 0; border:1px solid var(--line);}
+  .grp.der{background:var(--der-bg)} .grp.ein{background:var(--ein-bg)}
+  .grp .words{font-weight:700; font-size:1.04rem; margin-top:3px;}
+  table{border-collapse:collapse; width:100%; margin:8px 0; font-size:.9rem;}
+  th,td{border:1px solid var(--line); padding:6px 8px; text-align:center;}
+  th{background:#f0f2f8; font-weight:700;} td.c{text-align:left; font-weight:700; white-space:nowrap;}
+  .big-rule{font-size:1.04rem; text-align:center; padding:13px; background:linear-gradient(135deg,#eef4ff,#eafaf0);
+    border-radius:12px; border:1px solid #cdeedd; margin:6px 0;}
+  .tip{background:#fffaf0; border-left:4px solid #e0a72e; padding:10px 14px; border-radius:6px; font-size:.93rem;}
+  .q-block{margin:13px 0; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:#fafbff;}
+  .q-prompt{font-size:1.05rem; margin-bottom:9px;}
+  .q-prompt b{background:#fff3c4; padding:0 4px; border-radius:4px;}
+  .q-prompt .blank{display:inline-block; min-width:2.2em; border-bottom:2px dashed #aab; text-align:center;}
+  .q-prompt .ctx{color:var(--muted); font-size:.85em;}
+  .opts{display:flex; flex-wrap:wrap; gap:7px;}
+  button.opt{font:inherit; cursor:pointer; border:1.5px solid var(--line); background:#fff;
+    padding:7px 14px; border-radius:9px; transition:.12s; font-weight:700;}
+  button.opt:hover{border-color:var(--accent);}
+  button.opt:disabled{cursor:default;}
+  button.opt.correct{background:var(--good-bg); border-color:var(--good); color:var(--good);}
+  button.opt.wrong{background:var(--bad-bg); border-color:var(--bad); color:var(--bad);}
+  .fb{margin-top:8px; font-size:.92rem; padding:8px 11px; border-radius:7px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:var(--good-bg); color:#155e34;} .fb.no{background:var(--bad-bg); color:#922;}
+  .score{position:sticky; top:0; z-index:5; background:rgba(238,240,247,.93); backdrop-filter:blur(6px);
+    padding:8px 12px; border-radius:0 0 12px 12px; font-weight:700; color:var(--muted); text-align:center; font-size:.9rem;}
+  .score b{color:var(--ink);}
+  .ask{background:#eef4ff; border:1px solid #cfe0ff; border-radius:12px; padding:16px 18px; margin-top:22px;}
+  .ask h3{margin-top:0; color:var(--accent);}
+  .lessonnav{display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;
+    margin:28px 0 4px; padding-top:16px; border-top:1px solid var(--line); font-size:.92rem; font-weight:600;}
+  .lessonnav a{color:var(--accent); text-decoration:none;} .lessonnav .hub{color:var(--muted);}
+  .lessonnav .none{color:#b8bccc;}
+  .related{text-align:center; font-size:.85rem; color:var(--muted); margin:8px 0 0;}
+  .related a{color:var(--accent);}
+  footer{margin-top:18px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="score" id="scorebar">Score: <b id="sc">0</b> / <span id="tot">0</span> &nbsp;·&nbsp; <span id="rank">—</span></div>
+<div class="wrap">
+  <a class="home" href="../index.html">← Hub</a>
+  <div class="eyebrow">Lesson 05 · Foundations</div>
+  <h1>Determiners: dieser, jeder, kein, mein…</h1>
+  <p class="lead">The little words before the noun — <span class="de">dieser, jeder, welcher, alle, kein,
+  mein, eigen</span>. Learn which family each belongs to, and the endings fall out of what you already know.</p>
+
+  <div class="card">
+    <p><b>Mission link.</b> These words are everywhere in real German — <span class="de">diese Woche,
+    jeden Tag, mein eigenes Büro, alle Kollegen, welcher Zug</span>. The good news: they're not new
+    grammar, they're the <i>same</i> case + ending system from Lessons 01–02 wearing different clothes.
+    This lesson ties it all together. ~20–25 min.</p>
+  </div>
+
+  <!-- WARM-UP -->
+  <div class="card warmup">
+    <h2 class="wu"><span class="n">↻</span>Warm-up: cases (30 seconds)</h2>
+    <p>Quick recall before we build — these are the cases you said still wobble. (New: every lesson now
+    opens with one of these.)</p>
+    <div id="warmup"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">i</span>Two families, that's the whole secret</h2>
+    <div class="big-rule">Every determiner is either a <span class="pill der">der-WORD</span>
+      or an <span class="pill ein">ein-WORD</span>.<br>That single fact tells you its endings
+      <i>and</i> the adjective endings after it.</div>
+
+    <div class="grp der"><span class="pill der">der-WORDS</span> — decline like <b>der / die / das</b>
+      <div class="words">dieser (this) · jeder (each) · jener (that) · welcher (which) · mancher (some) ·
+        solcher (such) · alle (all, pl) · beide (both, pl)</div>
+      <span class="en">Same endings as the definite article → trigger <b>WEAK</b> adjective endings after them.</span></div>
+
+    <div class="grp ein"><span class="pill ein">ein-WORDS</span> — decline like <b>ein / kein</b>
+      <div class="words">ein · kein (no/not a) · mein, dein, sein, ihr, unser, euer, Ihr (possessives) · irgendein</div>
+      <span class="en">Same endings as the indefinite article → trigger <b>MIXED</b> adjective endings after them.</span></div>
+
+    <div class="tip"><b>"eigen" (own) is a trap:</b> it is <u>not</u> a determiner — it's an ordinary
+      <b>adjective</b>. So it takes a normal adjective ending: <span class="de">mein <b>eigenes</b> Büro</span>
+      (mixed, neut), <span class="de">in meinem <b>eigenen</b> Büro</span> (mixed, dat).</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">ii</span>The endings (you already know these)</h2>
+    <h3><span class="pill der">der-WORD</span> — example: <b>dieser</b> (just der/die/das with dies-)</h3>
+    <table>
+      <tr><th class="c"></th><th>masc</th><th>fem</th><th>neut</th><th>plural</th></tr>
+      <tr><td class="c">Nom</td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+      <tr><td class="c">Akk</td><td>diesen</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+      <tr><td class="c">Dat</td><td>diesem</td><td>dieser</td><td>diesem</td><td>diesen</td></tr>
+      <tr><td class="c">Gen</td><td>dieses</td><td>dieser</td><td>dieses</td><td>dieser</td></tr>
+    </table>
+    <h3><span class="pill ein">ein-WORD</span> — example: <b>kein / mein</b> (= ein + a plural)</h3>
+    <table>
+      <tr><th class="c"></th><th>masc</th><th>fem</th><th>neut</th><th>plural</th></tr>
+      <tr><td class="c">Nom</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
+      <tr><td class="c">Akk</td><td>keinen</td><td>keine</td><td>kein</td><td>keine</td></tr>
+      <tr><td class="c">Dat</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
+      <tr><td class="c">Gen</td><td>keines</td><td>keiner</td><td>keines</td><td>keiner</td></tr>
+    </table>
+    <p class="en">Notice: this is <i>exactly</i> the article tables from
+      <a href="../reference/0001-case-system-cheatsheet.html">Cheat Sheet 01</a>, just with
+      <b>dies-</b> or <b>kein-/mein-</b> on the front.</p>
+    <div class="tip">Number quirks: <b>jeder</b> is singular only ("each"); its plural is <b>alle</b>.
+      <span class="de">jeden Tag</span> → <span class="de">alle Tage</span>. And <b>alle / diese / meine</b>
+      + adjective → the adjective is plural (mostly <b>-en</b>): <span class="de">alle neu<b>en</b> Kollegen</span>.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">A</span>der-word or ein-word?</h2>
+    <p>Sort each determiner into its family.</p>
+    <div id="partA"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">B</span>Choose the determiner form</h2>
+    <p>Same case logic as the articles — just on a different word.</p>
+    <div id="partB"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">C</span>Determiner + adjective (the real test)</h2>
+    <p>der-word → <span class="pill der">weak</span> ending · ein-word → <span class="pill ein">mixed</span>
+    ending. Recall <a href="../reference/0002-adjective-endings-cheatsheet.html">Cheat Sheet 02</a>.</p>
+    <div id="partC"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">D</span>Spot the error</h2>
+    <div id="partD"></div>
+  </div>
+
+  <div class="ask">
+    <h3>I'm your teacher — ask away</h3>
+    <ul>
+      <li>"Drill me on jeder/alle and singular-vs-plural."</li>
+      <li>"Show me der-words + adjectives in all four cases."</li>
+      <li>"My score was ___ / ___" — so I can plan Lesson 06 (verb tenses: Perfekt vs Präteritum).</li>
+    </ul>
+    <p>Terms used here are defined in the <a href="../GLOSSARY.md">Glossary</a>.</p>
+  </div>
+
+  <nav class="lessonnav">
+    <a href="0004-prepositions-and-cases.html">← Prepositions &amp; Cases</a>
+    <a class="hub" href="../index.html">⌂ All lessons</a>
+    <span class="none">Next: coming soon →</span>
+  </nav>
+  <p class="related">📎 <a href="../reference/0004-determiners-cheatsheet.html">Determiners cheat sheet</a> ·
+    <a href="../GLOSSARY.md">Glossary.md</a> · <a href="../MISSION.md">Mission.md</a></p>
+
+  <footer>
+    Sources:
+    <a href="https://learngerman.dw.com/en/overview">Deutsche Welle</a> ·
+    <a href="https://deutsch.lingolia.com/en/grammar/declensions/declension-articles">Lingolia — Determiners</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut</a>.
+    <br>Lesson 0005 · German for living &amp; working in Zurich.
+  </footer>
+</div>
+
+<script>
+let score=0,total=0;
+const scEl=document.getElementById('sc'),totEl=document.getElementById('tot'),rankEl=document.getElementById('rank');
+function rank(){if(total===0)return '—';const p=score/total;
+  return p>=.9?'🏆 C1-ready':p>=.75?'💪 solid B2':p>=.5?'📈 getting there':'🌱 keep going';}
+function tally(){scEl.textContent=score;rankEl.textContent=rank();}
+function makeMC(container,q){
+  total++;totEl.textContent=total;
+  const block=document.createElement('div');block.className='q-block';
+  const prompt=document.createElement('div');prompt.className='q-prompt';prompt.innerHTML=q.prompt;
+  const opts=document.createElement('div');opts.className='opts';
+  const fb=document.createElement('div');fb.className='fb';
+  let done=false;
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');b.className='opt';b.innerHTML=opt.label;
+    if(opt.correct)b.dataset.c='1';
+    b.onclick=()=>{
+      if(done)return;done=true;[...opts.children].forEach(c=>c.disabled=true);
+      if(opt.correct){b.classList.add('correct');score++;tally();fb.className='fb show ok';fb.innerHTML='✓ '+q.explain;}
+      else{b.classList.add('wrong');[...opts.children].forEach(c=>{if(c.dataset.c)c.classList.add('correct');});
+        fb.className='fb show no';fb.innerHTML='✗ '+q.explain;}
+    };
+    opts.appendChild(b);
+  });
+  block.append(prompt,opts,fb);container.appendChild(block);
+}
+const art=(choices,c)=>choices.map(x=>({label:x,correct:x===c}));
+const fam=c=>[['der','der-word'],['ein','ein-word']].map(([k,n])=>({label:'<span class="pill '+k+'">'+n+'</span>',correct:k===c}));
+const tf=ok=>[{label:'✅ Correct',correct:ok},{label:'❌ Wrong',correct:!ok}];
+
+// WARM-UP (cases)
+const W=document.getElementById('warmup');
+[
+ ['Ich schreibe ___ Chef eine E-Mail. <span class="ctx">(masc · receiver → Dat)</span>',['der','den','dem'],'dem','Recipient → Dative masc → <b>dem</b> Chef.'],
+ ['Das Ticket ist für ___ Kunden. <span class="ctx">(masc · für → Akk)</span>',['der','den','dem'],'den','"für" → Akkusativ masc → <b>den</b> Kunden.'],
+ ['Wir fahren mit ___ Auto. <span class="ctx">(neut · mit → Dat)</span>',['das','dem','des'],'dem','"mit" → Dativ neut → <b>dem</b> Auto.']
+].forEach(([p,ch,c,e])=>makeMC(W,{prompt:p,options:art(ch,c),explain:e}));
+
+// A — classify
+const A=document.getElementById('partA');
+[
+ ['<b>dieser</b>','der','"dieser" declines like der/die/das → <b>der-word</b> (weak adjectives after it).'],
+ ['<b>mein</b>','ein','Possessive → <b>ein-word</b> (mixed adjectives after it).'],
+ ['<b>jeder</b>','der','"jeder" = der-word (singular "each").'],
+ ['<b>kein</b>','ein','"kein" declines exactly like "ein" → <b>ein-word</b>.'],
+ ['<b>welche</b>','der','"welcher" (which) is a der-word — the question determiner.'],
+ ['<b>unser</b>','ein','Possessive → <b>ein-word</b>.']
+].forEach(([p,c,e])=>makeMC(A,{prompt:p,options:fam(c),explain:e}));
+
+// B — determiner form
+const B=document.getElementById('partB');
+[
+ ['___ Kollege ist neu hier. <span class="ctx">(this · nom masc)</span>',['dieser','diesen','diesem'],'dieser','der-word, Nom masc → <b>dieser</b> Kollege.'],
+ ['Ich kenne ___ Frau nicht. <span class="ctx">(this · akk fem)</span>',['diese','dieser','diesem'],'diese','Akk fem → <b>diese</b> Frau.'],
+ ['Wir sprechen mit ___ Kunden. <span class="ctx">(this · dat masc)</span>',['dieser','diesen','diesem'],'diesem','"mit"→Dat masc → <b>diesem</b> Kunden.'],
+ ['Ich arbeite ___ Tag daran. <span class="ctx">(every · akk masc)</span>',['jeder','jeden','jedem'],'jeden','jeden Tag — Akk masc → <b>jeden</b> (a fixed time phrase).'],
+ ['Ich habe ___ Zeit dafür. <span class="ctx">(no · akk fem)</span>',['kein','keine','keinen'],'keine','ein-word, Akk fem → <b>keine</b> Zeit.'],
+ ['___ Mitarbeiter sind eingeladen. <span class="ctx">(all · nom plural)</span>',['Aller','Alle','Allen'],'Alle','der-word, Nom plural → <b>Alle</b> Mitarbeiter.']
+].forEach(([p,ch,c,e])=>makeMC(B,{prompt:p,options:art(ch,c),explain:e}));
+
+// C — determiner + adjective ending
+const C=document.getElementById('partC');
+[
+ ['dieser neu__ Kollege <span class="ctx">(der-word → weak · nom masc)</span>',['-e','-en','-er'],'-e','der-word → WEAK; Nom masc → <b>-e</b>. dieser neu<b>e</b> Kollege.'],
+ ['mein neu__ Laptop <span class="ctx">(ein-word → mixed · nom masc)</span>',['-e','-en','-er'],'-er','ein-word → MIXED gap; Nom masc → <b>-er</b>. mein neu<b>er</b> Laptop.'],
+ ['Das ist kein gut__ Argument. <span class="ctx">(ein-word → mixed · nom neut)</span>',['-e','-es','-en'],'-es','Mixed gap, neut → <b>-es</b>. kein gut<b>es</b> Argument.'],
+ ['Ich arbeite jeden neu__ Tag daran. <span class="ctx">(der-word → weak · akk masc)</span>',['-e','-en','-er'],'-en','der-word → WEAK; Akk masc → <b>-en</b>.'],
+ ['alle neu__ Mitarbeiter <span class="ctx">(der-word → weak · nom plural)</span>',['-e','-en','-er'],'-en','der-word → WEAK plural → <b>-en</b>. alle neu<b>en</b> Mitarbeiter.'],
+ ['in meinem eigen__ Büro <span class="ctx">("eigen" = adjective! mixed · dat)</span>',['-e','-es','-en'],'-en','"eigen" is an adjective; ein-word→MIXED, Dat → <b>-en</b>. mein<b>em</b> eigen<b>en</b> Büro.']
+].forEach(([p,ch,c,e])=>makeMC(C,{prompt:p,options:art(ch,c),explain:e}));
+
+// D — spot the error
+const D=document.getElementById('partD');
+[
+ ['Welche Farbe gefällt dir?',true,'<b>Correct.</b> "welche" der-word, Nom fem → welche Farbe.'],
+ ['Diese Mann ist sehr kompetent.',false,'<b>Wrong.</b> masc Nom → <b>Dieser</b> Mann (not "Diese").'],
+ ['Jeden Tag nehme ich das Tram.',true,'<b>Correct.</b> "jeden Tag" — Akk masc time phrase.'],
+ ['Ich spreche mit meine Kollegen.',false,'<b>Wrong.</b> "mit"→Dat plural → mit <b>meinen</b> Kollegen.'],
+ ['Das ist mein eigenes Projekt.',true,'<b>Correct.</b> "eigen" = adjective, mixed neut → eigen<b>es</b>.']
+].forEach(([p,ok,e])=>makeMC(D,{prompt:'„'+p+'"',options:tf(ok),explain:e}));
+
+tally();
+</script>
+</body>
+</html>

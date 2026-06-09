@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Determiners — Cheat Sheet</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e3e6ef; --bg:#ffffff;
+    --der:#1d7a46; --ein:#1f5fb0; --der-bg:#e7f5ec; --ein-bg:#e7f0fb; --accent:#1f5fb0;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f5f6fa; margin:0; line-height:1.45;}
+  .sheet{max-width:900px; margin:24px auto; background:var(--bg); padding:38px 42px;
+    border-radius:14px; box-shadow:0 6px 28px rgba(20,24,50,.08);}
+  h1{font-size:1.6rem; margin:0 0 2px;}
+  .sub{color:var(--muted); margin:0 0 18px; font-size:.95rem;}
+  h2{font-size:1.02rem; margin:20px 0 8px; padding-bottom:5px; border-bottom:2px solid var(--line);}
+  .pill{display:inline-block; padding:2px 10px; border-radius:20px; font-size:.74rem; font-weight:800; color:#fff;}
+  .pill.der{background:var(--der)} .pill.ein{background:var(--ein)}
+  .grp{border-radius:10px; padding:11px 14px; margin:8px 0; border:1px solid var(--line);}
+  .grp.der{background:var(--der-bg)} .grp.ein{background:var(--ein-bg)}
+  .grp .w{font-weight:800; font-size:1.05rem; margin-top:4px;}
+  .grp .n{color:var(--muted); font-size:.86rem;}
+  .rule{font-size:1.02rem; text-align:center; padding:12px; background:linear-gradient(135deg,#eef4ff,#eafaf0);
+    border-radius:10px; border:1px solid #cdeedd; margin:8px 0;}
+  .cols{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  table{border-collapse:collapse; width:100%; margin:6px 0; font-size:.86rem;}
+  th,td{border:1px solid var(--line); padding:5px 6px; text-align:center;}
+  th{background:#f0f2f8; font-weight:700;} td.c{text-align:left; font-weight:700;}
+  .ex{color:var(--muted); font-size:.86rem;}
+  code{background:#eef0f7; padding:1px 5px; border-radius:4px;}
+  footer{margin-top:20px; padding-top:10px; border-top:1px solid var(--line); color:var(--muted); font-size:.8rem;}
+  a{color:var(--accent);}
+  @media print{ body{background:#fff} .sheet{box-shadow:none;margin:0;border-radius:0;max-width:100%;padding:0 6px} table,.grp{break-inside:avoid} }
+  @media (max-width:680px){ .cols{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>German Determiners — Cheat Sheet</h1>
+  <p class="sub">dieser, jeder, welcher, alle, kein, mein… Reference 0004. (Use with sheets 0001 &amp; 0002.)</p>
+
+  <div class="rule">Every determiner is a <span class="pill der">der-word</span> or an
+    <span class="pill ein">ein-word</span> — that decides its endings <i>and</i> the adjective endings after it.</div>
+
+  <div class="grp der"><span class="pill der">der-WORDS</span> → decline like der/die/das → <b>WEAK</b> adjectives after
+    <div class="w">dieser · jeder · jener · welcher · mancher · solcher · alle (pl) · beide (pl)</div>
+    <div class="n">jeder = singular "each"; plural is "alle".</div></div>
+
+  <div class="grp ein"><span class="pill ein">ein-WORDS</span> → decline like ein/kein → <b>MIXED</b> adjectives after
+    <div class="w">ein · kein · mein · dein · sein · ihr · unser · euer · Ihr · irgendein</div>
+    <div class="n">"eigen" is NOT here — it's an ordinary adjective (mein eigen<b>es</b> Büro).</div></div>
+
+  <h2>Endings</h2>
+  <div class="cols">
+    <div>
+      <b><span class="pill der">der-word</span> — dieser</b>
+      <table>
+        <tr><th class="c"></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
+        <tr><td class="c">N</td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+        <tr><td class="c">A</td><td>diesen</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+        <tr><td class="c">D</td><td>diesem</td><td>dieser</td><td>diesem</td><td>diesen</td></tr>
+        <tr><td class="c">G</td><td>dieses</td><td>dieser</td><td>dieses</td><td>dieser</td></tr>
+      </table>
+    </div>
+    <div>
+      <b><span class="pill ein">ein-word</span> — kein / mein</b>
+      <table>
+        <tr><th class="c"></th><th>m</th><th>f</th><th>n</th><th>pl</th></tr>
+        <tr><td class="c">N</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
+        <tr><td class="c">A</td><td>keinen</td><td>keine</td><td>kein</td><td>keine</td></tr>
+        <tr><td class="c">D</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
+        <tr><td class="c">G</td><td>keines</td><td>keiner</td><td>keines</td><td>keiner</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>+ adjective (the payoff)</h2>
+  <table>
+    <tr><th>after der-word → WEAK</th><th>after ein-word → MIXED</th></tr>
+    <tr><td>dieser neu<b>e</b> Kollege · jeden neu<b>en</b> Tag · alle neu<b>en</b> Kollegen</td>
+        <td>mein neu<b>er</b> Laptop · kein gut<b>es</b> Argument · in meinem eigen<b>en</b> Büro</td></tr>
+  </table>
+  <p class="ex">It's the same machinery as Cheat Sheet 02 — the determiner family just selects weak vs mixed.</p>
+
+  <footer>
+    Sources: <a href="https://learngerman.dw.com/en/overview">Deutsche Welle</a> ·
+    <a href="https://deutsch.lingolia.com/en/grammar/declensions/declension-articles">Lingolia</a>.
+    Built for the "German for living &amp; working in Zurich" mission.
+  </footer>
+</div>
+</body>
+</html>
