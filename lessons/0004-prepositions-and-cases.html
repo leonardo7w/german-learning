@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 3 — Prepositions & Their Cases</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --akk:#1f5fb0; --dat:#b8521a; --two:#7a3aa6;
+    --akk-bg:#e7f0fb; --dat-bg:#fbeee4; --two-bg:#f2e9fa;
+    --accent:#1f5fb0; --good:#1d7a46; --good-bg:#e7f5ec; --bad:#c0392b; --bad-bg:#fbeaea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 80px;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.95rem; margin:.12em 0 .1em; line-height:1.15;}
+  .lead{color:var(--muted); font-size:1.05rem; margin:.2em 0 0;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  h2{font-size:1.22rem; margin:.1em 0 .5em;}
+  h2 .n{display:inline-grid; place-items:center; min-width:1.7em; height:1.7em; background:var(--accent);
+    color:#fff; border-radius:50%; font-size:.8rem; margin-right:.5em; vertical-align:middle; padding:0 .2em;}
+  h3{font-size:1.02rem; margin:1.05em 0 .3em;}
+  p{margin:.55em 0;}
+  .de{font-weight:600;} .en{color:var(--muted);}
+  .pill{display:inline-block; padding:1px 9px; border-radius:20px; font-size:.72rem; font-weight:800; color:#fff; vertical-align:middle;}
+  .pill.akk{background:var(--akk)} .pill.dat{background:var(--dat)} .pill.two{background:var(--two)}
+  .grp{border-radius:10px; padding:12px 14px; margin:8px 0; border:1px solid var(--line);}
+  .grp.akk{background:var(--akk-bg)} .grp.dat{background:var(--dat-bg)} .grp.two{background:var(--two-bg)}
+  .grp .words{font-weight:700; font-size:1.05rem; margin-top:3px;}
+  table{border-collapse:collapse; width:100%; margin:8px 0; font-size:.92rem;}
+  th,td{border:1px solid var(--line); padding:7px 9px; text-align:left;}
+  th{background:#f0f2f8; font-weight:700; text-align:center;}
+  .big-rule{font-size:1.06rem; text-align:center; padding:14px; background:linear-gradient(135deg,#eef4ff,#f6eefb);
+    border-radius:12px; border:1px solid #dbe6fb; margin:6px 0;}
+  .big-rule b{color:var(--two);}
+  .tip{background:#fffaf0; border-left:4px solid #e0a72e; padding:10px 14px; border-radius:6px; font-size:.93rem;}
+  .q-block{margin:13px 0; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:#fafbff;}
+  .q-prompt{font-size:1.05rem; margin-bottom:9px;}
+  .q-prompt b{background:#fff3c4; padding:0 4px; border-radius:4px;}
+  .q-prompt .blank{display:inline-block; min-width:2.2em; border-bottom:2px dashed #aab; text-align:center;}
+  .q-prompt .ctx{color:var(--muted); font-size:.85em;}
+  .opts{display:flex; flex-wrap:wrap; gap:7px;}
+  button.opt{font:inherit; cursor:pointer; border:1.5px solid var(--line); background:#fff;
+    padding:7px 14px; border-radius:9px; transition:.12s; font-weight:700;}
+  button.opt:hover{border-color:var(--accent);}
+  button.opt:disabled{cursor:default;}
+  button.opt.correct{background:var(--good-bg); border-color:var(--good); color:var(--good);}
+  button.opt.wrong{background:var(--bad-bg); border-color:var(--bad); color:var(--bad);}
+  .fb{margin-top:8px; font-size:.92rem; padding:8px 11px; border-radius:7px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:var(--good-bg); color:#155e34;} .fb.no{background:var(--bad-bg); color:#922;}
+  .score{position:sticky; top:0; z-index:5; background:rgba(238,240,247,.93); backdrop-filter:blur(6px);
+    padding:8px 12px; border-radius:0 0 12px 12px; font-weight:700; color:var(--muted); text-align:center; font-size:.9rem;}
+  .score b{color:var(--ink);}
+  .ask{background:#eef4ff; border:1px solid #cfe0ff; border-radius:12px; padding:16px 18px; margin-top:22px;}
+  .ask h3{margin-top:0; color:var(--accent);}
+  code{background:#eef0f7; padding:1px 5px; border-radius:4px; font-size:.9em;}
+  footer{margin-top:24px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="score" id="scorebar">Score: <b id="sc">0</b> / <span id="tot">0</span> &nbsp;·&nbsp; <span id="rank">—</span></div>
+<div class="wrap">
+  <a class="home" href="../index.html">← Hub</a>
+  <div class="eyebrow">Lesson 04 · Foundations</div>
+  <h1>Prepositions &amp; Their Cases</h1>
+  <p class="lead">Every preposition forces a case. Learn which — and crack the <b>two-way</b>
+  <span class="de">Wohin?→Akk / Wo?→Dat</span> switch that's behind most case slips.</p>
+
+  <div class="card">
+    <p><b>Mission link.</b> In real Zurich life — directions, your commute, where things are at work —
+    prepositions come up constantly, and each one <i>dictates</i> the case. Get the three groups
+    automatic and your case errors drop sharply. ~20–25 min, varied verbs throughout. No warm-up this
+    time (those start next lesson).</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">i</span>Three groups</h2>
+    <p>A preposition belongs to exactly one of these. The first two are pure memorisation — drill them
+    until reflexive.</p>
+
+    <div class="grp akk"><span class="pill akk">ALWAYS AKKUSATIV</span>
+      <div class="words">durch · für · gegen · ohne · um</div>
+      <span class="en">(+ bis, entlang, wider) — Memory hook: <b>"DOGFU"</b> durch-ohne-gegen-für-um.</span></div>
+
+    <div class="grp dat"><span class="pill dat">ALWAYS DATIV</span>
+      <div class="words">aus · außer · bei · mit · nach · seit · von · zu · gegenüber</div>
+      <span class="en">These are extremely common (mit, nach, bei, zu, von…) — worth overlearning.</span></div>
+
+    <div class="grp two"><span class="pill two">TWO-WAY (Akk or Dat)</span>
+      <div class="words">an · auf · hinter · in · neben · über · unter · vor · zwischen</div>
+      <span class="en">The 9 "Wechselpräpositionen" — the case depends on the verb (next box).</span></div>
+    <p class="en">There are also genitive prepositions (während, wegen, trotz, statt, innerhalb…) — a
+    B2 add-on we'll touch later.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">ii</span>The two-way switch</h2>
+    <div class="big-rule"><b>Wohin?</b> (movement <i>into</i> a place) → <span class="pill akk">AKKUSATIV</span><br>
+      <b>Wo?</b> (static position <i>in</i> a place) → <span class="pill dat">DATIV</span></div>
+    <p>The trick isn't "does anything move" — it's whether the action <b>crosses a boundary into a new
+    location</b> (Akk) or <b>happens within one</b> (Dat). German even has dedicated verb pairs for this:</p>
+    <table>
+      <tr><th>Wohin? → AKK (put)</th><th>Wo? → DAT (be)</th></tr>
+      <tr><td><b>legen</b> – lay down</td><td><b>liegen</b> – be lying</td></tr>
+      <tr><td><b>stellen</b> – stand up/place</td><td><b>stehen</b> – be standing</td></tr>
+      <tr><td><b>setzen</b> – set down</td><td><b>sitzen</b> – be sitting</td></tr>
+      <tr><td><b>hängen</b> (reg.) – hang up</td><td><b>hängen</b> (str.) – be hanging</td></tr>
+      <tr><td><b>gehen, fahren, springen…</b> – go/move to</td><td><b>sein, bleiben, arbeiten, warten…</b> – stay/be</td></tr>
+    </table>
+    <p><span class="de">Ich <b>lege</b> den Laptop <span style="color:var(--akk)">auf den Tisch</span>.</span>
+      <span class="en">(Wohin? → Akk)</span><br>
+      <span class="de">Der Laptop <b>liegt</b> <span style="color:var(--dat)">auf dem Tisch</span>.</span>
+      <span class="en">(Wo? → Dat)</span></p>
+    <div class="tip">Quick contractions you'll hear constantly: <b>in dem → im</b>, <b>in das → ins</b>,
+      <b>an dem → am</b>, <b>an das → ans</b>, <b>zu dem → zum</b>, <b>zu der → zur</b>, <b>bei dem → beim</b>.
+      Full lists in <code>reference/0003-prepositions-cheatsheet.html</code>.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">A</span>Which group?</h2>
+    <p>Classify each preposition.</p>
+    <div id="partA"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">B</span>Two-way: Akkusativ or Dativ?</h2>
+    <p>Read the verb. Is it <b>Wohin?</b> (into → Akk) or <b>Wo?</b> (within → Dat)?</p>
+    <div id="partB"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">C</span>Choose the form after the preposition</h2>
+    <p>Now commit to the actual article. Watch the group <i>and</i> the gender.</p>
+    <div id="partC"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">D</span>Spot the error</h2>
+    <p>Correct or wrong? The classic trap: a "Wo?" verb (liegen/stehen/sein) paired with accusative.</p>
+    <div id="partD"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">E</span>Bonus: verbs that own a preposition</h2>
+    <p>Some verbs come <i>welded</i> to a preposition + fixed case — you just memorise the pair (a big
+    B2 vocabulary lever, and a varied-verb workout). A taste:</p>
+    <table>
+      <tr><th>Verb + preposition</th><th>Case</th></tr>
+      <tr><td>warten <b>auf</b> – wait for</td><td>Akkusativ</td></tr>
+      <tr><td>denken <b>an</b> – think of</td><td>Akkusativ</td></tr>
+      <tr><td>sich interessieren <b>für</b></td><td>Akkusativ</td></tr>
+      <tr><td>teilnehmen <b>an</b> – take part in</td><td>Dativ</td></tr>
+      <tr><td>gehören <b>zu</b> – belong to</td><td>Dativ</td></tr>
+      <tr><td>sich kümmern <b>um</b> – take care of</td><td>Akkusativ</td></tr>
+    </table>
+    <p class="en">Here the case is fixed by the verb, not by Wohin/Wo. Ask me for a full set drilled to your field.</p>
+    <div id="partE"></div>
+  </div>
+
+  <div class="ask">
+    <h3>I'm your teacher — ask away</h3>
+    <ul>
+      <li>"Drill me on just the two-way ones with random verbs."</li>
+      <li>"Give me 10 verb+preposition pairs for software/work and quiz me."</li>
+      <li>"My score was ___ / ___" — so I can set up the next lesson (which opens with a case warm-up).</li>
+    </ul>
+  </div>
+
+  <footer>
+    Sources:
+    <a href="https://learngerman.dw.com/en/overview">Deutsche Welle</a> ·
+    <a href="https://www.lingoda.com/blog/en/two-way-prepositions-german/">Lingoda — Two-Way Prepositions</a> ·
+    <a href="https://germanwithlaura.com/two-way-prepositions/">German with Laura</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut</a>.
+    <br>Lesson 0004 · German for living &amp; working in Zurich.
+  </footer>
+</div>
+
+<script>
+let score=0,total=0;
+const scEl=document.getElementById('sc'),totEl=document.getElementById('tot'),rankEl=document.getElementById('rank');
+function rank(){if(total===0)return '—';const p=score/total;
+  return p>=.9?'🏆 C1-ready':p>=.75?'💪 solid B2':p>=.5?'📈 getting there':'🌱 keep going';}
+function tally(){scEl.textContent=score;rankEl.textContent=rank();}
+function makeMC(container,q){
+  total++;totEl.textContent=total;
+  const block=document.createElement('div');block.className='q-block';
+  const prompt=document.createElement('div');prompt.className='q-prompt';prompt.innerHTML=q.prompt;
+  const opts=document.createElement('div');opts.className='opts';
+  const fb=document.createElement('div');fb.className='fb';
+  let done=false;
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');b.className='opt';b.innerHTML=opt.label;
+    if(opt.correct)b.dataset.c='1';
+    b.onclick=()=>{
+      if(done)return;done=true;[...opts.children].forEach(c=>c.disabled=true);
+      if(opt.correct){b.classList.add('correct');score++;tally();fb.className='fb show ok';fb.innerHTML='✓ '+q.explain;}
+      else{b.classList.add('wrong');[...opts.children].forEach(c=>{if(c.dataset.c)c.classList.add('correct');});
+        fb.className='fb show no';fb.innerHTML='✗ '+q.explain;}
+    };
+    opts.appendChild(b);
+  });
+  block.append(prompt,opts,fb);container.appendChild(block);
+}
+const grp=c=>[['akk','AKK only'],['dat','DAT only'],['two','TWO-WAY']]
+  .map(([k,n])=>({label:'<span class="pill '+k+'">'+n+'</span>',correct:k===c}));
+const adC=c=>['Akkusativ','Dativ'].map(x=>({label:'<span class="pill '+(x==='Akkusativ'?'akk':'dat')+'">'+x+'</span>',correct:x===c}));
+const art=(choices,c)=>choices.map(x=>({label:x,correct:x===c}));
+const tf=(ok)=>[{label:'✅ Correct',correct:ok},{label:'❌ Wrong',correct:!ok}];
+
+// A — classify
+const A=document.getElementById('partA');
+[
+ ['<b>durch</b>','akk','"durch" is always Accusative (DOGFU).'],
+ ['<b>mit</b>','dat','"mit" is always Dative — one of the most common prepositions.'],
+ ['<b>zwischen</b>','two','"zwischen" is two-way: Wohin?→Akk, Wo?→Dat.'],
+ ['<b>seit</b>','dat','"seit" (since/for) is always Dative.'],
+ ['<b>ohne</b>','akk','"ohne" is always Accusative.'],
+ ['<b>auf</b>','two','"auf" is two-way — case depends on Wohin/Wo.']
+].forEach(([p,c,e])=>makeMC(A,{prompt:p,options:grp(c),explain:e}));
+
+// B — two-way Akk/Dat with varied verbs
+const B=document.getElementById('partB');
+[
+ ['Ich <b>hänge</b> das Bild an die Wand.','Akkusativ','"hängen" (transitive, put) = Wohin? → Akkusativ. an <b>die</b> Wand.'],
+ ['Das Poster <b>hängt</b> an der Wand.','Dativ','"hängen" (intransitive, be) = Wo? → Dativ. an <b>der</b> Wand.'],
+ ['Sie <b>stellt</b> die Tassen in den Schrank.','Akkusativ','"stellen" = Wohin? → Akk. in <b>den</b> Schrank.'],
+ ['Wir <b>treffen</b> uns vor dem Bahnhof.','Dativ','Meeting <i>at</i> a spot = Wo? → Dativ. vor <b>dem</b> Bahnhof.'],
+ ['Die Katze <b>springt</b> auf das Sofa.','Akkusativ','"springen" onto = crosses a boundary, Wohin? → Akk. auf <b>das</b> Sofa.'],
+ ['Er <b>arbeitet</b> in einem Start-up in Zürich.','Dativ','"arbeiten" = static, Wo? → Dativ. in <b>einem</b> Start-up.'],
+ ['Leg den Schlüssel <b>unter</b> die Matte.','Akkusativ','Putting it there = Wohin? → Akk. unter <b>die</b> Matte.'],
+ ['Der Hund <b>schläft</b> unter dem Tisch.','Dativ','"schlafen" = static position, Wo? → Dativ. unter <b>dem</b> Tisch.']
+].forEach(([p,c,e])=>makeMC(B,{prompt:p,options:adC(c),explain:e}));
+
+// C — full form after preposition (varied verbs)
+const C=document.getElementById('partC');
+[
+ ['Ich fahre mit ___ Bus zur Arbeit. <span class="ctx">(mit→Dat · masc)</span>',['der','den','dem'],'dem','"mit"→Dat, masc → <b>dem</b> Bus.'],
+ ['Wir spazieren durch ___ Park. <span class="ctx">(durch→Akk · masc)</span>',['der','den','dem'],'den','"durch"→Akk, masc → <b>den</b> Park.'],
+ ['Das Fahrrad steht vor ___ Haus. <span class="ctx">(steht=Wo? · neut)</span>',['das','dem','des'],'dem','"stehen"=Wo?→Dat (two-way), neut → <b>dem</b> Haus.'],
+ ['Stell die Pflanze auf ___ Balkon. <span class="ctx">(stellen=Wohin? · masc)</span>',['der','den','dem'],'den','"stellen"=Wohin?→Akk, masc → <b>den</b> Balkon.'],
+ ['Nach ___ Arbeit gehe ich joggen. <span class="ctx">(nach→Dat · fem)</span>',['die','der','den'],'der','"nach"→Dat, fem → <b>der</b> Arbeit.'],
+ ['Sie kommt aus ___ Schweiz. <span class="ctx">(aus→Dat · fem)</span>',['die','der','den'],'der','"aus"→Dat, fem → <b>der</b> Schweiz.']
+].forEach(([p,ch,c,e])=>makeMC(C,{prompt:p,options:art(ch,c),explain:e}));
+
+// D — spot the error
+const D=document.getElementById('partD');
+[
+ ['Ich gehe in die Schule.',true,'<b>Correct.</b> "gehen"=Wohin?→Akk, fem → in <b>die</b> Schule.'],
+ ['Das Buch liegt auf den Tisch.',false,'<b>Wrong.</b> "liegen"=Wo?→Dat → auf <b>dem</b> Tisch.'],
+ ['Wir fahren mit dem Auto nach Bern.',true,'<b>Correct.</b> "mit"→Dat (dem Auto); "nach" + city is fine.'],
+ ['Er stellt die Flasche in dem Kühlschrank.',false,'<b>Wrong.</b> "stellen"=Wohin?→Akk → in <b>den</b> Kühlschrank.'],
+ ['Die Lampe hängt über dem Tisch.',true,'<b>Correct.</b> "hängen" (be) = Wo?→Dat → über <b>dem</b> Tisch.']
+].forEach(([p,ok,e])=>makeMC(D,{prompt:'„'+p+'"',options:tf(ok),explain:e}));
+
+// E — verb+preposition fixed case (small set)
+const E=document.getElementById('partE');
+[
+ ['Ich warte schon lange auf ___ Bus. <span class="ctx">(warten auf + ? · masc)</span>',['den','dem'],'den','"warten auf" is fixed <b>Accusative</b> (not spatial!) → den Bus.'],
+ ['Sie nimmt an ___ Meeting teil. <span class="ctx">(teilnehmen an + ? · neut)</span>',['das','dem'],'dem','"teilnehmen an" is fixed <b>Dative</b> → dem Meeting.'],
+ ['Das gehört zu ___ Plan. <span class="ctx">(gehören zu + ? · masc)</span>',['den','dem'],'dem','"gehören zu" → fixed <b>Dative</b> → dem Plan.']
+].forEach(([p,ch,c,e])=>makeMC(E,{prompt:p,options:art(ch,c),explain:e}));
+
+tally();
+</script>
+</body>
+</html>

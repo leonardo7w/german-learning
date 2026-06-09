@@ -30,8 +30,19 @@
 
 ## Teaching sequence (working plan, revise freely)
 1. ✅ The four cases + article system (keystone) — Lesson 0001.
-2. ✅ Adjective endings (weak/mixed/strong) — Lesson 0002 (deliberately harder, 38 exercises).
-3. Two-way prepositions (Wechselpräpositionen) + accusative/dative prepositions. ← NEXT
+2. ✅ Adjective endings (weak/mixed/strong) — Lesson 0002 (deliberately harder, 40 items).
+   - Repeatable mixed-review drill — Lesson 0003 (cases-heavy spaced repetition tool).
+3. ✅ Prepositions + cases (Akk/Dat sets + two-way Wohin/Wo) — Lesson 0004. NO warm-up (per user).
+   Used varied verbs (legen/liegen/stellen/stehen…) + a verb+preposition (feste Präp.) taster.
+4. ← NEXT lesson: **opens with a 3–4 question case warm-up** (warm-up convention starts here, per user).
+   Strong candidate: **der-words & ein-words / determiners** — diese, alle, welche, jeden, eigenen,
+   etc. (user explicitly asked for this "eventually"). Ties straight back to cases + adjective endings.
+5. Verb tenses: Perfekt vs Präteritum → Konjunktiv II → Passiv.
+6. Connectors/fluency + topic vocabulary (software/IT, Behörden).
+
+> Note on file numbering: lessons/0003 is the review drill, so the prepositions lesson is file 0004.
+> User refers to prepositions as "L3" verbally — the warm-up they want "in L4" = the NEXT teaching
+> lesson after prepositions (file 0005).
 4. Verb position & word order (V2, subordinate clauses, TeKaMoLo).
 5. Tenses: Perfekt vs Präteritum; then Konjunktiv II; then Passiv.
 6. Connectors/fluency + topic vocabulary (workplace, Behörden) once domain is confirmed.
