@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Case System — Cheat Sheet</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e3e6ef; --bg:#ffffff;
+    --nom:#1d7a46; --akk:#1f5fb0; --dat:#b8521a; --gen:#7a3aa6;
+    --nom-bg:#e7f5ec; --akk-bg:#e7f0fb; --dat-bg:#fbeee4; --gen-bg:#f2e9fa;
+    --accent:#1f5fb0;
+  }
+  *{box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:#f5f6fa; margin:0; line-height:1.5;
+  }
+  .sheet{max-width:900px; margin:24px auto; background:var(--bg); padding:40px 44px;
+    border-radius:14px; box-shadow:0 6px 28px rgba(20,24,50,.08);}
+  h1{font-size:1.7rem; margin:0 0 2px;}
+  .sub{color:var(--muted); margin:0 0 22px; font-size:.95rem;}
+  h2{font-size:1.05rem; margin:30px 0 10px; padding-bottom:5px; border-bottom:2px solid var(--line);}
+  table{border-collapse:collapse; width:100%; margin:6px 0 4px; font-size:.93rem;}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:center;}
+  th{background:#f0f2f8; font-weight:600;}
+  td.case,th.case{text-align:left; font-weight:700; white-space:nowrap;}
+  .nom td.case{color:var(--nom)} .akk td.case{color:var(--akk)}
+  .dat td.case{color:var(--dat)} .gen td.case{color:var(--gen)}
+  tr.nom{background:var(--nom-bg)} tr.akk{background:var(--akk-bg)}
+  tr.dat{background:var(--dat-bg)} tr.gen{background:var(--gen-bg)}
+  .hl{font-weight:700;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:8px;}
+  .card{border:1px solid var(--line); border-radius:10px; padding:12px 14px;}
+  .card h3{margin:0 0 4px; font-size:.98rem;}
+  .q{font-weight:700;}
+  .ex{color:var(--muted); font-size:.9rem;}
+  .pill{display:inline-block; padding:1px 8px; border-radius:20px; font-size:.78rem;
+    font-weight:700; color:#fff;}
+  .pill.nom{background:var(--nom)} .pill.akk{background:var(--akk)}
+  .pill.dat{background:var(--dat)} .pill.gen{background:var(--gen)}
+  ul{margin:6px 0; padding-left:20px;} li{margin:3px 0;}
+  .tip{background:#fffaf0; border-left:4px solid #e0a72e; padding:10px 14px; border-radius:6px; margin:10px 0; font-size:.92rem;}
+  footer{margin-top:26px; padding-top:12px; border-top:1px solid var(--line);
+    color:var(--muted); font-size:.82rem;}
+  a{color:var(--accent);}
+  @media print{
+    body{background:#fff} .sheet{box-shadow:none; margin:0; max-width:100%; border-radius:0; padding:0 8px}
+    h2{break-after:avoid} table{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+  <h1>German Case System — Cheat Sheet</h1>
+  <p class="sub">The four cases, their articles, and how to spot which one to use. Reference 0001.</p>
+
+  <h2>The four cases at a glance</h2>
+  <div class="grid">
+    <div class="card"><h3><span class="pill nom">NOM</span> Nominative</h3>
+      <div>The <b>subject</b> — who/what does the action.</div>
+      <div class="q">Test: wer? / was?</div>
+      <div class="ex"><b>Der Mann</b> schläft. — The man sleeps.</div></div>
+    <div class="card"><h3><span class="pill akk">AKK</span> Accusative</h3>
+      <div>The <b>direct object</b> — what is acted upon.</div>
+      <div class="q">Test: wen? / was?</div>
+      <div class="ex">Ich sehe <b>den Mann</b>. — I see the man.</div></div>
+    <div class="card"><h3><span class="pill dat">DAT</span> Dative</h3>
+      <div>The <b>indirect object</b> — the recipient.</div>
+      <div class="q">Test: wem?</div>
+      <div class="ex">Ich gebe <b>dem Mann</b> ein Buch. — …to the man.</div></div>
+    <div class="card"><h3><span class="pill gen">GEN</span> Genitive</h3>
+      <div><b>Possession / relation</b> — "of the…".</div>
+      <div class="q">Test: wessen?</div>
+      <div class="ex">Das Auto <b>des Mannes</b> — the man's car.</div></div>
+  </div>
+
+  <h2>Definite article — "the"</h2>
+  <table>
+    <tr><th class="case">Case</th><th>masculine</th><th>feminine</th><th>neuter</th><th>plural</th></tr>
+    <tr class="nom"><td class="case">Nominative</td><td class="hl">der</td><td>die</td><td>das</td><td>die</td></tr>
+    <tr class="akk"><td class="case">Accusative</td><td class="hl">den</td><td>die</td><td>das</td><td>die</td></tr>
+    <tr class="dat"><td class="case">Dative</td><td class="hl">dem</td><td>der</td><td>dem</td><td class="hl">den</td></tr>
+    <tr class="gen"><td class="case">Genitive</td><td class="hl">des</td><td>der</td><td>des</td><td>der</td></tr>
+  </table>
+  <div class="tip"><b>The 80/20:</b> Notice how little actually changes. <b>Feminine &amp; neuter
+  &amp; plural barely move</b> across nom/acc. The big action is in the <b>masculine column</b>
+  (der → den → dem → des) and the <b>dative row</b>. Master those two and you've got most of it.</div>
+
+  <h2>Indefinite article — "a/an" (and kein-, mein-, dein-…)</h2>
+  <table>
+    <tr><th class="case">Case</th><th>masculine</th><th>feminine</th><th>neuter</th><th>plural (kein-)</th></tr>
+    <tr class="nom"><td class="case">Nominative</td><td class="hl">ein</td><td>eine</td><td>ein</td><td>keine</td></tr>
+    <tr class="akk"><td class="case">Accusative</td><td class="hl">einen</td><td>eine</td><td>ein</td><td>keine</td></tr>
+    <tr class="dat"><td class="case">Dative</td><td class="hl">einem</td><td>einer</td><td>einem</td><td class="hl">keinen</td></tr>
+    <tr class="gen"><td class="case">Genitive</td><td class="hl">eines</td><td>einer</td><td>eines</td><td>keiner</td></tr>
+  </table>
+  <div class="ex">The endings (-en, -em, -er, -es) are identical for <b>ein, kein</b> and the
+  possessives <b>mein, dein, sein, ihr, unser, euer, Ihr</b>. Learn the pattern once, reuse everywhere.</div>
+
+  <h2>Two extra noun changes (don't forget these)</h2>
+  <ul>
+    <li><b>Dative plural:</b> the noun adds <b>-n</b> (unless it already ends in -n or -s).
+      <span class="ex">die Kinder → mit den Kinder<b>n</b></span></li>
+    <li><b>Genitive masculine/neuter:</b> the noun adds <b>-s</b> or <b>-es</b>.
+      <span class="ex">der Mann → des Mann<b>es</b>; das Auto → des Auto<b>s</b></span></li>
+  </ul>
+
+  <h2>How to pick the case — the procedure</h2>
+  <ul>
+    <li><b>1. Find the verb.</b> Many verbs dictate the case (e.g. <i>helfen, danken, folgen</i> → dative).</li>
+    <li><b>2. Find the subject</b> (wer/was does it?) → <span class="pill nom">NOM</span>.</li>
+    <li><b>3. Find the direct object</b> (wen/was?) → <span class="pill akk">AKK</span>.</li>
+    <li><b>4. Find the recipient</b> (wem?) → <span class="pill dat">DAT</span>.</li>
+    <li><b>5. Prepositions override:</b> after a preposition, the preposition (or its meaning) sets the case.</li>
+  </ul>
+  <div class="tip"><b>Preposition quick-list</b> (next lesson goes deep):
+  always <span class="pill akk">AKK</span>: <i>durch, für, gegen, ohne, um</i> ·
+  always <span class="pill dat">DAT</span>: <i>aus, bei, mit, nach, seit, von, zu</i> ·
+  two-way (AKK = motion/where to?, DAT = location/where?): <i>in, an, auf, über, unter, vor, hinter, neben, zwischen</i>.</div>
+
+  <footer>
+    Sources: <a href="https://learngerman.dw.com/en/overview">Deutsche Welle — Learn German</a> ·
+    <a href="https://deutsch.lingolia.com/en/grammar/nouns-and-articles/cases">Lingolia — German Cases</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut — Practise German</a>.
+    Built for the "German for living &amp; working abroad" mission.
+  </footer>
+</div>
+</body>
+</html>
