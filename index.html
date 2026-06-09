@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Learning Hub</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --accent:#1f5fb0; --accent2:#7a3aa6;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6;
+    -webkit-text-size-adjust:100%;}
+  .wrap{max-width:680px; margin:0 auto; padding:26px 18px 70px;}
+  header{margin-bottom:8px}
+  .flag{font-size:1.6rem; letter-spacing:.1em}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.72rem;}
+  h1{font-size:1.8rem; margin:.1em 0 .15em; line-height:1.15;}
+  .lead{color:var(--muted); margin:.2em 0 0;}
+  h2{font-size:.95rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted);
+    margin:30px 0 10px; padding-bottom:6px; border-bottom:1px solid var(--line);}
+  a.tile{display:block; text-decoration:none; color:inherit; background:var(--bg);
+    border:1px solid var(--line); border-radius:14px; padding:16px 18px; margin:12px 0;
+    box-shadow:0 2px 10px rgba(20,24,50,.04); transition:.12s; -webkit-tap-highlight-color:transparent;}
+  a.tile:active{transform:scale(.99);}
+  a.tile:hover{border-color:var(--accent); box-shadow:0 4px 16px rgba(31,95,176,.12);}
+  .tile .num{display:inline-block; font-size:.72rem; font-weight:800; letter-spacing:.05em;
+    color:#fff; background:var(--accent); border-radius:20px; padding:2px 9px; margin-bottom:7px;}
+  .tile.ref .num{background:var(--accent2);}
+  .tile h3{margin:.1em 0 .2em; font-size:1.12rem;}
+  .tile p{margin:0; color:var(--muted); font-size:.92rem;}
+  .tile .go{color:var(--accent); font-weight:700; font-size:.9rem; margin-top:8px; display:inline-block;}
+  .note{background:#fffaf0; border-left:4px solid #e0a72e; padding:11px 14px; border-radius:6px;
+    font-size:.9rem; color:#6b5a2a; margin-top:18px;}
+  footer{margin-top:30px; color:var(--muted); font-size:.8rem; text-align:center;}
+  footer a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="flag">🇩🇪</div>
+    <div class="eyebrow">Deutsch · B2 → C1</div>
+    <h1>German Learning Hub</h1>
+    <p class="lead">Foundations → fluency, for living &amp; working in Zurich. Tap a lesson to start.</p>
+  </header>
+
+  <h2>Lessons</h2>
+
+  <a class="tile" href="lessons/0001-the-four-cases.html">
+    <span class="num">LESSON 01</span>
+    <h3>The Four Cases</h3>
+    <p>der / den / dem / des — recognise the case and pick the right article. Interactive: spot-the-case, article drills, spot-the-error, flashcards, office scenario.</p>
+    <span class="go">Start →</span>
+  </a>
+
+  <h2>Reference (revisit anytime)</h2>
+
+  <a class="tile ref" href="reference/0001-case-system-cheatsheet.html">
+    <span class="num">REF 01</span>
+    <h3>Case System Cheat Sheet</h3>
+    <p>All four cases, full article tables, the wer/wen/wem/wessen tests, and the 80/20 shortcut. Print-friendly.</p>
+    <span class="go">Open →</span>
+  </a>
+
+  <div class="note">
+    📱 <b>Tip:</b> Add this page to your home screen for one-tap access. In Safari/Chrome:
+    Share → “Add to Home Screen”.
+  </div>
+
+  <footer>
+    Built with the <code>/teach</code> workspace · ask your teacher in chat for the next lesson.<br>
+    <a href="https://learngerman.dw.com/en/overview">DW</a> ·
+    <a href="https://deutsch.lingolia.com/en/grammar">Lingolia</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut</a>
+  </footer>
+</div>
+</body>
+</html>
