@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mixed Review — Cases & Endings (repeatable)</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --accent:#1f5fb0; --good:#1d7a46; --good-bg:#e7f5ec; --bad:#c0392b; --bad-bg:#fbeaea;
+    --warm:#b8521a;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:680px; margin:0 auto; padding:22px 18px 70px;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .eyebrow{color:var(--warm); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.8rem; margin:.1em 0 .12em; line-height:1.15;}
+  .lead{color:var(--muted); margin:.2em 0 0;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding:18px 20px; margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  .bar{position:sticky; top:0; z-index:5; background:rgba(238,240,247,.93); backdrop-filter:blur(6px);
+    padding:9px 12px; border-radius:0 0 12px 12px; display:flex; justify-content:space-between; align-items:center; gap:10px;}
+  .bar .s{font-weight:700; color:var(--muted); font-size:.9rem;} .bar .s b{color:var(--ink);}
+  .btn{font:inherit; font-weight:700; cursor:pointer; border:none; background:var(--accent); color:#fff;
+    padding:8px 16px; border-radius:9px; -webkit-tap-highlight-color:transparent;}
+  .btn:active{transform:scale(.98);}
+  .btn.sec{background:#fff; color:var(--accent); border:1.5px solid var(--accent);}
+  .q-block{margin:13px 0; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:#fafbff;}
+  .q-tag{font-size:.7rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--warm); margin-bottom:5px;}
+  .q-prompt{font-size:1.05rem; margin-bottom:9px;}
+  .q-prompt .blank{display:inline-block; min-width:2.2em; border-bottom:2px dashed #aab; text-align:center;}
+  .q-prompt .ctx{color:var(--muted); font-size:.85em;}
+  .opts{display:flex; flex-wrap:wrap; gap:7px;}
+  button.opt{font:inherit; cursor:pointer; border:1.5px solid var(--line); background:#fff;
+    padding:7px 14px; border-radius:9px; transition:.12s; font-weight:700; min-width:3em;}
+  button.opt:hover{border-color:var(--accent);}
+  button.opt:disabled{cursor:default;}
+  button.opt.correct{background:var(--good-bg); border-color:var(--good); color:var(--good);}
+  button.opt.wrong{background:var(--bad-bg); border-color:var(--bad); color:var(--bad);}
+  .fb{margin-top:8px; font-size:.92rem; padding:8px 11px; border-radius:7px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:var(--good-bg); color:#155e34;} .fb.no{background:var(--bad-bg); color:#922;}
+  .done{text-align:center; padding:20px;}
+  .done .big{font-size:2.4rem; font-weight:800;}
+  .done .rk{font-size:1.1rem; font-weight:700; margin:.2em 0 1em;}
+  code{background:#eef0f7; padding:1px 5px; border-radius:4px; font-size:.9em;}
+  .ask{background:#eef4ff; border:1px solid #cfe0ff; border-radius:12px; padding:14px 16px; margin-top:18px; font-size:.95rem;}
+  .ask b{color:var(--accent);}
+  footer{margin-top:22px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="bar">
+  <span class="s">Round score: <b id="sc">0</b> / <span id="tot">0</span></span>
+  <button class="btn sec" id="newRound">↻ New round</button>
+</div>
+<div class="wrap">
+  <a class="home" href="../index.html">← Hub</a>
+  <div class="eyebrow">Review · repeatable</div>
+  <h1>Mixed Review: Cases &amp; Endings</h1>
+  <p class="lead">A short, fresh 8-question drill each time — heavy on the cases you're still
+  shaking out, with adjective endings sprinkled in. Do it whenever; it reshuffles every round. ~5 min.</p>
+
+  <div id="quiz"></div>
+
+  <div id="summary"></div>
+
+  <div class="ask">
+    💬 <b>Tell me your round score</b> in chat — especially which case traps still bite — and I'll
+    tune the next lesson. Refresh facts anytime: <code>reference/0001</code> (cases) ·
+    <code>reference/0002</code> (endings).
+  </div>
+
+  <footer>Spaced-repetition drill · German for living &amp; working in Zurich.</footer>
+</div>
+
+<script>
+// ---- Question pool (cases-heavy + some endings). Each: {tag, prompt, options:[{label,correct}], explain} ----
+const POOL=[
+ // case identification
+ {tag:'Which case?',prompt:'Sie hilft <b>dem Kind</b>.',o:[['Nominative',0],['Accusative',0],['Dative',1],['Genitive',0]],
+  e:'<b>Dative.</b> "helfen" always takes the dative — wem? → dem Kind.'},
+ {tag:'Which case?',prompt:'Ich kaufe <b>den Apfel</b>.',o:[['Nominative',0],['Accusative',1],['Dative',0],['Genitive',0]],
+  e:'<b>Accusative.</b> Direct object — wen/was? → den Apfel.'},
+ {tag:'Which case?',prompt:'<b>Der Zug</b> kommt zu spät.',o:[['Nominative',1],['Accusative',0],['Dative',0],['Genitive',0]],
+  e:'<b>Nominative.</b> The subject — wer/was kommt? → der Zug.'},
+ {tag:'Which case?',prompt:'Das ist das Auto <b>des Chefs</b>.',o:[['Nominative',0],['Accusative',0],['Dative',0],['Genitive',1]],
+  e:'<b>Genitive.</b> Possession — wessen Auto? → des Chefs.'},
+ {tag:'Which case?',prompt:'Er gibt <b>der Frau</b> einen Tipp.',o:[['Nominative',0],['Accusative',0],['Dative',1],['Genitive',0]],
+  e:'<b>Dative.</b> The recipient of "geben" — wem? → der Frau.'},
+ // article choice
+ {tag:'Choose the article',prompt:'Ich danke ___ Lehrer. <span class="ctx">(masc · danken)</span>',o:[['der',0],['den',0],['dem',1]],
+  e:'"danken" + <b>Dative</b> → dem Lehrer.'},
+ {tag:'Choose the article',prompt:'Wir fahren mit ___ Bus. <span class="ctx">(masc · mit)</span>',o:[['der',0],['den',0],['dem',1]],
+  e:'"mit" → Dative → <b>dem</b> Bus.'},
+ {tag:'Choose the article',prompt:'Er kauft ___ Apfel. <span class="ctx">(masc · direct object)</span>',o:[['der',0],['den',1],['dem',0]],
+  e:'Accusative masc → <b>den</b> Apfel.'},
+ {tag:'Choose the article',prompt:'Ich kaufe Futter für ___ Hund. <span class="ctx">(masc · für)</span>',o:[['der',0],['den',1],['dem',0]],
+  e:'"für" → Accusative → <b>den</b> Hund.'},
+ {tag:'Choose the article',prompt:'___ Termin ist um neun. <span class="ctx">(masc · subject)</span>',o:[['Der',1],['Den',0],['Dem',0]],
+  e:'Subject → Nominative → <b>Der</b> Termin.'},
+ {tag:'Choose the article',prompt:'Ich arbeite bei ___ Firma. <span class="ctx">(fem · bei)</span>',o:[['die',0],['der',1],['den',0]],
+  e:'"bei" → Dative; feminine dative → <b>der</b> Firma.'},
+ {tag:'Choose the article',prompt:'Wir gehen in ___ Büro. <span class="ctx">(neut · motion → where to?)</span>',o:[['das',1],['dem',0],['des',0]],
+  e:'"in" + motion → Accusative; neuter Akk → <b>das</b> Büro.'},
+ {tag:'Choose the article',prompt:'Der Laptop liegt auf ___ Tisch. <span class="ctx">(masc · location → where?)</span>',o:[['den',0],['dem',1],['der',0]],
+  e:'"auf" + location → Dative; masc dat → <b>dem</b> Tisch.'},
+ // dative-verb correct/wrong
+ {tag:'Correct or wrong?',prompt:'„Ich helfe den Mann."',o:[['✅ Correct',0],['❌ Wrong',1]],
+  e:'<b>Wrong.</b> "helfen" + Dative → <b>dem</b> Mann.'},
+ {tag:'Correct or wrong?',prompt:'„Das gefällt dem Chef."',o:[['✅ Correct',1],['❌ Wrong',0]],
+  e:'<b>Correct.</b> "gefallen" + Dative → dem Chef.'},
+ {tag:'Correct or wrong?',prompt:'„Sie dankt den Kollegen." <span class="ctx">(meaning: one colleague)</span>',o:[['✅ Correct',0],['❌ Wrong',1]],
+  e:'<b>Wrong.</b> "danken" + Dative → <b>dem</b> Kollegen.'},
+ {tag:'Correct or wrong?',prompt:'„Ich folge der Anleitung."',o:[['✅ Correct',1],['❌ Wrong',0]],
+  e:'<b>Correct.</b> "folgen" + Dative; feminine dat → der Anleitung.'},
+ // adjective endings (kept fresh)
+ {tag:'Ending',prompt:'ein erfahren__ Entwickler <span class="ctx">(mixed · nom masc)</span>',o:[['-e',0],['-en',0],['-er',1]],
+  e:'Mixed gap → adjective takes <b>-er</b>: ein erfahren<b>er</b> Entwickler.'},
+ {tag:'Ending',prompt:'mit dem neu__ Framework <span class="ctx">(weak · dat)</span>',o:[['-e',0],['-en',1],['-em',0]],
+  e:'After "dem" (der-word) → weak, Dat → <b>-en</b>.'},
+ {tag:'Ending',prompt:'gut__ Kaffee weckt mich. <span class="ctx">(strong · nom masc)</span>',o:[['-e',0],['-er',1],['-en',0]],
+  e:'No article → strong; nom masc → <b>-er</b>: gut<b>er</b> Kaffee.'},
+ {tag:'Ending',prompt:'Ich suche eine neu__ Stelle. <span class="ctx">(mixed · akk fem)</span>',o:[['-e',1],['-en',0],['-er',0]],
+  e:'Mixed, fem Akk → <b>-e</b>: eine neu<b>e</b> Stelle.'},
+ {tag:'Ending',prompt:'bei schön__ Wetter <span class="ctx">(strong · dat neut)</span>',o:[['-e',0],['-en',0],['-em',1]],
+  e:'"bei"→Dat, no article→strong; neut dat → <b>-em</b>: schön<b>em</b> Wetter.'}
+];
+
+const ROUND=8;
+let score=0,total=0;
+const scEl=document.getElementById('sc'),totEl=document.getElementById('tot');
+const quiz=document.getElementById('quiz'),summary=document.getElementById('summary');
+
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function render(){
+  score=0;total=0;answered=0; scEl.textContent=0;
+  quiz.innerHTML='';summary.innerHTML='';
+  const set=shuffle(POOL).slice(0,ROUND);
+  totEl.textContent=set.length;
+  set.forEach(q=>makeQ(q));
+}
+let answered=0;
+function makeQ(q){
+  total++;
+  const block=document.createElement('div');block.className='q-block';
+  const tag=document.createElement('div');tag.className='q-tag';tag.textContent=q.tag;
+  const prompt=document.createElement('div');prompt.className='q-prompt';prompt.innerHTML=q.prompt;
+  const opts=document.createElement('div');opts.className='opts';
+  const fb=document.createElement('div');fb.className='fb';
+  let done=false;
+  shuffle(q.o).forEach(([label,correct])=>{
+    const b=document.createElement('button');b.className='opt';b.innerHTML=label;
+    if(correct)b.dataset.c='1';
+    b.onclick=()=>{
+      if(done)return;done=true;answered++;
+      [...opts.children].forEach(c=>c.disabled=true);
+      if(correct){b.classList.add('correct');score++;scEl.textContent=score;fb.className='fb show ok';fb.innerHTML='✓ '+q.e;}
+      else{b.classList.add('wrong');[...opts.children].forEach(c=>{if(c.dataset.c)c.classList.add('correct');});
+        fb.className='fb show no';fb.innerHTML='✗ '+q.e;}
+      if(answered===total)showSummary();
+    };
+    opts.appendChild(b);
+  });
+  block.append(tag,prompt,opts,fb);quiz.appendChild(block);
+}
+function showSummary(){
+  const p=score/total;
+  let rk = p>=.9?'🏆 Sharp — cases are clicking':
+           p>=.7?'💪 Good — a couple of traps left':
+           p>=.5?'📈 Getting there — review the misses':'🌱 Worth another round';
+  summary.innerHTML='<div class="card done"><div class="big">'+score+' / '+total+'</div>'+
+    '<div class="rk">'+rk+'</div>'+
+    '<button class="btn" onclick="render();window.scrollTo({top:0,behavior:\'smooth\'})">↻ New round (fresh questions)</button></div>';
+}
+document.getElementById('newRound').onclick=()=>{render();window.scrollTo({top:0,behavior:'smooth'});};
+render();
+</script>
+</body>
+</html>

@@ -12,7 +12,21 @@
   spot-the-error, AND interactive games/quizzes/flashcards.
 - → Lessons should be **highly interactive** in-browser: immediate auto-feedback, quizzes,
   flashcard drills, spot-the-error. Don't make lessons a wall of text.
-- Session length: **20–30 minutes**.
+- Session length: **20–30 minutes** — and keep to it. **Lesson 0002 (40 items) took 40+ min — too long.**
+  Future lessons: ~15–20 items max, or split a big topic across two lessons.
+
+## Spaced repetition (standing request)
+- The user is **still mixing up cases** (the weak spot), even though adjective endings are now strong
+  (38/40). Keep recycling case + ending exercises "every now and then."
+- **Convention:** every new lesson opens with a short **3–4 question case warm-up** (Aufwärmen)
+  before the new material.
+- **Tool:** `lessons/0003-mixed-review-cases-endings.html` is a short, **randomized, repeatable**
+  drill (cases-heavy + some endings) — point the user back to it between lessons.
+
+## Score log
+- Lesson 0001 (cases): not reported.
+- Lesson 0002 (adjective endings): **38/40** — near mastery of declension; residual errors are
+  case-selection, not endings.
 
 ## Teaching sequence (working plan, revise freely)
 1. ✅ The four cases + article system (keystone) — Lesson 0001.

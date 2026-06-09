@@ -31,3 +31,30 @@ der/die/das and their case forms — points to a specific, known noun ("the").
 
 **Indefinite article (unbestimmter Artikel)**:
 ein/eine and their case forms — points to a non-specific noun ("a/an").
+
+## Adjective declension
+
+**The marker-once rule**:
+The gender/case signal (-r/-e/-s/-m/-n) must appear exactly once in a noun phrase — on the
+article or the adjective, never both and never neither. This single rule generates all three
+declension patterns below.
+
+**Der-word**:
+A determiner that declines like der/die/das and so fully marks case + gender: der, die, das,
+dieser, jeder, jener, welcher, alle, solche, manche, beide. Triggers **weak** adjective endings.
+
+**Ein-word**:
+A determiner from the ein/kein/possessive family (ein, kein, mein, dein, sein, ihr, unser, euer,
+Ihr). It fails to mark masculine-nominative and neuter — so it triggers **mixed** endings.
+
+**Weak declension (schwache Deklination)**:
+Adjective endings after a der-word — only **-e** or **-en** (the article carries the signal).
+_Avoid_: "definite-article endings".
+
+**Mixed declension (gemischte Deklination)**:
+Adjective endings after an ein-word — weak endings, except three "gap" cells (masc-Nom -er,
+neut-Nom/Akk -es) where the adjective patches what ein- can't show.
+
+**Strong declension (starke Deklination)**:
+Adjective endings with no article — the adjective carries the full der/die/das signal
+(e.g. guter, kaltes, gutem). _Avoid_: "no-article endings".
