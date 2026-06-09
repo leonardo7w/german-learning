@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lesson 2 — Adjective Endings (weak · mixed · strong)</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --weak:#1d7a46; --mix:#1f5fb0; --strong:#7a3aa6;
+    --weak-bg:#e7f5ec; --mix-bg:#e7f0fb; --strong-bg:#f2e9fa;
+    --accent:#1f5fb0; --good:#1d7a46; --good-bg:#e7f5ec; --bad:#c0392b; --bad-bg:#fbeaea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:24px 18px 80px;}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.95rem; margin:.12em 0 .1em; line-height:1.15;}
+  .lead{color:var(--muted); font-size:1.05rem; margin:.2em 0 0;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  h2{font-size:1.22rem; margin:.1em 0 .5em;}
+  h2 .n{display:inline-grid; place-items:center; min-width:1.7em; height:1.7em; background:var(--accent);
+    color:#fff; border-radius:50%; font-size:.8rem; margin-right:.5em; vertical-align:middle; padding:0 .2em;}
+  h3{font-size:1.02rem; margin:1.1em 0 .3em;}
+  p{margin:.55em 0;}
+  .de{font-weight:600;} .en{color:var(--muted);}
+  .pill{display:inline-block; padding:1px 9px; border-radius:20px; font-size:.72rem; font-weight:800; color:#fff; vertical-align:middle;}
+  .pill.weak{background:var(--weak)} .pill.mix{background:var(--mix)} .pill.strong{background:var(--strong)}
+  table{border-collapse:collapse; width:100%; margin:8px 0; font-size:.92rem;}
+  th,td{border:1px solid var(--line); padding:6px 7px; text-align:center;}
+  th{background:#f0f2f8; font-weight:700;} td.c,th.c{text-align:left; font-weight:700; white-space:nowrap;}
+  .end{font-weight:800;}
+  .corner{background:#fff3c4 !important; border-radius:4px;}
+  .three{display:grid; grid-template-columns:1fr; gap:6px;}
+  .tip{background:#fffaf0; border-left:4px solid #e0a72e; padding:10px 14px; border-radius:6px; font-size:.93rem;}
+  .big-rule{font-size:1.08rem; text-align:center; padding:14px; background:linear-gradient(135deg,#eef4ff,#f6eefb);
+    border-radius:12px; border:1px solid #dbe6fb; margin:6px 0;}
+  .big-rule b{color:var(--accent);}
+  /* quiz */
+  .q-block{margin:13px 0; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:#fafbff;}
+  .q-prompt{font-size:1.05rem; margin-bottom:9px;}
+  .q-prompt .blank{display:inline-block; min-width:2.4em; border-bottom:2px dashed #aab; text-align:center; color:var(--accent); font-weight:700;}
+  .q-prompt .ctx{color:var(--muted); font-size:.86em;}
+  .opts{display:flex; flex-wrap:wrap; gap:7px;}
+  button.opt{font:inherit; cursor:pointer; border:1.5px solid var(--line); background:#fff;
+    padding:7px 14px; border-radius:9px; transition:.12s; font-weight:700; min-width:3em;}
+  button.opt:hover{border-color:var(--accent);}
+  button.opt:disabled{cursor:default;}
+  button.opt.correct{background:var(--good-bg); border-color:var(--good); color:var(--good);}
+  button.opt.wrong{background:var(--bad-bg); border-color:var(--bad); color:var(--bad);}
+  .fb{margin-top:8px; font-size:.92rem; padding:8px 11px; border-radius:7px; display:none;}
+  .fb.show{display:block;}
+  .fb.ok{background:var(--good-bg); color:#155e34;}
+  .fb.no{background:var(--bad-bg); color:#922;}
+  .score{position:sticky; top:0; z-index:5; background:rgba(238,240,247,.93); backdrop-filter:blur(6px);
+    padding:8px 12px; border-radius:0 0 12px 12px; font-weight:700; color:var(--muted); text-align:center; font-size:.9rem;}
+  .score b{color:var(--ink);}
+  .lvl{font-size:.78rem; font-weight:800; letter-spacing:.05em; text-transform:uppercase; color:var(--strong);}
+  .fcgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:8px;}
+  .fc{perspective:600px; height:96px; cursor:pointer;}
+  .fc-inner{position:relative; width:100%; height:100%; transition:transform .4s; transform-style:preserve-3d;}
+  .fc.flip .fc-inner{transform:rotateY(180deg);}
+  .fc-face{position:absolute; inset:0; backface-visibility:hidden; display:grid; place-items:center;
+    border-radius:10px; border:1.5px solid var(--line); padding:6px; text-align:center; font-size:.82rem; font-weight:600;}
+  .fc-back{transform:rotateY(180deg); background:var(--strong); color:#fff; font-size:1.05rem; font-weight:800;}
+  .ask{background:#eef4ff; border:1px solid #cfe0ff; border-radius:12px; padding:16px 18px; margin-top:22px;}
+  .ask h3{margin-top:0; color:var(--accent);}
+  code{background:#eef0f7; padding:1px 5px; border-radius:4px; font-size:.9em;}
+  footer{margin-top:24px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+  @media (max-width:560px){ .fcgrid{grid-template-columns:1fr 1fr} }
+</style>
+</head>
+<body>
+<div class="score" id="scorebar">Score: <b id="sc">0</b> / <span id="tot">0</span> &nbsp;·&nbsp; <span id="rank">—</span></div>
+<div class="wrap">
+
+  <a class="home" href="../index.html">← Hub</a>
+  <div class="eyebrow">Lesson 02 · Foundations</div>
+  <h1>Adjective Endings</h1>
+  <p class="lead">When is it <span class="de">der gut<u>e</u> Code</span>, <span class="de">ein gut<u>er</u> Code</span>, or just <span class="de">gut<u>er</u> Code</span>? The one rule that decides all of it.</p>
+
+  <div class="card">
+    <p><b>Mission link.</b> In Lesson 01 you learned the four cases. Adjective endings are where
+    cases <i>bite</i>: every time you describe something — <span class="de">ein erfahrener Architekt</span>,
+    <span class="de">mit agilen Methoden</span> — you must pick the right ending live. This is the
+    single most common place intermediate speakers wobble. Master the <b>one rule</b> below and you
+    stop guessing. ~25 minutes, and the exercises ramp up to B2 difficulty.</p>
+  </div>
+
+  <!-- KNOWLEDGE -->
+  <div class="card">
+    <h2><span class="n">i</span>The one rule</h2>
+    <div class="big-rule">The gender/case marker (the <b>-r / -e / -s / -m / -n</b> signal)<br>
+    must appear <b>exactly once</b> in the phrase —<br>on the article <u>or</u> on the adjective.
+    <b>Never both, never neither.</b></div>
+    <p>That single principle generates all three "declensions". Ask: <b>does the article already
+    show the case &amp; gender clearly?</b></p>
+    <div class="three">
+      <p><span class="pill weak">WEAK</span> <b>Article does the job</b> (after <b>der/die/das, dieser,
+        jeder, welche, alle</b>…). The adjective relaxes → only <b>-e</b> or <b>-en</b>.<br>
+        <span class="de">der gut<b>e</b> Code · dem gut<b>en</b> Code</span></p>
+      <p><span class="pill mix">MIXED</span> <b>Article is half-blind</b> (after <b>ein/kein/mein,
+        dein, sein, ihr, unser</b>…). "ein" shows nothing for masc-nom &amp; neut; the adjective
+        <i>patches the gap</i> with the strong ending there, else weak.<br>
+        <span class="de">ein gut<b>er</b> Code · ein gut<b>es</b> Team · einen gut<b>en</b> Code</span></p>
+      <p><span class="pill strong">STRONG</span> <b>No article at all</b> (or after <b>etwas, viel,
+        wenig, numbers</b>). The adjective carries the <i>full</i> signal — it borrows the der/die/das endings.<br>
+        <span class="de">gut<b>er</b> Code · kalt<b>es</b> Wasser · mit gut<b>em</b> Code</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">ii</span>The three tables</h2>
+    <p>Yellow = the cells worth memorising; the rest follows the pattern.</p>
+
+    <h3><span class="pill weak">WEAK</span> after <b>der</b>-words — only -e / -en</h3>
+    <table>
+      <tr><th class="c">Case</th><th>masc</th><th>fem</th><th>neut</th><th>plural</th></tr>
+      <tr><td class="c">Nom</td><td class="end corner">-e</td><td class="end corner">-e</td><td class="end corner">-e</td><td class="end">-en</td></tr>
+      <tr><td class="c">Akk</td><td class="end">-en</td><td class="end corner">-e</td><td class="end corner">-e</td><td class="end">-en</td></tr>
+      <tr><td class="c">Dat</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td></tr>
+      <tr><td class="c">Gen</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td></tr>
+    </table>
+    <p class="en">Shortcut: it's <b>-en everywhere</b> except the 5 yellow <b>-e</b> cells in the top-left.</p>
+
+    <h3><span class="pill mix">MIXED</span> after <b>ein</b>-words — weak, with 3 patches</h3>
+    <table>
+      <tr><th class="c">Case</th><th>masc</th><th>fem</th><th>neut</th><th>plural</th></tr>
+      <tr><td class="c">Nom</td><td class="end corner">-er</td><td class="end">-e</td><td class="end corner">-es</td><td class="end">-en</td></tr>
+      <tr><td class="c">Akk</td><td class="end">-en</td><td class="end">-e</td><td class="end corner">-es</td><td class="end">-en</td></tr>
+      <tr><td class="c">Dat</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td></tr>
+      <tr><td class="c">Gen</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td><td class="end">-en</td></tr>
+    </table>
+    <p class="en">Same as weak, except 3 yellow cells where "ein" shows nothing → adjective takes the
+    strong ending (<b>-er</b> masc-Nom, <b>-es</b> neut Nom/Akk).</p>
+
+    <h3><span class="pill strong">STRONG</span> no article — adjective = the der/die/das signal</h3>
+    <table>
+      <tr><th class="c">Case</th><th>masc</th><th>fem</th><th>neut</th><th>plural</th></tr>
+      <tr><td class="c">Nom</td><td class="end">-er</td><td class="end">-e</td><td class="end">-es</td><td class="end">-e</td></tr>
+      <tr><td class="c">Akk</td><td class="end">-en</td><td class="end">-e</td><td class="end">-es</td><td class="end">-e</td></tr>
+      <tr><td class="c">Dat</td><td class="end">-em</td><td class="end">-er</td><td class="end">-em</td><td class="end">-en</td></tr>
+      <tr><td class="c">Gen</td><td class="end corner">-en</td><td class="end">-er</td><td class="end corner">-en</td><td class="end">-er</td></tr>
+    </table>
+    <p class="en">Mirror of <b>der/den/dem/des…</b> (der→-er, das→-es, dem→-em). Only oddity: Gen
+    masc/neut is <b>-en</b> (the noun's own -s already marks it): <span class="de">trotz schlecht<b>en</b> Wetters</span>.</p>
+    <div class="tip">Full printable version: <code>reference/0002-adjective-endings-cheatsheet.html</code>.
+      Keep Lesson 01's case sheet open too — you can't pick an ending without first knowing the case.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">iii</span>The 4-step procedure</h2>
+    <p>For every adjective, run this in your head:</p>
+    <p>1. <b>What's the article?</b> der-word → <span class="pill weak">WEAK</span> · ein-word →
+      <span class="pill mix">MIXED</span> · none → <span class="pill strong">STRONG</span>.<br>
+    2. <b>What case?</b> (subject? object? after a preposition? → use Lesson 01.)<br>
+    3. <b>What gender/number</b> is the noun?<br>
+    4. Read the ending off the right table.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">A</span>Which pattern?</h2>
+    <p>Just name the declension — don't worry about the exact ending yet.</p>
+    <div id="partA"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">B</span><span class="pill weak">WEAK</span> &nbsp;Fill the ending (after der-words)</h2>
+    <div id="partB"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">C</span><span class="pill mix">MIXED</span> &nbsp;Fill the ending (after ein-words)</h2>
+    <div id="partC"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">D</span><span class="pill strong">STRONG</span> &nbsp;Fill the ending (no article)</h2>
+    <div id="partD"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">E</span>Boss level: prepositions decide the case</h2>
+    <p>Now the article doesn't hand you the case — a <b>preposition</b> does. Recall Lesson 01:
+    <i>mit/bei/aus/zu</i> → Dat; <i>für/durch/ohne</i> → Akk; <i>in/auf/an</i> → Dat (location) or Akk (motion).
+    Then pick the ending. <span class="lvl">B1–B2</span></p>
+    <div id="partE"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">F</span>Spot the error</h2>
+    <p>Correct or wrong? Watch for the "marker appears twice" and "marker missing" traps.</p>
+    <div id="partF"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">G</span>Real scene: hiring at your Zurich team</h2>
+    <p>Fill every ending in this software-team dialogue. Multiple adjectives, real case pressure. <span class="lvl">B2</span></p>
+    <div id="partG"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">H</span>Flashcards — the corners that trip people up</h2>
+    <p>These are the cells that actually cause mistakes. Flip until automatic.</p>
+    <div class="fcgrid" id="cards"></div>
+  </div>
+
+  <div class="ask">
+    <h3>I'm your teacher — push me</h3>
+    <p>This is a hard topic; struggling is normal. Tell me in chat:</p>
+    <ul>
+      <li>"I keep mixing up <i>mixed</i> and <i>strong</i> — drill me on just those."</li>
+      <li>"Give me 10 sentences from software architecture to translate."</li>
+      <li>"Quiz me out loud, no multiple choice."</li>
+      <li>"My score was ___ / ___" — so I can calibrate Lesson 03 (two-way prepositions).</li>
+    </ul>
+  </div>
+
+  <footer>
+    Sources:
+    <a href="https://learngerman.dw.com/en/overview">Deutsche Welle</a> ·
+    <a href="https://deutsch.lingolia.com/en/grammar/declensions/adjective-endings">Lingolia — Adjective Endings</a> ·
+    <a href="https://germanwithlaura.com/adjective-endings/">German with Laura</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut</a>.
+    <br>Lesson 0002 · German for living &amp; working in Zurich.
+  </footer>
+</div>
+
+<script>
+let score=0,total=0;
+const scEl=document.getElementById('sc'),totEl=document.getElementById('tot'),rankEl=document.getElementById('rank');
+function rank(){
+  if(total===0) return '—';
+  const p=score/total;
+  if(p>=.9) return '🏆 C1-ready';
+  if(p>=.75) return '💪 solid B2';
+  if(p>=.5) return '📈 getting there';
+  return '🌱 keep going';
+}
+function tally(){ scEl.textContent=score; rankEl.textContent=rank(); }
+
+function makeMC(container,q){
+  total++; totEl.textContent=total;
+  const block=document.createElement('div'); block.className='q-block';
+  const prompt=document.createElement('div'); prompt.className='q-prompt'; prompt.innerHTML=q.prompt;
+  const opts=document.createElement('div'); opts.className='opts';
+  const fb=document.createElement('div'); fb.className='fb';
+  let answered=false;
+  q.options.forEach(opt=>{
+    const b=document.createElement('button'); b.className='opt'; b.innerHTML=opt.label;
+    if(opt.correct) b.dataset.correct='1';
+    b.onclick=()=>{
+      if(answered) return; answered=true;
+      [...opts.children].forEach(c=>c.disabled=true);
+      if(opt.correct){ b.classList.add('correct'); score++; tally(); fb.className='fb show ok'; fb.innerHTML='✓ '+q.explain; }
+      else{ b.classList.add('wrong');
+        [...opts.children].forEach(c=>{ if(c.dataset.correct==='1') c.classList.add('correct'); });
+        fb.className='fb show no'; fb.innerHTML='✗ '+q.explain; }
+    };
+    opts.appendChild(b);
+  });
+  block.append(prompt,opts,fb); container.appendChild(block);
+}
+// ending question helper
+function endQ(text,ctx,choices,correct,explain){
+  return {prompt:text.replace('__','<span class="blank">'+correct+'?</span>')+(ctx?' <span class="ctx">('+ctx+')</span>':''),
+    options:choices.map(c=>({label:c,correct:c===correct})), explain:explain};
+}
+// patch the blank to just show a line, not the answer
+function endQ2(before,after,ctx,choices,correct,explain){
+  return {prompt:before+'<span class="blank">…</span>'+after+(ctx?' <span class="ctx">'+ctx+'</span>':''),
+    options:choices.map(c=>({label:c,correct:c===correct})), explain:explain};
+}
+function decl(correct){
+  return [['weak','WEAK'],['mix','MIXED'],['strong','STRONG']]
+    .map(([k,n])=>({label:'<span class="pill '+k+'">'+n+'</span>',correct:k===correct}));
+}
+
+// A — which pattern
+const A=document.getElementById('partA');
+[
+ {prompt:'<b>der</b> erfahren__ Architekt',correct:'weak',explain:'"der" is a der-word → <b>WEAK</b>. (Ending here: -e.)'},
+ {prompt:'<b>ein</b> erfahren__ Architekt',correct:'mix',explain:'"ein" is an ein-word → <b>MIXED</b>. (Ending: -er, patching the gap.)'},
+ {prompt:'erfahren__ Architekten <span class="ctx">(no article, plural)</span>',correct:'strong',explain:'No article → <b>STRONG</b>. (Ending: -e, nom plural.)'},
+ {prompt:'mit <b>meinem</b> neu__ Kollegen',correct:'mix',explain:'"meinem" is a possessive = ein-word → <b>MIXED</b>. (Ending: -en.)'},
+ {prompt:'<b>diese</b> komplex__ Probleme',correct:'weak',explain:'"diese" declines like der/die/das → der-word → <b>WEAK</b>.'},
+ {prompt:'bei <b>schön__ Wetter</b> <span class="ctx">(no article)</span>',correct:'strong',explain:'No article after "bei" → <b>STRONG</b>. (Ending: -em, dat neut.)'}
+].forEach(d=>makeMC(A,{prompt:d.prompt,options:decl(d.correct),explain:d.explain}));
+
+// B — weak
+const B=document.getElementById('partB');
+[
+ endQ2('der gut','e Code','· nom masc',['-e','-en','-er'],'-e','Weak, Nom masc = <b>-e</b>. der gut<b>e</b> Code.'),
+ endQ2('Ich schreibe den sauber','en Code','· akk masc',['-e','-en','-es'],'-en','Weak, Akk masc = <b>-en</b>. den sauber<b>en</b> Code.'),
+ endQ2('mit dem neu','en Framework','· dat neut',['-e','-en','-em'],'-en','Weak (after "dem"), Dat = <b>-en</b>. The article already shows dative.'),
+ endQ2('die schnell','e Lösung','· nom fem',['-e','-en','-er'],'-e','Weak, Nom fem = <b>-e</b>. die schnell<b>e</b> Lösung.'),
+ endQ2('die offen','en Tickets','· akk plural',['-e','-en','-es'],'-en','Weak, plural = <b>-en</b> (all plural weak cells are -en).'),
+ endQ2('während des lang','en Meetings','· gen masc/neut',['-en','-es','-em'],'-en','Weak, Gen = <b>-en</b> always. (des lang<b>en</b> Meetings.)')
+].forEach(q=>makeMC(B,q));
+
+// C — mixed
+const C=document.getElementById('partC');
+[
+ endQ2('ein erfahren','er Entwickler','· nom masc',['-e','-en','-er'],'-er','Mixed gap! "ein" shows nothing for masc-Nom → adjective takes <b>-er</b>.'),
+ endQ2('ein agil','es Team','· nom neut',['-e','-en','-es'],'-es','Mixed gap! "ein" shows nothing for neut → <b>-es</b>. ein agil<b>es</b> Team.'),
+ endQ2('Wir suchen einen erfahren','en Entwickler','· akk masc',['-er','-en','-es'],'-en','Mixed, Akk masc = <b>-en</b> (here "einen" already marks it → weak ending).'),
+ endQ2('mit meinem neu','en Chef','· dat masc',['-en','-em','-er'],'-en','Mixed, Dat = <b>-en</b>. "meinem" carries the case; adjective relaxes.'),
+ endQ2('eine gut','e Architektur','· nom fem',['-e','-en','-er'],'-e','Mixed, Nom fem = <b>-e</b> (same as weak).'),
+ endQ2('keine groß','en Probleme','· akk plural',['-e','-en','-es'],'-en','Mixed, plural = <b>-en</b>. kein-/possessives in plural → -en.')
+].forEach(q=>makeMC(C,q));
+
+// D — strong
+const D=document.getElementById('partD');
+[
+ endQ2('gut','er Code','· nom masc, no article',['-e','-en','-er'],'-er','Strong: adjective = the "der" signal → <b>-er</b>. gut<b>er</b> Code.'),
+ endQ2('sauber','es Wasser','· nom neut, no article',['-e','-es','-en'],'-es','Strong: = the "das" signal → <b>-es</b>.'),
+ endQ2('Ich trinke kalt','e Milch','· akk fem, no article',['-e','-er','-en'],'-e','Strong, Akk fem = <b>-e</b> (fem doesn\'t change Nom↔Akk).'),
+ endQ2('mit groß','er Sorgfalt','· dat fem, no article',['-e','-er','-em'],'-er','Strong, Dat fem = <b>-er</b> (mirrors "der" dative fem).'),
+ endQ2('trotz schlecht','en Wetters','· gen neut, no article',['-es','-en','-em'],'-en','Strong Gen masc/neut is the oddball <b>-en</b> (the noun\'s -s does the marking).')
+].forEach(q=>makeMC(D,q));
+
+// E — boss level prepositions
+const E=document.getElementById('partE');
+[
+ endQ2('Ich arbeite mit einem agil','en Team','· mit→Dat, mixed, neut',['-es','-en','-em'],'-en','"mit"→Dat. Mixed Dat = <b>-en</b>. einem agil<b>en</b> Team.'),
+ endQ2('Das Ticket ist für den neu','en Kollegen','· für→Akk, weak, masc',['-e','-en','-er'],'-en','"für"→Akk. After "den" (der-word) → weak Akk masc = <b>-en</b>.'),
+ endQ2('Wir deployen auf einen produktiv','en Server','· auf+motion→Akk, mixed, masc',['-er','-en','-es'],'-en','"auf" + motion (deploy *onto*)→Akk. Mixed Akk masc = <b>-en</b>.'),
+ endQ2('Der Bug liegt in alt','em Code','· in+location→Dat, strong, masc',['-en','-em','-er'],'-em','"in" (where? location)→Dat, no article→Strong. Dat masc = <b>-em</b>.'),
+ endQ2('Die Stadt hat eine Wohnung mit gut','er ÖV-Anbindung','· "mit"→Dat fem, no article→strong',['-e','-er','-en'],'-er','"mit"→Dat, no article→Strong, Dat fem = <b>-er</b>. mit gut<b>er</b> Anbindung.'),
+ endQ2('Nach lang','er Diskussion einigten wir uns','· nach→Dat fem, no article→strong',['-e','-er','-en'],'-er','"nach"→Dat. No article→Strong, Dat fem = <b>-er</b>. Nach lang<b>er</b> Diskussion.')
+].forEach(q=>makeMC(E,q));
+
+// F — spot the error
+const F=document.getElementById('partF');
+function tf(s,ok,ex){return {prompt:'„'+s+'"',options:[{label:'✅ Correct',correct:ok},{label:'❌ Wrong',correct:!ok}],explain:ex};}
+[
+ tf('Ich habe einen guten Plan.', true, '<b>Correct.</b> Mixed, Akk masc → -en. "einen" + gut<b>en</b>.'),
+ tf('Das ist ein guter Idee.', false, '<b>Wrong.</b> "Idee" is feminine → eine gut<b>e</b> Idee. (Both the article and ending were wrong.)'),
+ tf('Wir arbeiten mit modernen Technologien.', true, '<b>Correct.</b> "mit"→Dat, no article, plural → Strong Dat plural = -en.'),
+ tf('Er ist ein erfahrener Architekt.', true, '<b>Correct.</b> Mixed gap, Nom masc → -er. Textbook.'),
+ tf('Sie sucht eine neuen Stelle.', false, '<b>Wrong.</b> Akk fem → eine neu<b>e</b> Stelle (not -en). Fem Akk is -e in mixed.'),
+ tf('Guter Kaffee macht den Tag besser.', true, '<b>Correct.</b> No article → Strong, Nom masc → -er. Gut<b>er</b> Kaffee.')
+].forEach(q=>makeMC(F,q));
+
+// G — scenario
+const G=document.getElementById('partG');
+[
+ endQ2('„Wir suchen einen erfahren','en Softwarearchitekten."','· brauchen→Akk masc, mixed',['-er','-en','-es'],'-en','Mixed, Akk masc → <b>-en</b> ("einen" marks the case).'),
+ endQ2('„Das ist eine ausgezeichnet','e Lösung."','· Nom fem, mixed',['-e','-en','-er'],'-e','Mixed, Nom fem → <b>-e</b>. eine ausgezeichnet<b>e</b> Lösung.'),
+ endQ2('„In unserem agil','en Team reviewen wir jeden Code."','· in+Dat, mixed neut',['-es','-en','-em'],'-en','"unserem" = ein-word, Dat → Mixed -en. (in unser<b>em</b> agil<b>en</b> Team.)'),
+ endQ2('„Wir haben komplex','e Anforderungen."','· Akk plural, no article→strong',['-e','-en','-es'],'-e','No article → Strong, Akk plural → <b>-e</b>. komplex<b>e</b> Anforderungen.'),
+ endQ2('„Der neu','e Code ist sauber und gut getestet."','· Nom masc after der→weak',['-e','-en','-er'],'-e','Weak (after "der"), Nom masc → <b>-e</b>. Der neu<b>e</b> Code.')
+].forEach(q=>makeMC(G,q));
+
+// Flashcards — tricky corners
+const cards=[
+ ['MIXED · Nom masc<br>ein gut__ Mann','-er'],
+ ['MIXED · Nom/Akk neut<br>ein gut__ Kind','-es'],
+ ['WEAK · Akk masc<br>den gut__ Mann','-en'],
+ ['STRONG · Dat masc/neut<br>mit gut__ Wein','-em'],
+ ['STRONG · Dat fem<br>mit gut__ Milch','-er'],
+ ['STRONG · Gen masc/neut<br>trotz gut__ Wetters','-en']
+];
+const cg=document.getElementById('cards');
+cards.forEach(([f,b])=>{
+  const fc=document.createElement('div'); fc.className='fc';
+  fc.innerHTML='<div class="fc-inner"><div class="fc-face">'+f+'</div><div class="fc-face fc-back">'+b+'</div></div>';
+  fc.onclick=()=>fc.classList.toggle('flip'); cg.appendChild(fc);
+});
+
+tally();
+</script>
+</body>
+</html>

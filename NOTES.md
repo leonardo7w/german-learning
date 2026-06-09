@@ -16,8 +16,8 @@
 
 ## Teaching sequence (working plan, revise freely)
 1. ✅ The four cases + article system (keystone) — Lesson 0001.
-2. Adjective endings (the three declension patterns) — builds directly on cases.
-3. Two-way prepositions (Wechselpräpositionen) + accusative/dative prepositions.
+2. ✅ Adjective endings (weak/mixed/strong) — Lesson 0002 (deliberately harder, 38 exercises).
+3. Two-way prepositions (Wechselpräpositionen) + accusative/dative prepositions. ← NEXT
 4. Verb position & word order (V2, subordinate clauses, TeKaMoLo).
 5. Tenses: Perfekt vs Präteritum; then Konjunktiv II; then Passiv.
 6. Connectors/fluency + topic vocabulary (workplace, Behörden) once domain is confirmed.
