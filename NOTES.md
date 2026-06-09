@@ -22,6 +22,16 @@
 5. Tenses: Perfekt vs Präteritum; then Konjunktiv II; then Passiv.
 6. Connectors/fluency + topic vocabulary (workplace, Behörden) once domain is confirmed.
 
+## Context (confirmed)
+- **Location: Zurich, Switzerland.** Everyday spoken language is Swiss German (Züritüütsch), but
+  written/formal/official German is Standard German (Hochdeutsch) — that's our B2/C1 target.
+  → Use scenarios that fit Swiss life: Behörden, Wohnung, Krankenkasse, ÖV/SBB, etc.
+  → Later, add *listening* exposure to Swiss German (comprehension only, not production).
+- **Field: software architect / engineer (IT).** → Topic vocabulary stream: software/IT
+  (architecture, code review, deployment, requirements) + tech-meeting language (stand-ups,
+  design discussions, trade-offs). Many Zurich tech workplaces run partly in English, so German
+  here is for integration, broader roles, and not being locked out of the local language.
+
 ## Open questions to ask later
-- Which country/city and which **profession/field**? Unlocks topic vocabulary and scenarios.
 - Is there an exam (Goethe/telc/TestDaF) with a date? Would reshape the plan.
+- Roughly what % of the workday is already in German vs English? Calibrates urgency of work vocab.

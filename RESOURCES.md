@@ -30,10 +30,21 @@ lessons is drawn from here, not from memory.
 - Local Volkshochschule (VHS) or a Stammtisch / language meetup once abroad.
   Use for: in-person, real-time speaking practice. (To be added once location is known.)
 
+## Swiss context
+
+- [ch.ch — The Swiss Authorities Online](https://www.ch.ch/en/)
+  Official portal explaining Swiss administrative processes (permits, insurance, taxes). Use for:
+  real Behörden vocabulary and understanding the bureaucracy you'll handle in German.
+- Note on Swiss German: in Zurich the spoken dialect is Züritüütsch, but Hochdeutsch is the
+  written/formal standard and the basis of B2/C1. We target Hochdeutsch; Swiss-German *listening*
+  is a later add-on. (Community below is good for this.)
+
 ## Gaps
 
-- Topic-specific vocabulary sources (workplace, bureaucracy, the user's actual field) —
-  to be sourced once the user's domain is confirmed.
+- A trusted, structured source for **IT/software German vocabulary** (architecture, code review,
+  agile/meeting language) — to be sourced/curated as we build the tech-vocab lessons. For now I'll
+  construct domain vocab from your real scenarios and verify against DW/Lingolia usage.
+- A Zurich-local speaking community (VHS-equivalent, tech meetups in German, Stammtisch) — to add.
 - A specific exam-prep track (Goethe/telc/TestDaF) — out of scope until an exam date exists.
 
 ## Notes
