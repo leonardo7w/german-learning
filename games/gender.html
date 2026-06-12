@@ -7,21 +7,21 @@
 </head>
 <body>
 <div id="app"></div>
-<script src="engine.js"></script>
+<script src="engine.js?v=3"></script>
 <script>
 GAME({
-  id:'gender', kind:'gender', tag:'Nouns & gender',
+  id:'gender', kind:'gender', tag:'Substantive & Genus',
   title:'Der · Die · Das',
-  subtitle:'Master noun gender. Colour code: der = blue, die = red, das = green. Progress saves automatically.',
+  subtitle:'Beherrsche das Genus der Substantive. Farbcode: der = blau, die = rot, das = grün. Dein Fortschritt wird automatisch gespeichert.',
   batch:20,
-  browseNote:'Suffix rules (learn the pattern, not each word): '+
-    '<b>die</b> → -ung, -heit, -keit, -schaft, -tät, -ion, -ik, and ~90% of -e nouns. '+
+  browseNote:'Endungsregeln (lern das Muster, nicht jedes Wort): '+
+    '<b>die</b> → -ung, -heit, -keit, -schaft, -tät, -ion, -ik und ~90% der Wörter auf -e. '+
     '<b>das</b> → -chen, -lein, -ment, -um, -ma, -nis. '+
-    '<b>der</b> → -er (agent), -ling, -ismus, -or. Always exceptions — check when unsure.',
-  footer:'<nav class="gamenav"><a href="index.html">← All games</a>'+
-    '<a href="../index.html">⌂ Hub</a><a href="verbs.html">Verbs →</a></nav>'+
-    '<footer>Genders per Duden usage · grouped by theme. Source: '+
-    '<a href="https://blogs.transparent.com/german/german-suffixes-and-word-genders/">gender-by-suffix rules</a>.</footer>',
+    '<b>der</b> → -er (Tätige), -ling, -ismus, -or. Es gibt immer Ausnahmen — im Zweifel nachschlagen.',
+  footer:'<nav class="gamenav"><a href="index.html">← Alle Spiele</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="verbs.html">Verben →</a></nav>'+
+    '<footer>Genus nach Duden · nach Themen gruppiert. Quelle: '+
+    '<a href="https://blogs.transparent.com/german/german-suffixes-and-word-genders/">Genus nach Endung</a>.</footer>',
   items:[
     // People & everyday
     {id:'Mann',a:'der',en:'man',group:'People & everyday'},

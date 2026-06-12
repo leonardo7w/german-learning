@@ -7,18 +7,18 @@
 </head>
 <body>
 <div id="app"></div>
-<script src="engine.js"></script>
+<script src="engine.js?v=3"></script>
 <script>
 GAME({
-  id:'verbs', kind:'meaning', tag:'Verbs',
-  title:'Verb Lab',
-  subtitle:'Recall verb meanings — the flashcard back also shows the Perfekt (haben/sein + Partizip II), priming Lesson 06.',
+  id:'verbs', kind:'meaning', tag:'Verben',
+  title:'Verb-Labor',
+  subtitle:'Verbbedeutungen abrufen — die Kartenrückseite zeigt auch das Perfekt (haben/sein + Partizip II) und bereitet Lektion 06 vor.',
   batch:20,
-  browseNote:'Verbs of <b>movement / change of state</b> take <b>sein</b> in the Perfekt '+
-    '(gehen → ist gegangen); most others take <b>haben</b>. Dative verbs are marked +Dat.',
-  footer:'<nav class="gamenav"><a href="index.html">← All games</a>'+
-    '<a href="../index.html">⌂ Hub</a><a href="verb-prepositions.html">Verbs + Prepositions →</a></nav>'+
-    '<footer>A1–B2 high-frequency verbs + verbs seen in lessons. Conjugations per standard usage.</footer>',
+  browseNote:'Verben der <b>Bewegung / Zustandsänderung</b> bilden das Perfekt mit <b>sein</b> '+
+    '(gehen → ist gegangen); die meisten anderen mit <b>haben</b>. Dativ-Verben sind mit +Dat markiert.',
+  footer:'<nav class="gamenav"><a href="index.html">← Alle Spiele</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="verb-prepositions.html">Verben + Präpositionen →</a></nav>'+
+    '<footer>Häufige A1–B2-Verben + Verben aus den Lektionen. Konjugationen nach Standardgebrauch.</footer>',
   items:[
     // Top / essential
     {id:'sein',q:'sein',a:'to be',sub:'ist gewesen',group:'Essential'},

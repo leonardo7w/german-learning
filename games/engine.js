@@ -106,13 +106,13 @@
     const app=document.getElementById('app');
     app.innerHTML=
       '<a class="home" href="index.html">← Spiele</a>'+
-      '<div class="eyebrow">Spiel · '+(cfg.tag||'Vocabulary')+'</div>'+
+      '<div class="eyebrow">Spiel · '+(cfg.tag||'Wortschatz')+'</div>'+
       '<h1>'+cfg.title+'</h1><p class="sub">'+cfg.subtitle+'</p>'+
-      '<div class="stats"><span>Mastered: <b id="mst">0</b> / '+cfg.items.length+'</span>'+
+      '<div class="stats"><span>Gemeistert: <b id="mst">0</b> / '+cfg.items.length+'</span>'+
       '<div class="barwrap"><div class="bar" id="bar"></div></div>'+
-      '<a href="#" id="reset">reset</a></div>'+
-      '<div class="tabs"><button data-m="flash" class="on">🃏 Flashcards</button>'+
-      '<button data-m="quiz">✍️ Quiz</button><button data-m="browse">📖 Browse</button></div>'+
+      '<a href="#" id="reset">zurücksetzen</a></div>'+
+      '<div class="tabs"><button data-m="flash" class="on">🃏 Karteikarten</button>'+
+      '<button data-m="quiz">✍️ Quiz</button><button data-m="browse">📖 Liste</button></div>'+
       '<div class="panel" id="panel"></div>'+
       (cfg.footer||'');
     const panel=document.getElementById('panel');
@@ -127,7 +127,7 @@
       document.getElementById('bar').style.width=progressPct().toFixed(1)+'%';
     }
     document.getElementById('reset').onclick=e=>{e.preventDefault();
-      if(confirm('Reset progress for this game?')){boxes={};save();refreshStats();render('flash');setTab('flash');}};
+      if(confirm('Fortschritt für dieses Spiel zurücksetzen?')){boxes={};save();refreshStats();render('flash');setTab('flash');}};
     app.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{setTab(b.dataset.m);render(b.dataset.m);});
     function setTab(m){app.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));}
 
@@ -141,15 +141,15 @@
     function renderFlash(){
       const cards=batch(cfg.batch||20); let i=0;
       function show(){
-        if(i>=cards.length){ panel.innerHTML='<div style="text-align:center;padding:20px"><b>Round done!</b> '+
-          masteredCount()+'/'+cfg.items.length+' mastered.<br><br><button class="opt" id="more">Another round →</button></div>';
+        if(i>=cards.length){ panel.innerHTML='<div style="text-align:center;padding:20px"><b>Runde fertig!</b> '+
+          masteredCount()+'/'+cfg.items.length+' gemeistert.<br><br><button class="opt" id="more">Nächste Runde →</button></div>';
           document.getElementById('more').onclick=()=>renderFlash(); return; }
         const it=cards[i];
         panel.innerHTML='<div class="fc" id="card"><div><div class="q">'+it.q+'</div>'+
-          '<div class="tap">tap to reveal</div></div></div>'+
-          '<div class="fcbtns" id="btns" style="visibility:hidden"><button class="again">❌ Again</button>'+
-          '<button class="got">✅ Got it</button></div>'+
-          '<div class="counter">Card '+(i+1)+' / '+cards.length+' · box '+box(it.id)+'/5</div>';
+          '<div class="tap">zum Aufdecken tippen</div></div></div>'+
+          '<div class="fcbtns" id="btns" style="visibility:hidden"><button class="again">❌ Nochmal</button>'+
+          '<button class="got">✅ Gewusst</button></div>'+
+          '<div class="counter">Karte '+(i+1)+' / '+cards.length+' · Box '+box(it.id)+'/5</div>';
         const card=document.getElementById('card'), btns=document.getElementById('btns');
         card.onclick=()=>{ card.innerHTML=backHTML(it); btns.style.visibility='visible'; };
         btns.querySelector('.again').onclick=()=>{ setBox(it.id,1); i++; refreshStats(); show(); };
@@ -162,13 +162,13 @@
       const cards=batch(cfg.batch||20); let i=0, correct=0;
       function show(){
         if(i>=cards.length){ panel.innerHTML='<div style="text-align:center;padding:20px"><b>'+correct+' / '+cards.length+
-          '</b> this round.<br>'+masteredCount()+'/'+cfg.items.length+' mastered.<br><br>'+
-          '<button class="opt" id="more">Another round →</button></div>';
+          '</b> diese Runde.<br>'+masteredCount()+'/'+cfg.items.length+' gemeistert.<br><br>'+
+          '<button class="opt" id="more">Nächste Runde →</button></div>';
           document.getElementById('more').onclick=()=>renderQuiz(); return; }
         const it=cards[i], opts=options(it), gender=cfg.kind==='gender';
         panel.innerHTML='<div class="q-prompt">'+(gender?'__ '+it.q:it.q)+'</div>'+
           '<div class="opts '+(opts.length<=3?'row':'')+'" id="opts"></div>'+
-          '<div class="fb" id="fb"></div><div class="counter">Q '+(i+1)+' / '+cards.length+'</div>';
+          '<div class="fb" id="fb"></div><div class="counter">Frage '+(i+1)+' / '+cards.length+'</div>';
         const o=document.getElementById('opts'), fb=document.getElementById('fb'); let done=false;
         opts.forEach(opt=>{
           const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
@@ -198,8 +198,8 @@
     // ---- BROWSE ----
     function renderBrowse(){
       let html='';
-      if(cfg.kind==='gender') html+='<div class="legend"><b class="der">der</b> = masc · '+
-        '<b class="die">die</b> = fem · <b class="das">das</b> = neut</div>';
+      if(cfg.kind==='gender') html+='<div class="legend"><b class="der">der</b> = maskulin · '+
+        '<b class="die">die</b> = feminin · <b class="das">das</b> = neutrum</div>';
       const groups={};
       cfg.items.forEach(it=>{ const g=it.group||'All'; (groups[g]=groups[g]||[]).push(it); });
       Object.keys(groups).forEach(g=>{

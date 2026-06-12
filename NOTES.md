@@ -19,9 +19,12 @@
 - **Lessons are written entirely in German** (full immersion), pitched at ~B1 so they stay
   followable: explanations, instructions, headings, and quiz feedback all in German; example
   sentences drop their English glosses. Each lesson should read like a German Lehrbuch.
-- **Workspace docs stay English**: MISSION, NOTES, RESOURCES, learning records, hub + cheat-sheet
-  chrome. GLOSSARY keeps German term names + English definitions.
-- Games' UI instructions stay English for now (study tools, not lessons).
+- **Hub (index.html) and games UI are now in German too** (decided later) — only the explicit
+  vocabulary "translation words" stay English (the English meanings in the gender/verb games, e.g.
+  Mann → "man", helfen → "to help"; those are the learning content).
+- **Stay English**: the workspace documentation the teacher reasons over — MISSION/NOTES/RESOURCES
+  text, learning records, the printable cheat sheets, and the GLOSSARY definitions (German term
+  names + English definitions). The rendered mission/glossary/resources.html keep English content.
 - Standard German instruction register: Ergänze…, Wähle…, Markiere…, Bestimme den Kasus…,
   Richtig oder falsch?, Lies…, Stell deinem Lehrer Fragen…
 - Retrofit status: 01–05 to be converted; 06+ authored in German. (See LR-0006.)
