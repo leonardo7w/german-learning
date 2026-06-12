@@ -135,7 +135,16 @@ const POOL=[
  {tag:'Ending',prompt:'Ich suche eine neu__ Stelle. <span class="ctx">(mixed · akk fem)</span>',o:[['-e',1],['-en',0],['-er',0]],
   e:'Mixed, fem Akk → <b>-e</b>: eine neu<b>e</b> Stelle.'},
  {tag:'Ending',prompt:'bei schön__ Wetter <span class="ctx">(strong · dat neut)</span>',o:[['-e',0],['-en',0],['-em',1]],
-  e:'"bei"→Dat, no article→strong; neut dat → <b>-em</b>: schön<b>em</b> Wetter.'}
+  e:'"bei"→Dat, no article→strong; neut dat → <b>-em</b>: schön<b>em</b> Wetter.'},
+ // determiner + adjective combos (the load that tripped Lesson 05)
+ {tag:'Determiner + ending',prompt:'dieser neu__ Kollege <span class="ctx">(der-word → weak · nom masc)</span>',o:[['-e',1],['-en',0],['-er',0]],
+  e:'der-word → WEAK; nom masc → <b>-e</b>: dieser neu<b>e</b> Kollege.'},
+ {tag:'Determiner + ending',prompt:'mein neu__ Laptop <span class="ctx">(ein-word → mixed · nom masc)</span>',o:[['-e',0],['-en',0],['-er',1]],
+  e:'ein-word → MIXED gap; nom masc → <b>-er</b>: mein neu<b>er</b> Laptop.'},
+ {tag:'Determiner + ending',prompt:'alle neu__ Mitarbeiter <span class="ctx">(der-word → weak · nom plural)</span>',o:[['-e',0],['-en',1],['-er',0]],
+  e:'der-word → WEAK plural → <b>-en</b>: alle neu<b>en</b> Mitarbeiter.'},
+ {tag:'Determiner + ending',prompt:'kein gut__ Argument <span class="ctx">(ein-word → mixed · nom neut)</span>',o:[['-e',0],['-es',1],['-en',0]],
+  e:'ein-word → MIXED gap; neut → <b>-es</b>: kein gut<b>es</b> Argument.'}
 ];
 
 const ROUND=8;

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiel — Der, Die, Das (Noun Gender)</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="engine.js"></script>
+<script>
+GAME({
+  id:'gender', kind:'gender', tag:'Nouns & gender',
+  title:'Der · Die · Das',
+  subtitle:'Master noun gender. Colour code: der = blue, die = red, das = green. Progress saves automatically.',
+  batch:20,
+  browseNote:'Suffix rules (learn the pattern, not each word): '+
+    '<b>die</b> → -ung, -heit, -keit, -schaft, -tät, -ion, -ik, and ~90% of -e nouns. '+
+    '<b>das</b> → -chen, -lein, -ment, -um, -ma, -nis. '+
+    '<b>der</b> → -er (agent), -ling, -ismus, -or. Always exceptions — check when unsure.',
+  footer:'<nav class="gamenav"><a href="index.html">← All games</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="verbs.html">Verbs →</a></nav>'+
+    '<footer>Genders per Duden usage · grouped by theme. Source: '+
+    '<a href="https://blogs.transparent.com/german/german-suffixes-and-word-genders/">gender-by-suffix rules</a>.</footer>',
+  items:[
+    // People & everyday
+    {id:'Mann',a:'der',en:'man',group:'People & everyday'},
+    {id:'Frau',a:'die',en:'woman',group:'People & everyday'},
+    {id:'Kind',a:'das',en:'child',group:'People & everyday'},
+    {id:'Mensch',a:'der',en:'human, person',group:'People & everyday'},
+    {id:'Freund',a:'der',en:'friend',group:'People & everyday'},
+    {id:'Familie',a:'die',en:'family',hint:'-e → mostly die',group:'People & everyday'},
+    {id:'Name',a:'der',en:'name',hint:'der-exception to -e rule',group:'People & everyday'},
+    {id:'Leute',a:'die',en:'people (pl.)',group:'People & everyday'},
+    {id:'Kollege',a:'der',en:'colleague',hint:'-e but masc (person)',group:'People & everyday'},
+    {id:'Kunde',a:'der',en:'customer',group:'People & everyday'},
+    // Time
+    {id:'Tag',a:'der',en:'day',group:'Time'},
+    {id:'Nacht',a:'die',en:'night',group:'Time'},
+    {id:'Woche',a:'die',en:'week',hint:'-e → die',group:'Time'},
+    {id:'Monat',a:'der',en:'month',group:'Time'},
+    {id:'Jahr',a:'das',en:'year',group:'Time'},
+    {id:'Stunde',a:'die',en:'hour',hint:'-e → die',group:'Time'},
+    {id:'Zeit',a:'die',en:'time',group:'Time'},
+    {id:'Termin',a:'der',en:'appointment',group:'Time'},
+    // Home & city
+    {id:'Haus',a:'das',en:'house',group:'Home & city'},
+    {id:'Wohnung',a:'die',en:'flat, apartment',hint:'-ung → die',group:'Home & city'},
+    {id:'Zimmer',a:'das',en:'room',group:'Home & city'},
+    {id:'Tür',a:'die',en:'door',group:'Home & city'},
+    {id:'Fenster',a:'das',en:'window',group:'Home & city'},
+    {id:'Tisch',a:'der',en:'table',group:'Home & city'},
+    {id:'Stuhl',a:'der',en:'chair',group:'Home & city'},
+    {id:'Küche',a:'die',en:'kitchen',hint:'-e → die',group:'Home & city'},
+    {id:'Stadt',a:'die',en:'city',group:'Home & city'},
+    {id:'Land',a:'das',en:'country',group:'Home & city'},
+    {id:'Straße',a:'die',en:'street',hint:'-e → die',group:'Home & city'},
+    {id:'Wohnungssuche',a:'die',en:'flat search',hint:'-e → die',group:'Home & city'},
+    // Travel
+    {id:'Auto',a:'das',en:'car',group:'Travel'},
+    {id:'Zug',a:'der',en:'train',group:'Travel'},
+    {id:'Bus',a:'der',en:'bus',group:'Travel'},
+    {id:'Fahrrad',a:'das',en:'bicycle',group:'Travel'},
+    {id:'Flugzeug',a:'das',en:'aeroplane',group:'Travel'},
+    {id:'Reise',a:'die',en:'trip',hint:'-e → die',group:'Travel'},
+    {id:'Weg',a:'der',en:'way, path',group:'Travel'},
+    // Food
+    {id:'Wasser',a:'das',en:'water',group:'Food & drink'},
+    {id:'Brot',a:'das',en:'bread',group:'Food & drink'},
+    {id:'Kaffee',a:'der',en:'coffee',group:'Food & drink'},
+    {id:'Milch',a:'die',en:'milk',group:'Food & drink'},
+    {id:'Bier',a:'das',en:'beer',group:'Food & drink'},
+    {id:'Apfel',a:'der',en:'apple',group:'Food & drink'},
+    {id:'Essen',a:'das',en:'food, meal',group:'Food & drink'},
+    // Body
+    {id:'Hand',a:'die',en:'hand',group:'Body'},
+    {id:'Kopf',a:'der',en:'head',group:'Body'},
+    {id:'Auge',a:'das',en:'eye',group:'Body'},
+    {id:'Herz',a:'das',en:'heart',group:'Body'},
+    {id:'Körper',a:'der',en:'body',hint:'-er → der',group:'Body'},
+    // Abstract / B1-B2
+    {id:'Arbeit',a:'die',en:'work',group:'Abstract (B1–B2)'},
+    {id:'Beruf',a:'der',en:'profession',group:'Abstract (B1–B2)'},
+    {id:'Frage',a:'die',en:'question',hint:'-e → die',group:'Abstract (B1–B2)'},
+    {id:'Antwort',a:'die',en:'answer',group:'Abstract (B1–B2)'},
+    {id:'Problem',a:'das',en:'problem',group:'Abstract (B1–B2)'},
+    {id:'Lösung',a:'die',en:'solution',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Idee',a:'die',en:'idea',group:'Abstract (B1–B2)'},
+    {id:'Meinung',a:'die',en:'opinion',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Erfahrung',a:'die',en:'experience',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Möglichkeit',a:'die',en:'possibility',hint:'-keit → die',group:'Abstract (B1–B2)'},
+    {id:'Entscheidung',a:'die',en:'decision',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Freiheit',a:'die',en:'freedom',hint:'-heit → die',group:'Abstract (B1–B2)'},
+    {id:'Gesundheit',a:'die',en:'health',hint:'-heit → die',group:'Abstract (B1–B2)'},
+    {id:'Gesellschaft',a:'die',en:'society',hint:'-schaft → die',group:'Abstract (B1–B2)'},
+    {id:'Universität',a:'die',en:'university',hint:'-tät → die',group:'Abstract (B1–B2)'},
+    {id:'Information',a:'die',en:'information',hint:'-ion → die',group:'Abstract (B1–B2)'},
+    {id:'Grund',a:'der',en:'reason',group:'Abstract (B1–B2)'},
+    {id:'Ziel',a:'das',en:'goal',group:'Abstract (B1–B2)'},
+    {id:'Aufgabe',a:'die',en:'task',hint:'-e → die',group:'Abstract (B1–B2)'},
+    {id:'Rechnung',a:'die',en:'bill, invoice',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Versicherung',a:'die',en:'insurance',hint:'-ung → die',group:'Abstract (B1–B2)'},
+    {id:'Sprache',a:'die',en:'language',hint:'-e → die',group:'Abstract (B1–B2)'},
+    {id:'Wort',a:'das',en:'word',group:'Abstract (B1–B2)'},
+    {id:'Geld',a:'das',en:'money',group:'Abstract (B1–B2)'},
+    {id:'Welt',a:'die',en:'world',group:'Abstract (B1–B2)'},
+    {id:'Wetter',a:'das',en:'weather',group:'Abstract (B1–B2)'},
+    // IT / software (your field)
+    {id:'Computer',a:'der',en:'computer',hint:'-er → der',group:'IT & software'},
+    {id:'Rechner',a:'der',en:'computer',hint:'-er → der',group:'IT & software'},
+    {id:'Software',a:'die',en:'software',group:'IT & software'},
+    {id:'Programm',a:'das',en:'program',group:'IT & software'},
+    {id:'Code',a:'der',en:'code',group:'IT & software'},
+    {id:'Datei',a:'die',en:'file',group:'IT & software'},
+    {id:'Ordner',a:'der',en:'folder',hint:'-er → der',group:'IT & software'},
+    {id:'Verzeichnis',a:'das',en:'directory',hint:'-nis → das',group:'IT & software'},
+    {id:'Server',a:'der',en:'server',hint:'-er → der',group:'IT & software'},
+    {id:'Netzwerk',a:'das',en:'network',group:'IT & software'},
+    {id:'Datenbank',a:'die',en:'database',group:'IT & software'},
+    {id:'Anwendung',a:'die',en:'application',hint:'-ung → die',group:'IT & software'},
+    {id:'Schnittstelle',a:'die',en:'interface',hint:'-e → die',group:'IT & software'},
+    {id:'Anforderung',a:'die',en:'requirement',hint:'-ung → die',group:'IT & software'},
+    {id:'Fehler',a:'der',en:'error, bug',hint:'-er → der',group:'IT & software'},
+    {id:'Bildschirm',a:'der',en:'screen',group:'IT & software'},
+    {id:'Tastatur',a:'die',en:'keyboard',group:'IT & software'},
+    {id:'Speicher',a:'der',en:'memory, storage',hint:'-er → der',group:'IT & software'},
+    {id:'Festplatte',a:'die',en:'hard drive',hint:'-e → die',group:'IT & software'},
+    {id:'Betriebssystem',a:'das',en:'operating system',group:'IT & software'},
+    {id:'Anwendungsfall',a:'der',en:'use case',group:'IT & software'},
+    {id:'Algorithmus',a:'der',en:'algorithm',hint:'-ismus → der',group:'IT & software'},
+    {id:'Funktion',a:'die',en:'function',hint:'-ion → die',group:'IT & software'},
+    {id:'Variable',a:'die',en:'variable',hint:'-e → die',group:'IT & software'},
+    {id:'Schleife',a:'die',en:'loop',hint:'-e → die',group:'IT & software'},
+    {id:'Abfrage',a:'die',en:'query',hint:'-e → die',group:'IT & software'},
+    {id:'Wartung',a:'die',en:'maintenance',hint:'-ung → die',group:'IT & software'},
+    {id:'Sicherheit',a:'die',en:'security',hint:'-heit → die',group:'IT & software'},
+    {id:'Zugriff',a:'der',en:'access',group:'IT & software'},
+    {id:'Entwickler',a:'der',en:'developer',hint:'-er → der',group:'IT & software'},
+    {id:'Besprechung',a:'die',en:'meeting',hint:'-ung → die',group:'IT & software'},
+    {id:'Projekt',a:'das',en:'project',group:'IT & software'},
+    {id:'Auftrag',a:'der',en:'order, job',group:'IT & software'},
+    {id:'Passwort',a:'das',en:'password',group:'IT & software'}
+  ]
+});
+</script>
+</body>
+</html>

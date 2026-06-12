@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiel — Verbs + Prepositions</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="engine.js"></script>
+<script>
+GAME({
+  id:'verbprep', kind:'case', tag:'Verbs + prepositions',
+  title:'Verbs + Prepositions',
+  subtitle:'Learn each verb + fixed preposition as a unit — the preposition sets the case. Quiz = pick the case; flashcard = meaning + example.',
+  batch:18,
+  browseNote:'These do NOT follow Wohin/Wo logic — the case is fixed by the verb+preposition pair, '+
+    'so memorise them whole. Tip: group by preposition (auf+Akk verbs, an+Akk verbs, …).',
+  footer:'<nav class="gamenav"><a href="index.html">← All games</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="gender.html">Der/Die/Das →</a></nav>'+
+    '<footer>Standard B1–B2 Verben mit Präpositionen. Source: '+
+    '<a href="https://www.lingoda.com/blog/en/german-verbs-with-prepositions-list/">Lingoda — verbs with prepositions</a>.</footer>',
+  items:[
+    {id:'warten-auf',q:'warten auf',a:'Akkusativ',en:'to wait for',ex:'Ich warte auf den Bus.'},
+    {id:'sich-freuen-auf',q:'sich freuen auf',a:'Akkusativ',en:'to look forward to',ex:'Ich freue mich auf das Wochenende.'},
+    {id:'sich-freuen-ueber',q:'sich freuen über',a:'Akkusativ',en:'to be glad about',ex:'Sie freut sich über das Geschenk.'},
+    {id:'sich-verlassen-auf',q:'sich verlassen auf',a:'Akkusativ',en:'to rely on',ex:'Ich verlasse mich auf dich.'},
+    {id:'achten-auf',q:'achten auf',a:'Akkusativ',en:'to pay attention to',ex:'Achte auf den Code-Stil.'},
+    {id:'sich-konzentrieren-auf',q:'sich konzentrieren auf',a:'Akkusativ',en:'to concentrate on',ex:'Ich konzentriere mich auf das Projekt.'},
+    {id:'verzichten-auf',q:'verzichten auf',a:'Akkusativ',en:'to do without',ex:'Wir verzichten auf das Feature.'},
+    {id:'hoffen-auf',q:'hoffen auf',a:'Akkusativ',en:'to hope for',ex:'Ich hoffe auf gutes Wetter.'},
+    {id:'reagieren-auf',q:'reagieren auf',a:'Akkusativ',en:'to react to',ex:'Er reagiert auf die Anfrage.'},
+    {id:'denken-an',q:'denken an',a:'Akkusativ',en:'to think of/about',ex:'Ich denke an das Meeting.'},
+    {id:'sich-erinnern-an',q:'sich erinnern an',a:'Akkusativ',en:'to remember',ex:'Erinnerst du dich an den Termin?'},
+    {id:'sich-gewoehnen-an',q:'sich gewöhnen an',a:'Akkusativ',en:'to get used to',ex:'Ich gewöhne mich an Zürich.'},
+    {id:'glauben-an',q:'glauben an',a:'Akkusativ',en:'to believe in',ex:'Ich glaube an den Plan.'},
+    {id:'sich-interessieren-fuer',q:'sich interessieren für',a:'Akkusativ',en:'to be interested in',ex:'Ich interessiere mich für KI.'},
+    {id:'sich-entscheiden-fuer',q:'sich entscheiden für',a:'Akkusativ',en:'to decide on',ex:'Wir entscheiden uns für React.'},
+    {id:'sorgen-fuer',q:'sorgen für',a:'Akkusativ',en:'to provide/care for',ex:'Er sorgt für die Sicherheit.'},
+    {id:'sich-kuemmern-um',q:'sich kümmern um',a:'Akkusativ',en:'to take care of',ex:'Ich kümmere mich um den Bug.'},
+    {id:'sich-bewerben-um',q:'sich bewerben um',a:'Akkusativ',en:'to apply for',ex:'Sie bewirbt sich um die Stelle.'},
+    {id:'bitten-um',q:'bitten um',a:'Akkusativ',en:'to ask for',ex:'Ich bitte um Feedback.'},
+    {id:'sich-aergern-ueber',q:'sich ärgern über',a:'Akkusativ',en:'to be annoyed about',ex:'Er ärgert sich über den Fehler.'},
+    {id:'sich-beschweren-ueber',q:'sich beschweren über',a:'Akkusativ',en:'to complain about',ex:'Sie beschwert sich über den Lärm.'},
+    {id:'sprechen-ueber',q:'sprechen über',a:'Akkusativ',en:'to talk about',ex:'Wir sprechen über die Architektur.'},
+    {id:'nachdenken-ueber',q:'nachdenken über',a:'Akkusativ',en:'to ponder, reflect on',ex:'Ich denke über die Lösung nach.'},
+    // Dative
+    {id:'teilnehmen-an',q:'teilnehmen an',a:'Dativ',en:'to take part in',ex:'Ich nehme am Meeting teil.'},
+    {id:'arbeiten-an',q:'arbeiten an',a:'Dativ',en:'to work on',ex:'Wir arbeiten an dem Release.'},
+    {id:'leiden-unter',q:'leiden unter',a:'Dativ',en:'to suffer from',ex:'Das System leidet unter der Last.'},
+    {id:'gehoeren-zu',q:'gehören zu',a:'Dativ',en:'to belong to',ex:'Das gehört zum Plan.'},
+    {id:'einladen-zu',q:'einladen zu',a:'Dativ',en:'to invite to',ex:'Er lädt mich zum Essen ein.'},
+    {id:'gratulieren-zu',q:'gratulieren zu',a:'Dativ',en:'to congratulate on',ex:'Ich gratuliere dir zum Erfolg.'},
+    {id:'fuehren-zu',q:'führen zu',a:'Dativ',en:'to lead to',ex:'Das führt zu Problemen.'},
+    {id:'bestehen-aus',q:'bestehen aus',a:'Dativ',en:'to consist of',ex:'Das Team besteht aus fünf Leuten.'},
+    {id:'abhaengen-von',q:'abhängen von',a:'Dativ',en:'to depend on',ex:'Es hängt von der Zeit ab.'},
+    {id:'traeumen-von',q:'träumen von',a:'Dativ',en:'to dream of',ex:'Sie träumt von einem Sabbatical.'},
+    {id:'erzaehlen-von',q:'erzählen von',a:'Dativ',en:'to tell about',ex:'Er erzählt von der Reise.'},
+    {id:'fragen-nach',q:'fragen nach',a:'Dativ',en:'to ask for/after',ex:'Sie fragt nach dem Weg.'},
+    {id:'suchen-nach',q:'suchen nach',a:'Dativ',en:'to search for',ex:'Ich suche nach dem Fehler.'},
+    {id:'sich-beschaeftigen-mit',q:'sich beschäftigen mit',a:'Dativ',en:'to occupy oneself with',ex:'Ich beschäftige mich mit dem Thema.'},
+    {id:'anfangen-mit',q:'anfangen mit',a:'Dativ',en:'to start with',ex:'Wir fangen mit dem Design an.'},
+    {id:'aufhoeren-mit',q:'aufhören mit',a:'Dativ',en:'to stop (doing)',ex:'Hör mit dem Lärm auf!'},
+    {id:'sich-treffen-mit',q:'sich treffen mit',a:'Dativ',en:'to meet with',ex:'Ich treffe mich mit dem Kunden.'}
+  ]
+});
+</script>
+</body>
+</html>

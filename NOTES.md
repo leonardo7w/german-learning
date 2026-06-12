@@ -29,7 +29,16 @@
   case-selection, not endings.
 - Lesson 0004 (prepositions): **27/28** — prepositions + two-way Wohin/Wo solid; no longer a
   case-error source. Residual case risk = dative-verbs + bare case ID.
-- Lesson 0005 (determiners): in progress.
+- Lesson 0005 (determiners): **19/26** — concept fine; misses clustered on adjective endings in the
+  determiner+adjective combos. → Adjective-ending recall is fragile under combined load; keep recycling.
+
+## Vocabulary games (`games/`) — growing collection
+- Shared Leitner SRS engine (`games/engine.js`); progress saved per-game in browser localStorage.
+- Games so far: **gender.html** (~100 nouns: A1–B2 + IT), **verbs.html** (~75 verbs + Perfekt),
+  **verb-prepositions.html** (~40 verb+prep+case pairs). Arcade landing: `games/index.html`.
+- **Enrich as we progress**: add industry/topic vocab, adjectives, connectors; add new games on the
+  same engine (new data file → done). Linked from the hub "Games" section.
+- Modes per game: Flashcards (Leitner), Quiz (MC + instant feedback), Browse (study list).
 
 ## Teaching sequence (working plan, revise freely)
 1. ✅ The four cases + article system (keystone) — Lesson 0001.

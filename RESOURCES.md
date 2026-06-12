@@ -19,6 +19,18 @@ lessons is drawn from here, not from memory.
   Targeted case drills (nominative/accusative/dative/genitive). Use for: extra repetition
   on the case system between lessons.
 
+### Vocabulary & games (spaced repetition)
+- In-workspace **mini-games** (`games/`): Der/Die/Das (gender), Verb Lab, Verbs + Prepositions —
+  Leitner spaced repetition, progress saved in-browser. Use for: building vocabulary between lessons.
+- [Anki](https://apps.ankiweb.net/) — free, powerful spaced-repetition flashcards.
+  Use for: long-term vocabulary retention; import or build German decks.
+- [Quizlet](https://quizlet.com/) — flashcards with game-like study modes (match, test).
+  Use for: quick, gamified drilling of word lists.
+- [Gender-by-suffix rules (Transparent Language)](https://blogs.transparent.com/german/german-suffixes-and-word-genders/)
+  Use for: predicting der/die/das from endings (-ung→die, -chen→das, -ling→der…).
+- [Lingoda — Verbs with prepositions list](https://www.lingoda.com/blog/en/german-verbs-with-prepositions-list/)
+  Use for: the canonical B1–B2 verb + fixed-preposition + case pairs.
+
 ## Wisdom (Communities)
 
 - [r/German](https://www.reddit.com/r/German/)

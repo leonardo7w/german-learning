@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiel — Verbs (meanings & Perfekt)</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="engine.js"></script>
+<script>
+GAME({
+  id:'verbs', kind:'meaning', tag:'Verbs',
+  title:'Verb Lab',
+  subtitle:'Recall verb meanings — the flashcard back also shows the Perfekt (haben/sein + Partizip II), priming Lesson 06.',
+  batch:20,
+  browseNote:'Verbs of <b>movement / change of state</b> take <b>sein</b> in the Perfekt '+
+    '(gehen → ist gegangen); most others take <b>haben</b>. Dative verbs are marked +Dat.',
+  footer:'<nav class="gamenav"><a href="index.html">← All games</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="verb-prepositions.html">Verbs + Prepositions →</a></nav>'+
+    '<footer>A1–B2 high-frequency verbs + verbs seen in lessons. Conjugations per standard usage.</footer>',
+  items:[
+    // Top / essential
+    {id:'sein',q:'sein',a:'to be',sub:'ist gewesen',group:'Essential'},
+    {id:'haben',q:'haben',a:'to have',sub:'hat gehabt',group:'Essential'},
+    {id:'werden',q:'werden',a:'to become',sub:'ist geworden',group:'Essential'},
+    {id:'machen',q:'machen',a:'to do, make',sub:'hat gemacht',group:'Essential'},
+    {id:'geben',q:'geben',a:'to give',sub:'hat gegeben',group:'Essential'},
+    {id:'nehmen',q:'nehmen',a:'to take',sub:'hat genommen',group:'Essential'},
+    {id:'sagen',q:'sagen',a:'to say',sub:'hat gesagt',group:'Essential'},
+    {id:'finden',q:'finden',a:'to find',sub:'hat gefunden',group:'Essential'},
+    {id:'denken',q:'denken',a:'to think',sub:'hat gedacht',group:'Essential'},
+    {id:'wissen',q:'wissen',a:'to know (a fact)',sub:'hat gewusst',group:'Essential'},
+    {id:'kennen',q:'kennen',a:'to know (a person/place)',sub:'hat gekannt',group:'Essential'},
+    {id:'brauchen',q:'brauchen',a:'to need',sub:'hat gebraucht',group:'Essential'},
+    {id:'benutzen',q:'benutzen',a:'to use',sub:'hat benutzt',group:'Essential'},
+    {id:'versuchen',q:'versuchen',a:'to try',sub:'hat versucht',group:'Essential'},
+    {id:'schaffen',q:'schaffen',a:'to manage, get done',sub:'hat geschafft',group:'Essential'},
+    // Movement / sein-verbs
+    {id:'gehen',q:'gehen',a:'to go, walk',sub:'ist gegangen',group:'Movement (sein)'},
+    {id:'kommen',q:'kommen',a:'to come',sub:'ist gekommen',group:'Movement (sein)'},
+    {id:'fahren',q:'fahren',a:'to drive, go (by vehicle)',sub:'ist gefahren',group:'Movement (sein)'},
+    {id:'fliegen',q:'fliegen',a:'to fly',sub:'ist geflogen',group:'Movement (sein)'},
+    {id:'laufen',q:'laufen',a:'to run, walk',sub:'ist gelaufen',group:'Movement (sein)'},
+    {id:'fallen',q:'fallen',a:'to fall',sub:'ist gefallen',group:'Movement (sein)'},
+    {id:'bleiben',q:'bleiben',a:'to stay',sub:'ist geblieben',group:'Movement (sein)'},
+    {id:'aufstehen',q:'aufstehen',a:'to get up',sub:'ist aufgestanden',group:'Movement (sein)'},
+    {id:'reisen',q:'reisen',a:'to travel',sub:'ist gereist',group:'Movement (sein)'},
+    // Dative verbs
+    {id:'helfen',q:'helfen',a:'to help',sub:'hat geholfen · +Dat',group:'Dative verbs'},
+    {id:'danken',q:'danken',a:'to thank',sub:'hat gedankt · +Dat',group:'Dative verbs'},
+    {id:'folgen',q:'folgen',a:'to follow',sub:'ist gefolgt · +Dat',group:'Dative verbs'},
+    {id:'gefallen',q:'gefallen',a:'to please, be liked',sub:'hat gefallen · +Dat',group:'Dative verbs'},
+    {id:'gehören',q:'gehören',a:'to belong',sub:'hat gehört · +Dat',group:'Dative verbs'},
+    {id:'antworten',q:'antworten',a:'to answer',sub:'hat geantwortet · +Dat',group:'Dative verbs'},
+    {id:'gratulieren',q:'gratulieren',a:'to congratulate',sub:'hat gratuliert · +Dat',group:'Dative verbs'},
+    // Communication
+    {id:'sprechen',q:'sprechen',a:'to speak',sub:'hat gesprochen',group:'Communication'},
+    {id:'sagen2',q:'erzählen',a:'to tell, narrate',sub:'hat erzählt',group:'Communication'},
+    {id:'fragen',q:'fragen',a:'to ask',sub:'hat gefragt',group:'Communication'},
+    {id:'erklären',q:'erklären',a:'to explain',sub:'hat erklärt',group:'Communication'},
+    {id:'verstehen',q:'verstehen',a:'to understand',sub:'hat verstanden',group:'Communication'},
+    {id:'lesen',q:'lesen',a:'to read',sub:'hat gelesen',group:'Communication'},
+    {id:'schreiben',q:'schreiben',a:'to write',sub:'hat geschrieben',group:'Communication'},
+    {id:'lernen',q:'lernen',a:'to learn',sub:'hat gelernt',group:'Communication'},
+    {id:'sehen',q:'sehen',a:'to see',sub:'hat gesehen',group:'Communication'},
+    // Position pairs (from Lesson 04)
+    {id:'legen',q:'legen',a:'to lay, put down',sub:'hat gelegt · Wohin?→Akk',group:'Position pairs'},
+    {id:'liegen',q:'liegen',a:'to lie, be lying',sub:'hat gelegen · Wo?→Dat',group:'Position pairs'},
+    {id:'stellen',q:'stellen',a:'to place, stand up',sub:'hat gestellt · Wohin?→Akk',group:'Position pairs'},
+    {id:'stehen',q:'stehen',a:'to stand',sub:'hat gestanden · Wo?→Dat',group:'Position pairs'},
+    {id:'setzen',q:'setzen',a:'to set, put down',sub:'hat gesetzt · Wohin?→Akk',group:'Position pairs'},
+    {id:'sitzen',q:'sitzen',a:'to sit',sub:'hat gesessen · Wo?→Dat',group:'Position pairs'},
+    {id:'hängen',q:'hängen',a:'to hang',sub:'hat gehängt / gehangen',group:'Position pairs'},
+    // Everyday
+    {id:'kaufen',q:'kaufen',a:'to buy',sub:'hat gekauft',group:'Everyday'},
+    {id:'verkaufen',q:'verkaufen',a:'to sell',sub:'hat verkauft',group:'Everyday'},
+    {id:'bezahlen',q:'bezahlen',a:'to pay',sub:'hat bezahlt',group:'Everyday'},
+    {id:'bestellen',q:'bestellen',a:'to order',sub:'hat bestellt',group:'Everyday'},
+    {id:'essen',q:'essen',a:'to eat',sub:'hat gegessen',group:'Everyday'},
+    {id:'trinken',q:'trinken',a:'to drink',sub:'hat getrunken',group:'Everyday'},
+    {id:'schlafen',q:'schlafen',a:'to sleep',sub:'hat geschlafen',group:'Everyday'},
+    {id:'spielen',q:'spielen',a:'to play',sub:'hat gespielt',group:'Everyday'},
+    {id:'wohnen',q:'wohnen',a:'to live, reside',sub:'hat gewohnt',group:'Everyday'},
+    {id:'leben',q:'leben',a:'to live, be alive',sub:'hat gelebt',group:'Everyday'},
+    {id:'warten',q:'warten',a:'to wait',sub:'hat gewartet',group:'Everyday'},
+    {id:'treffen',q:'treffen',a:'to meet',sub:'hat getroffen',group:'Everyday'},
+    {id:'besuchen',q:'besuchen',a:'to visit',sub:'hat besucht',group:'Everyday'},
+    {id:'einladen',q:'einladen',a:'to invite',sub:'hat eingeladen',group:'Everyday'},
+    {id:'vergessen',q:'vergessen',a:'to forget',sub:'hat vergessen',group:'Everyday'},
+    {id:'öffnen',q:'öffnen',a:'to open',sub:'hat geöffnet',group:'Everyday'},
+    {id:'schließen',q:'schließen',a:'to close',sub:'hat geschlossen',group:'Everyday'},
+    {id:'beginnen',q:'beginnen',a:'to begin',sub:'hat begonnen',group:'Everyday'},
+    {id:'gewinnen',q:'gewinnen',a:'to win',sub:'hat gewonnen',group:'Everyday'},
+    {id:'verlieren',q:'verlieren',a:'to lose',sub:'hat verloren',group:'Everyday'},
+    {id:'entscheiden',q:'entscheiden',a:'to decide',sub:'hat entschieden',group:'Everyday'},
+    // Work & IT
+    {id:'arbeiten',q:'arbeiten',a:'to work',sub:'hat gearbeitet',group:'Work & IT'},
+    {id:'entwickeln',q:'entwickeln',a:'to develop',sub:'hat entwickelt',group:'Work & IT'},
+    {id:'speichern',q:'speichern',a:'to save (a file)',sub:'hat gespeichert',group:'Work & IT'},
+    {id:'löschen',q:'löschen',a:'to delete',sub:'hat gelöscht',group:'Work & IT'},
+    {id:'programmieren',q:'programmieren',a:'to program, code',sub:'hat programmiert',group:'Work & IT'},
+    {id:'testen',q:'testen',a:'to test',sub:'hat getestet',group:'Work & IT'},
+    {id:'ändern',q:'ändern',a:'to change',sub:'hat geändert',group:'Work & IT'},
+    {id:'verbessern',q:'verbessern',a:'to improve',sub:'hat verbessert',group:'Work & IT'}
+  ]
+});
+</script>
+</body>
+</html>
