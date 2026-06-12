@@ -71,6 +71,9 @@
 
   window.GAME=function(cfg){
     inject();
+    // Some games store the prompt word in `id` (e.g. the gender game) and omit `q`.
+    // Default q to id so nothing renders as "undefined".
+    cfg.items.forEach(it=>{ if(it.q==null) it.q=it.id; });
     const KEY='deutschgame:'+cfg.id;
     let boxes={};
     try{ boxes=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){ boxes={}; }
@@ -113,9 +116,15 @@
       '<div class="panel" id="panel"></div>'+
       (cfg.footer||'');
     const panel=document.getElementById('panel');
+    // Smooth progress: every correct answer advances a card's box, so the bar
+    // moves on each answer instead of only when a card is fully mastered.
+    function progressPct(){
+      let s=0; cfg.items.forEach(it=>{ s+=Math.min(box(it.id)-1,3); });
+      return cfg.items.length ? 100*s/(3*cfg.items.length) : 0;
+    }
     function refreshStats(){
       document.getElementById('mst').textContent=masteredCount();
-      document.getElementById('bar').style.width=(100*masteredCount()/cfg.items.length)+'%';
+      document.getElementById('bar').style.width=progressPct().toFixed(1)+'%';
     }
     document.getElementById('reset').onclick=e=>{e.preventDefault();
       if(confirm('Reset progress for this game?')){boxes={};save();refreshStats();render('flash');setTab('flash');}};
