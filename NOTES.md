@@ -15,6 +15,17 @@
 - Session length: **20–30 minutes** — and keep to it. **Lesson 0002 (40 items) took 40+ min — too long.**
   Future lessons: ~15–20 items max, or split a big topic across two lessons.
 
+## Language policy (decided)
+- **Lessons are written entirely in German** (full immersion), pitched at ~B1 so they stay
+  followable: explanations, instructions, headings, and quiz feedback all in German; example
+  sentences drop their English glosses. Each lesson should read like a German Lehrbuch.
+- **Workspace docs stay English**: MISSION, NOTES, RESOURCES, learning records, hub + cheat-sheet
+  chrome. GLOSSARY keeps German term names + English definitions.
+- Games' UI instructions stay English for now (study tools, not lessons).
+- Standard German instruction register: Ergänze…, Wähle…, Markiere…, Bestimme den Kasus…,
+  Richtig oder falsch?, Lies…, Stell deinem Lehrer Fragen…
+- Retrofit status: 01–05 to be converted; 06+ authored in German. (See LR-0006.)
+
 ## Spaced repetition (standing request)
 - The user is **still mixing up cases** (the weak spot), even though adjective endings are now strong
   (38/40). Keep recycling case + ending exercises "every now and then."
