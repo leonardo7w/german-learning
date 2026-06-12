@@ -43,8 +43,15 @@
 - Every lesson has **prev/next navigation** + "All lessons" (hub) link at the bottom, and a top Hub link.
 - File mentions are **real hyperlinks**, including to the **.md files** (Glossary.md, Mission.md) and
   the HTML cheat sheets — no more plain-text/`<code>` references.
-- The hub (index.html) has a **Workspace** section linking MISSION/GLOSSARY/RESOURCES .md files.
+- The hub (index.html) **Workspace** section links the rendered HTML docs (mission/glossary/resources.html).
 - New lessons open with a 3–4 question **case warm-up** (spaced repetition).
+
+## Rendered workspace docs (.md → .html)
+- `mission.html`, `glossary.html`, `resources.html` are **styled HTML renderings** of the matching
+  `.md` files, so they display nicely on GitHub Pages / mobile instead of as raw markdown.
+- The **`.md` files remain the source of truth** (the /teach workflow reads them). When a `.md`
+  changes, **regenerate its `.html` sibling** to keep them in sync. NOTES.md and learning-records/
+  are internal and intentionally NOT rendered.
 
 > Note on file numbering: lessons/0003 is the review drill, so the prepositions lesson is file 0004.
 > User refers to prepositions as "L3" verbally — the warm-up they want "in L4" = the NEXT teaching

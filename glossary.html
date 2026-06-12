@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>German Grammar Glossary</title>
+<style>
+  :root{ --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7; --accent:#1f5fb0; }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 70px;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.85rem; margin:.12em 0 .1em;}
+  .lead{color:var(--muted); margin:.2em 0 1.2em;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px; padding:14px 20px;
+    margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  h2{font-size:1.1rem; margin:.4em 0 .2em; color:var(--accent);}
+  .term{padding:12px 0; border-bottom:1px solid var(--line);}
+  .term:last-child{border-bottom:none;}
+  .term .name{font-weight:800; font-size:1.04rem;}
+  .term .def{margin:.25em 0 .15em;}
+  .term .avoid{font-size:.85rem; color:var(--muted);}
+  .term .avoid b{color:#b8521a; font-weight:700;}
+  .src{font-size:.85rem; color:var(--muted); margin-top:6px;}
+  footer{margin-top:24px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+  code{background:#eef0f7; padding:1px 5px; border-radius:4px; font-size:.9em;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="home" href="index.html">← Hub</a>
+  <div class="eyebrow">Workspace · canonical terms</div>
+  <h1>German Grammar Glossary</h1>
+  <p class="lead">Canonical terminology for this workspace. Terms are added only once they're used
+  correctly; all lessons adhere to these definitions. <span class="src">(Source of truth: <code>GLOSSARY.md</code>.)</span></p>
+
+  <div class="card">
+    <h2>Cases</h2>
+    <div class="term"><div class="name">Case (Kasus)</div>
+      <div class="def">The grammatical "job" a noun plays in a sentence. German has four, and the case
+      changes the article (and sometimes the noun/adjective ending) rather than the word order.</div>
+      <div class="avoid"><b>Avoid:</b> declension (that's the act of changing the forms, not the case itself).</div></div>
+    <div class="term"><div class="name">Nominative (Nominativ)</div>
+      <div class="def">The case of the subject — who or what does the action. Test question: <b>wer/was?</b></div>
+      <div class="avoid"><b>Avoid:</b> "the basic form" (every case is a real form).</div></div>
+    <div class="term"><div class="name">Accusative (Akkusativ)</div>
+      <div class="def">The case of the direct object — the thing directly acted upon. Test question: <b>wen/was?</b></div>
+      <div class="avoid"><b>Avoid:</b> "the object case" (dative is also an object case).</div></div>
+    <div class="term"><div class="name">Dative (Dativ)</div>
+      <div class="def">The case of the indirect object — the recipient/beneficiary. Test question: <b>wem?</b></div>
+      <div class="avoid"><b>Avoid:</b> "the giving case" (a useful hint, not a definition).</div></div>
+    <div class="term"><div class="name">Genitive (Genitiv)</div>
+      <div class="def">The case of possession/relation — "of the…". Test question: <b>wessen?</b></div>
+      <div class="avoid"><b>Avoid:</b> "the possessive" (English possessive ≠ German genitive scope).</div></div>
+    <div class="term"><div class="name">Definite article (bestimmter Artikel)</div>
+      <div class="def">der/die/das and their case forms — points to a specific, known noun ("the").</div></div>
+    <div class="term"><div class="name">Indefinite article (unbestimmter Artikel)</div>
+      <div class="def">ein/eine and their case forms — points to a non-specific noun ("a/an").</div></div>
+  </div>
+
+  <div class="card">
+    <h2>Adjective declension</h2>
+    <div class="term"><div class="name">The marker-once rule</div>
+      <div class="def">The gender/case signal (-r/-e/-s/-m/-n) must appear exactly once in a noun phrase —
+      on the article or the adjective, never both and never neither. This single rule generates all
+      three declension patterns below.</div></div>
+    <div class="term"><div class="name">Der-word</div>
+      <div class="def">A determiner that declines like der/die/das and so fully marks case + gender:
+      der, die, das, dieser, jeder, jener, welcher, alle, solche, manche, beide. Triggers
+      <b>weak</b> adjective endings.</div></div>
+    <div class="term"><div class="name">Ein-word</div>
+      <div class="def">A determiner from the ein/kein/possessive family (ein, kein, mein, dein, sein,
+      ihr, unser, euer, Ihr). It fails to mark masculine-nominative and neuter — so it triggers
+      <b>mixed</b> endings.</div></div>
+    <div class="term"><div class="name">Weak declension (schwache Deklination)</div>
+      <div class="def">Adjective endings after a der-word — only <b>-e</b> or <b>-en</b> (the article
+      carries the signal).</div>
+      <div class="avoid"><b>Avoid:</b> "definite-article endings".</div></div>
+    <div class="term"><div class="name">Mixed declension (gemischte Deklination)</div>
+      <div class="def">Adjective endings after an ein-word — weak endings, except three "gap" cells
+      (masc-Nom -er, neut-Nom/Akk -es) where the adjective patches what ein- can't show.</div></div>
+    <div class="term"><div class="name">Strong declension (starke Deklination)</div>
+      <div class="def">Adjective endings with no article — the adjective carries the full der/die/das
+      signal (e.g. guter, kaltes, gutem).</div>
+      <div class="avoid"><b>Avoid:</b> "no-article endings".</div></div>
+  </div>
+
+  <footer>
+    Related: <a href="reference/0001-case-system-cheatsheet.html">Cases sheet</a> ·
+    <a href="reference/0002-adjective-endings-cheatsheet.html">Endings sheet</a> ·
+    <a href="reference/0004-determiners-cheatsheet.html">Determiners sheet</a> ·
+    <a href="mission.html">Mission</a> · <a href="resources.html">Resources</a>
+  </footer>
+</div>
+</body>
+</html>
