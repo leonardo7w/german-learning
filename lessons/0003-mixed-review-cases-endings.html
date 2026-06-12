@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Mixed Review — Cases & Endings (repeatable)</title>
+<title>Gemischte Wiederholung — Fälle & Endungen (wiederholbar)</title>
 <style>
   :root{
     --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
@@ -53,98 +53,99 @@
 </head>
 <body>
 <div class="bar">
-  <span class="s">Round score: <b id="sc">0</b> / <span id="tot">0</span></span>
-  <button class="btn sec" id="newRound">↻ New round</button>
+  <span class="s">Runde: <b id="sc">0</b> / <span id="tot">0</span></span>
+  <button class="btn sec" id="newRound">↻ Neue Runde</button>
 </div>
 <div class="wrap">
   <a class="home" href="../index.html">← Hub</a>
-  <div class="eyebrow">Review · repeatable</div>
-  <h1>Mixed Review: Cases &amp; Endings</h1>
-  <p class="lead">A short, fresh 8-question drill each time — heavy on the cases you're still
-  shaking out, with adjective endings sprinkled in. Do it whenever; it reshuffles every round. ~5 min.</p>
+  <div class="eyebrow">Wiederholung · wiederholbar</div>
+  <h1>Gemischte Wiederholung: Fälle &amp; Endungen</h1>
+  <p class="lead">Jedes Mal eine frische Übung mit 8 Fragen — Schwerpunkt auf den Fällen, die noch
+  wackeln, mit ein paar Adjektivendungen dazwischen. Mach sie, wann du willst; sie mischt sich bei
+  jeder Runde neu. ~5 Min.</p>
 
   <div id="quiz"></div>
 
   <div id="summary"></div>
 
   <div class="ask">
-    💬 <b>Tell me your round score</b> in chat — especially which case traps still bite — and I'll
-    tune the next lesson. Refresh facts anytime:
-    <a href="../reference/0001-case-system-cheatsheet.html">cases cheat sheet</a> ·
-    <a href="../reference/0002-adjective-endings-cheatsheet.html">endings cheat sheet</a>.
+    💬 <b>Sag mir dein Rundenergebnis</b> im Chat — besonders, welche Kasus-Fallen noch zwicken — und
+    ich stimme die nächste Lektion ab. Fakten auffrischen:
+    <a href="../reference/0001-case-system-cheatsheet.html">Kasus-Spickzettel</a> ·
+    <a href="../reference/0002-adjective-endings-cheatsheet.html">Endungen-Spickzettel</a>.
   </div>
 
   <nav style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:28px 0 4px;padding-top:16px;border-top:1px solid #e6e9f2;font-size:.92rem;font-weight:600;">
-    <a href="0002-adjective-endings.html" style="color:#1f5fb0;text-decoration:none;">← Adjective Endings</a>
-    <a href="../index.html" style="color:#5b6172;text-decoration:none;">⌂ All lessons</a>
-    <a href="0004-prepositions-and-cases.html" style="color:#1f5fb0;text-decoration:none;">Prepositions →</a>
+    <a href="0002-adjective-endings.html" style="color:#1f5fb0;text-decoration:none;">← Adjektivendungen</a>
+    <a href="../index.html" style="color:#5b6172;text-decoration:none;">⌂ Alle Lektionen</a>
+    <a href="0004-prepositions-and-cases.html" style="color:#1f5fb0;text-decoration:none;">Präpositionen →</a>
   </nav>
   <p style="text-align:center;font-size:.85rem;color:#5b6172;margin:8px 0 0;">📎
-    <a href="../glossary.html">Glossary</a> · <a href="../mission.html">Mission</a></p>
+    <a href="../glossary.html">Glossar</a> · <a href="../mission.html">Mission</a></p>
 
-  <footer>Spaced-repetition drill · German for living &amp; working in Zurich.</footer>
+  <footer>Wiederholungsübung mit Wiederholungsabstand · Deutsch für Leben &amp; Arbeit in Zürich.</footer>
 </div>
 
 <script>
-// ---- Question pool (cases-heavy + some endings). Each: {tag, prompt, options:[{label,correct}], explain} ----
+// ---- Fragenpool (viele Fälle + ein paar Endungen). Je: {tag, prompt, o:[[label,correct]], e} ----
 const POOL=[
- // case identification
- {tag:'Which case?',prompt:'Sie hilft <b>dem Kind</b>.',o:[['Nominative',0],['Accusative',0],['Dative',1],['Genitive',0]],
-  e:'<b>Dative.</b> "helfen" always takes the dative — wem? → dem Kind.'},
- {tag:'Which case?',prompt:'Ich kaufe <b>den Apfel</b>.',o:[['Nominative',0],['Accusative',1],['Dative',0],['Genitive',0]],
-  e:'<b>Accusative.</b> Direct object — wen/was? → den Apfel.'},
- {tag:'Which case?',prompt:'<b>Der Zug</b> kommt zu spät.',o:[['Nominative',1],['Accusative',0],['Dative',0],['Genitive',0]],
-  e:'<b>Nominative.</b> The subject — wer/was kommt? → der Zug.'},
- {tag:'Which case?',prompt:'Das ist das Auto <b>des Chefs</b>.',o:[['Nominative',0],['Accusative',0],['Dative',0],['Genitive',1]],
-  e:'<b>Genitive.</b> Possession — wessen Auto? → des Chefs.'},
- {tag:'Which case?',prompt:'Er gibt <b>der Frau</b> einen Tipp.',o:[['Nominative',0],['Accusative',0],['Dative',1],['Genitive',0]],
-  e:'<b>Dative.</b> The recipient of "geben" — wem? → der Frau.'},
- // article choice
- {tag:'Choose the article',prompt:'Ich danke ___ Lehrer. <span class="ctx">(masc · danken)</span>',o:[['der',0],['den',0],['dem',1]],
-  e:'"danken" + <b>Dative</b> → dem Lehrer.'},
- {tag:'Choose the article',prompt:'Wir fahren mit ___ Bus. <span class="ctx">(masc · mit)</span>',o:[['der',0],['den',0],['dem',1]],
-  e:'"mit" → Dative → <b>dem</b> Bus.'},
- {tag:'Choose the article',prompt:'Er kauft ___ Apfel. <span class="ctx">(masc · direct object)</span>',o:[['der',0],['den',1],['dem',0]],
-  e:'Accusative masc → <b>den</b> Apfel.'},
- {tag:'Choose the article',prompt:'Ich kaufe Futter für ___ Hund. <span class="ctx">(masc · für)</span>',o:[['der',0],['den',1],['dem',0]],
-  e:'"für" → Accusative → <b>den</b> Hund.'},
- {tag:'Choose the article',prompt:'___ Termin ist um neun. <span class="ctx">(masc · subject)</span>',o:[['Der',1],['Den',0],['Dem',0]],
-  e:'Subject → Nominative → <b>Der</b> Termin.'},
- {tag:'Choose the article',prompt:'Ich arbeite bei ___ Firma. <span class="ctx">(fem · bei)</span>',o:[['die',0],['der',1],['den',0]],
-  e:'"bei" → Dative; feminine dative → <b>der</b> Firma.'},
- {tag:'Choose the article',prompt:'Wir gehen in ___ Büro. <span class="ctx">(neut · motion → where to?)</span>',o:[['das',1],['dem',0],['des',0]],
-  e:'"in" + motion → Accusative; neuter Akk → <b>das</b> Büro.'},
- {tag:'Choose the article',prompt:'Der Laptop liegt auf ___ Tisch. <span class="ctx">(masc · location → where?)</span>',o:[['den',0],['dem',1],['der',0]],
-  e:'"auf" + location → Dative; masc dat → <b>dem</b> Tisch.'},
- // dative-verb correct/wrong
- {tag:'Correct or wrong?',prompt:'„Ich helfe den Mann."',o:[['✅ Correct',0],['❌ Wrong',1]],
-  e:'<b>Wrong.</b> "helfen" + Dative → <b>dem</b> Mann.'},
- {tag:'Correct or wrong?',prompt:'„Das gefällt dem Chef."',o:[['✅ Correct',1],['❌ Wrong',0]],
-  e:'<b>Correct.</b> "gefallen" + Dative → dem Chef.'},
- {tag:'Correct or wrong?',prompt:'„Sie dankt den Kollegen." <span class="ctx">(meaning: one colleague)</span>',o:[['✅ Correct',0],['❌ Wrong',1]],
-  e:'<b>Wrong.</b> "danken" + Dative → <b>dem</b> Kollegen.'},
- {tag:'Correct or wrong?',prompt:'„Ich folge der Anleitung."',o:[['✅ Correct',1],['❌ Wrong',0]],
-  e:'<b>Correct.</b> "folgen" + Dative; feminine dat → der Anleitung.'},
- // adjective endings (kept fresh)
- {tag:'Ending',prompt:'ein erfahren__ Entwickler <span class="ctx">(mixed · nom masc)</span>',o:[['-e',0],['-en',0],['-er',1]],
-  e:'Mixed gap → adjective takes <b>-er</b>: ein erfahren<b>er</b> Entwickler.'},
- {tag:'Ending',prompt:'mit dem neu__ Framework <span class="ctx">(weak · dat)</span>',o:[['-e',0],['-en',1],['-em',0]],
-  e:'After "dem" (der-word) → weak, Dat → <b>-en</b>.'},
- {tag:'Ending',prompt:'gut__ Kaffee weckt mich. <span class="ctx">(strong · nom masc)</span>',o:[['-e',0],['-er',1],['-en',0]],
-  e:'No article → strong; nom masc → <b>-er</b>: gut<b>er</b> Kaffee.'},
- {tag:'Ending',prompt:'Ich suche eine neu__ Stelle. <span class="ctx">(mixed · akk fem)</span>',o:[['-e',1],['-en',0],['-er',0]],
-  e:'Mixed, fem Akk → <b>-e</b>: eine neu<b>e</b> Stelle.'},
- {tag:'Ending',prompt:'bei schön__ Wetter <span class="ctx">(strong · dat neut)</span>',o:[['-e',0],['-en',0],['-em',1]],
-  e:'"bei"→Dat, no article→strong; neut dat → <b>-em</b>: schön<b>em</b> Wetter.'},
- // determiner + adjective combos (the load that tripped Lesson 05)
- {tag:'Determiner + ending',prompt:'dieser neu__ Kollege <span class="ctx">(der-word → weak · nom masc)</span>',o:[['-e',1],['-en',0],['-er',0]],
-  e:'der-word → WEAK; nom masc → <b>-e</b>: dieser neu<b>e</b> Kollege.'},
- {tag:'Determiner + ending',prompt:'mein neu__ Laptop <span class="ctx">(ein-word → mixed · nom masc)</span>',o:[['-e',0],['-en',0],['-er',1]],
-  e:'ein-word → MIXED gap; nom masc → <b>-er</b>: mein neu<b>er</b> Laptop.'},
- {tag:'Determiner + ending',prompt:'alle neu__ Mitarbeiter <span class="ctx">(der-word → weak · nom plural)</span>',o:[['-e',0],['-en',1],['-er',0]],
-  e:'der-word → WEAK plural → <b>-en</b>: alle neu<b>en</b> Mitarbeiter.'},
- {tag:'Determiner + ending',prompt:'kein gut__ Argument <span class="ctx">(ein-word → mixed · nom neut)</span>',o:[['-e',0],['-es',1],['-en',0]],
-  e:'ein-word → MIXED gap; neut → <b>-es</b>: kein gut<b>es</b> Argument.'}
+ // Kasus bestimmen
+ {tag:'Welcher Fall?',prompt:'Sie hilft <b>dem Kind</b>.',o:[['Nominativ',0],['Akkusativ',0],['Dativ',1],['Genitiv',0]],
+  e:'<b>Dativ.</b> „helfen" steht immer mit dem Dativ — wem? → dem Kind.'},
+ {tag:'Welcher Fall?',prompt:'Ich kaufe <b>den Apfel</b>.',o:[['Nominativ',0],['Akkusativ',1],['Dativ',0],['Genitiv',0]],
+  e:'<b>Akkusativ.</b> Direktes Objekt — wen/was? → den Apfel.'},
+ {tag:'Welcher Fall?',prompt:'<b>Der Zug</b> kommt zu spät.',o:[['Nominativ',1],['Akkusativ',0],['Dativ',0],['Genitiv',0]],
+  e:'<b>Nominativ.</b> Das Subjekt — wer/was kommt? → der Zug.'},
+ {tag:'Welcher Fall?',prompt:'Das ist das Auto <b>des Chefs</b>.',o:[['Nominativ',0],['Akkusativ',0],['Dativ',0],['Genitiv',1]],
+  e:'<b>Genitiv.</b> Besitz — wessen Auto? → des Chefs.'},
+ {tag:'Welcher Fall?',prompt:'Er gibt <b>der Frau</b> einen Tipp.',o:[['Nominativ',0],['Akkusativ',0],['Dativ',1],['Genitiv',0]],
+  e:'<b>Dativ.</b> Der Empfänger bei „geben" — wem? → der Frau.'},
+ // Artikel wählen
+ {tag:'Wähle den Artikel',prompt:'Ich danke ___ Lehrer. <span class="ctx">(mask · danken)</span>',o:[['der',0],['den',0],['dem',1]],
+  e:'„danken" + <b>Dativ</b> → dem Lehrer.'},
+ {tag:'Wähle den Artikel',prompt:'Wir fahren mit ___ Bus. <span class="ctx">(mask · mit)</span>',o:[['der',0],['den',0],['dem',1]],
+  e:'„mit" → Dativ → <b>dem</b> Bus.'},
+ {tag:'Wähle den Artikel',prompt:'Er kauft ___ Apfel. <span class="ctx">(mask · direktes Objekt)</span>',o:[['der',0],['den',1],['dem',0]],
+  e:'Akkusativ mask → <b>den</b> Apfel.'},
+ {tag:'Wähle den Artikel',prompt:'Ich kaufe Futter für ___ Hund. <span class="ctx">(mask · für)</span>',o:[['der',0],['den',1],['dem',0]],
+  e:'„für" → Akkusativ → <b>den</b> Hund.'},
+ {tag:'Wähle den Artikel',prompt:'___ Termin ist um neun. <span class="ctx">(mask · Subjekt)</span>',o:[['Der',1],['Den',0],['Dem',0]],
+  e:'Subjekt → Nominativ → <b>Der</b> Termin.'},
+ {tag:'Wähle den Artikel',prompt:'Ich arbeite bei ___ Firma. <span class="ctx">(fem · bei)</span>',o:[['die',0],['der',1],['den',0]],
+  e:'„bei" → Dativ; feminin Dativ → <b>der</b> Firma.'},
+ {tag:'Wähle den Artikel',prompt:'Wir gehen in ___ Büro. <span class="ctx">(neutr · Richtung → wohin?)</span>',o:[['das',1],['dem',0],['des',0]],
+  e:'„in" + Richtung → Akkusativ; neutrum Akk → <b>das</b> Büro.'},
+ {tag:'Wähle den Artikel',prompt:'Der Laptop liegt auf ___ Tisch. <span class="ctx">(mask · Ort → wo?)</span>',o:[['den',0],['dem',1],['der',0]],
+  e:'„auf" + Ort → Dativ; mask Dativ → <b>dem</b> Tisch.'},
+ // Dativ-Verben richtig/falsch
+ {tag:'Richtig oder falsch?',prompt:'„Ich helfe den Mann."',o:[['✅ Richtig',0],['❌ Falsch',1]],
+  e:'<b>Falsch.</b> „helfen" + Dativ → <b>dem</b> Mann.'},
+ {tag:'Richtig oder falsch?',prompt:'„Das gefällt dem Chef."',o:[['✅ Richtig',1],['❌ Falsch',0]],
+  e:'<b>Richtig.</b> „gefallen" + Dativ → dem Chef.'},
+ {tag:'Richtig oder falsch?',prompt:'„Sie dankt den Kollegen." <span class="ctx">(gemeint: ein Kollege)</span>',o:[['✅ Richtig',0],['❌ Falsch',1]],
+  e:'<b>Falsch.</b> „danken" + Dativ → <b>dem</b> Kollegen.'},
+ {tag:'Richtig oder falsch?',prompt:'„Ich folge der Anleitung."',o:[['✅ Richtig',1],['❌ Falsch',0]],
+  e:'<b>Richtig.</b> „folgen" + Dativ; feminin Dativ → der Anleitung.'},
+ // Adjektivendungen (frisch halten)
+ {tag:'Endung',prompt:'ein erfahren__ Entwickler <span class="ctx">(gemischt · Nom mask)</span>',o:[['-e',0],['-en',0],['-er',1]],
+  e:'Gemischte Lücke → Adjektiv nimmt <b>-er</b>: ein erfahren<b>er</b> Entwickler.'},
+ {tag:'Endung',prompt:'mit dem neu__ Framework <span class="ctx">(schwach · Dat)</span>',o:[['-e',0],['-en',1],['-em',0]],
+  e:'Nach „dem" (der-Wort) → schwach, Dat → <b>-en</b>.'},
+ {tag:'Endung',prompt:'gut__ Kaffee weckt mich. <span class="ctx">(stark · Nom mask)</span>',o:[['-e',0],['-er',1],['-en',0]],
+  e:'Ohne Artikel → stark; Nom mask → <b>-er</b>: gut<b>er</b> Kaffee.'},
+ {tag:'Endung',prompt:'Ich suche eine neu__ Stelle. <span class="ctx">(gemischt · Akk fem)</span>',o:[['-e',1],['-en',0],['-er',0]],
+  e:'Gemischt, fem Akk → <b>-e</b>: eine neu<b>e</b> Stelle.'},
+ {tag:'Endung',prompt:'bei schön__ Wetter <span class="ctx">(stark · Dat neutr)</span>',o:[['-e',0],['-en',0],['-em',1]],
+  e:'„bei"→Dat, ohne Artikel→stark; neutr Dat → <b>-em</b>: schön<b>em</b> Wetter.'},
+ // Artikelwort + Adjektiv (die Last aus Lektion 05)
+ {tag:'Artikelwort + Endung',prompt:'dieser neu__ Kollege <span class="ctx">(der-Wort → schwach · Nom mask)</span>',o:[['-e',1],['-en',0],['-er',0]],
+  e:'der-Wort → SCHWACH; Nom mask → <b>-e</b>: dieser neu<b>e</b> Kollege.'},
+ {tag:'Artikelwort + Endung',prompt:'mein neu__ Laptop <span class="ctx">(ein-Wort → gemischt · Nom mask)</span>',o:[['-e',0],['-en',0],['-er',1]],
+  e:'ein-Wort → GEMISCHTe Lücke; Nom mask → <b>-er</b>: mein neu<b>er</b> Laptop.'},
+ {tag:'Artikelwort + Endung',prompt:'alle neu__ Mitarbeiter <span class="ctx">(der-Wort → schwach · Nom Plural)</span>',o:[['-e',0],['-en',1],['-er',0]],
+  e:'der-Wort → SCHWACH Plural → <b>-en</b>: alle neu<b>en</b> Mitarbeiter.'},
+ {tag:'Artikelwort + Endung',prompt:'kein gut__ Argument <span class="ctx">(ein-Wort → gemischt · Nom neutr)</span>',o:[['-e',0],['-es',1],['-en',0]],
+  e:'ein-Wort → GEMISCHTe Lücke; neutr → <b>-es</b>: kein gut<b>es</b> Argument.'}
 ];
 
 const ROUND=8;
@@ -187,12 +188,12 @@ function makeQ(q){
 }
 function showSummary(){
   const p=score/total;
-  let rk = p>=.9?'🏆 Sharp — cases are clicking':
-           p>=.7?'💪 Good — a couple of traps left':
-           p>=.5?'📈 Getting there — review the misses':'🌱 Worth another round';
+  let rk = p>=.9?'🏆 Stark — die Fälle sitzen':
+           p>=.7?'💪 Gut — ein paar Fallen noch':
+           p>=.5?'📈 Auf gutem Weg — schau die Fehler an':'🌱 Noch eine Runde lohnt sich';
   summary.innerHTML='<div class="card done"><div class="big">'+score+' / '+total+'</div>'+
     '<div class="rk">'+rk+'</div>'+
-    '<button class="btn" onclick="render();window.scrollTo({top:0,behavior:\'smooth\'})">↻ New round (fresh questions)</button></div>';
+    '<button class="btn" onclick="render();window.scrollTo({top:0,behavior:\'smooth\'})">↻ Neue Runde (frische Fragen)</button></div>';
 }
 document.getElementById('newRound').onclick=()=>{render();window.scrollTo({top:0,behavior:'smooth'});};
 render();
