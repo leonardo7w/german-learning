@@ -27,6 +27,9 @@
 - Lesson 0001 (cases): not reported.
 - Lesson 0002 (adjective endings): **38/40** — near mastery of declension; residual errors are
   case-selection, not endings.
+- Lesson 0004 (prepositions): **27/28** — prepositions + two-way Wohin/Wo solid; no longer a
+  case-error source. Residual case risk = dative-verbs + bare case ID.
+- Lesson 0005 (determiners): in progress.
 
 ## Teaching sequence (working plan, revise freely)
 1. ✅ The four cases + article system (keystone) — Lesson 0001.
