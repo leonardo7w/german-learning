@@ -48,8 +48,12 @@
 
 ## Vocabulary games (`games/`) — growing collection
 - Shared Leitner SRS engine (`games/engine.js`); progress saved per-game in browser localStorage.
-- Games so far: **gender.html** (~100 nouns: A1–B2 + IT), **verbs.html** (~75 verbs + Perfekt),
-  **verb-prepositions.html** (~40 verb+prep+case pairs). Arcade landing: `games/index.html`.
+- Games so far: **gender.html** (~100 nouns: A1–B2 + IT), **verbs.html** (~95 verbs + Perfekt/Präteritum),
+  **verb-prepositions.html** (~40 verb+prep+case pairs), **perfekt.html** (~75 verbs: haben/sein +
+  Partizip II + Präteritum, kind `aux`). Arcade landing: `games/index.html`.
+- Engine `kind`s supported: `gender`, `meaning`, `case`, `aux`. Adding a game = new data file on the
+  same engine. **Bump the `engine.js?v=N` query in every game file whenever engine.js changes**
+  (browsers cache it aggressively — this already caused a stale-"undefined" bug once).
 - **Enrich as we progress**: add industry/topic vocab, adjectives, connectors; add new games on the
   same engine (new data file → done). Linked from the hub "Games" section.
 - Modes per game: Flashcards (Leitner), Quiz (MC + instant feedback), Browse (study list).
@@ -62,8 +66,17 @@
    Used varied verbs (legen/liegen/stellen/stehen…) + a verb+preposition (feste Präp.) taster.
 4. ✅ Determiners: der-words & ein-words (dieser/jeder/welche/alle/kein/mein + the "eigen" trap) —
    Lesson 0005. First lesson to **open with a case warm-up** (convention now established).
-5. ← NEXT: Verb tenses — Perfekt vs Präteritum → Konjunktiv II → Passiv. (Open with case warm-up.)
-6. Connectors/fluency + topic vocabulary (software/IT, Behörden).
+5. ✅ Perfekt vs. Präteritum — Lektion 0006 (auf Deutsch, mit Kasus-Aufwärmen). Ref 0005 + neues
+   Spiel `games/perfekt.html`.
+6. ← NEXT candidates (in recommended order):
+   a. **Nebensätze & Wortstellung** (weil/dass/wenn/obwohl → Verb ans Ende; TeKaMoLo). Highest
+      leverage: word order was a flagged weak spot and it's the gateway to complex B2 sentences.
+   b. **Konjunktiv II** (wäre, hätte, könnte, würde) — politeness + hypotheticals; very high value
+      for Zurich workplace register ("Könnten Sie…", "Ich hätte eine Frage").
+   c. **Relativsätze** (der/die/das as relative pronouns) — recycles the case system hard.
+   d. **Passiv** (werden + Partizip II) — essential for technical/process German.
+   e. **Konnektoren & Flüssigkeit** (deshalb, trotzdem, allerdings…) — sounding natural.
+   f. **Fachwortschatz**: Softwarearchitektur-Deutsch, Meetings, Schweizer Behörden.
 
 ## Lesson UX conventions (added per user request)
 - Every lesson has **prev/next navigation** + "All lessons" (hub) link at the bottom, and a top Hub link.

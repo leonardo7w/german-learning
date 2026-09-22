@@ -7,7 +7,7 @@
 (function(){
   const CSS = `
   :root{--ink:#1a1a2e;--muted:#5b6172;--line:#e6e9f2;--bg:#fff;--page:#eef0f7;--accent:#1f5fb0;
-    --der:#1f5fb0;--die:#c0392b;--das:#1d7a46;--good:#1d7a46;--good-bg:#e7f5ec;--bad:#c0392b;--bad-bg:#fbeaea;--warm:#b8521a;}
+    --der:#1f5fb0;--die:#c0392b;--das:#1d7a46;--haben:#1d7a46;--sein:#b8521a;--good:#1d7a46;--good-bg:#e7f5ec;--bad:#c0392b;--bad-bg:#fbeaea;--warm:#b8521a;}
   *{box-sizing:border-box}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:var(--ink);background:var(--page);margin:0;line-height:1.6;-webkit-text-size-adjust:100%;}
@@ -35,6 +35,7 @@
   .fc .ex{color:var(--muted);font-style:italic;font-size:.9rem;margin-top:6px;}
   .art{font-weight:800;padding:1px 10px;border-radius:8px;color:#fff;}
   .art.der{background:var(--der)} .art.die{background:var(--die)} .art.das{background:var(--das)}
+  .art.haben{background:var(--haben)} .art.sein{background:var(--sein)}
   .fcbtns{display:flex;gap:8px;margin-top:12px;}
   .fcbtns button{flex:1;font:inherit;font-weight:700;cursor:pointer;border:1.5px solid var(--line);
     background:#fff;padding:11px;border-radius:10px;}
@@ -57,6 +58,7 @@
   .row-item{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:.95rem;}
   .row-item .a{font-weight:700;white-space:nowrap;}
   .row-item .a.der{color:var(--der)} .row-item .a.die{color:var(--die)} .row-item .a.das{color:var(--das)}
+  .row-item .a.haben{color:var(--haben)} .row-item .a.sein{color:var(--sein)}
   .legend{font-size:.82rem;color:var(--muted);margin:2px 0 12px;}
   .legend b.der{color:var(--der)} .legend b.die{color:var(--die)} .legend b.das{color:var(--das)}
   .note{background:#fffaf0;border-left:4px solid #e0a72e;padding:9px 13px;border-radius:6px;font-size:.9rem;margin-top:12px;}
@@ -94,11 +96,15 @@
         '<div class="en">'+it.en+'</div>'+(it.hint?'<div class="sub">'+it.hint+'</div>':'');
       if(cfg.kind==='case') return '<div class="en">+ '+it.a+'</div><div class="sub">'+it.en+'</div>'+
         (it.ex?'<div class="ex">'+it.ex+'</div>':'');
+      if(cfg.kind==='aux') return '<div class="en"><span class="art '+it.a+'">'+
+        (it.a==='haben'?'hat':'ist')+'</span> '+it.pp+'</div>'+
+        '<div class="sub">Präteritum: '+it.praet+'</div><div class="ex">'+it.en+'</div>';
       return '<div class="en">'+it.a+'</div>'+(it.sub?'<div class="sub">'+it.sub+'</div>':''); // meaning
     }
     function options(it){
       if(cfg.kind==='gender') return ['der','die','das'];
       if(cfg.kind==='case') return ['Akkusativ','Dativ'];
+      if(cfg.kind==='aux') return ['haben','sein'];
       return shuffle([it.a].concat(sample(cfg.items.map(x=>x.a),3,it.a))); // meaning
     }
 
@@ -165,14 +171,14 @@
           '</b> diese Runde.<br>'+masteredCount()+'/'+cfg.items.length+' gemeistert.<br><br>'+
           '<button class="opt" id="more">Nächste Runde →</button></div>';
           document.getElementById('more').onclick=()=>renderQuiz(); return; }
-        const it=cards[i], opts=options(it), gender=cfg.kind==='gender';
+        const it=cards[i], opts=options(it), gender=cfg.kind==='gender', tinted=gender||cfg.kind==='aux';
         panel.innerHTML='<div class="q-prompt">'+(gender?'__ '+it.q:it.q)+'</div>'+
           '<div class="opts '+(opts.length<=3?'row':'')+'" id="opts"></div>'+
           '<div class="fb" id="fb"></div><div class="counter">Frage '+(i+1)+' / '+cards.length+'</div>';
         const o=document.getElementById('opts'), fb=document.getElementById('fb'); let done=false;
         opts.forEach(opt=>{
           const b=document.createElement('button'); b.className='opt'; b.textContent=opt;
-          if(gender){ b.style.borderColor='var(--'+opt+')'; b.style.color='var(--'+opt+')'; }
+          if(tinted){ b.style.borderColor='var(--'+opt+')'; b.style.color='var(--'+opt+')'; }
           b.onclick=()=>{
             if(done)return; done=true;
             [...o.children].forEach(c=>c.disabled=true);
@@ -191,6 +197,8 @@
         if(cfg.kind==='gender') return (ok?'✓ ':'✗ ')+'<span class="art '+it.a+'">'+it.a+'</span> '+it.q+
           ' — '+it.en+(it.hint?' · '+it.hint:'');
         if(cfg.kind==='case') return (ok?'✓ ':'✗ ')+it.q+' + <b>'+it.a+'</b> — '+it.en;
+        if(cfg.kind==='aux') return (ok?'✓ ':'✗ ')+'<b>'+it.q+'</b> → '+(it.a==='haben'?'hat':'ist')+
+          ' '+it.pp+' · Prät. '+it.praet+' — '+it.en;
         return (ok?'✓ ':'✗ ')+'<b>'+it.q+'</b> = '+it.a+(it.sub?' · '+it.sub:'');
       }
       show();
@@ -200,6 +208,8 @@
       let html='';
       if(cfg.kind==='gender') html+='<div class="legend"><b class="der">der</b> = maskulin · '+
         '<b class="die">die</b> = feminin · <b class="das">das</b> = neutrum</div>';
+      if(cfg.kind==='aux') html+='<div class="legend"><b style="color:var(--haben)">haben</b> = die meisten Verben · '+
+        '<b style="color:var(--sein)">sein</b> = Bewegung A→B &amp; Zustandsänderung</div>';
       const groups={};
       cfg.items.forEach(it=>{ const g=it.group||'All'; (groups[g]=groups[g]||[]).push(it); });
       Object.keys(groups).forEach(g=>{
@@ -208,6 +218,8 @@
           let left,right;
           if(cfg.kind==='gender'){ left='<span class="a '+it.a+'">'+it.a+' '+it.q+'</span>'; right=it.en+(it.hint?' · '+it.hint:''); }
           else if(cfg.kind==='case'){ left='<span class="a">'+it.q+'</span>'; right='+ '+it.a+' — '+it.en; }
+          else if(cfg.kind==='aux'){ left='<span class="a '+it.a+'">'+it.q+'</span>';
+            right=(it.a==='haben'?'hat':'ist')+' '+it.pp+' · '+it.praet+' · '+it.en; }
           else { left='<span class="a">'+it.q+'</span>'; right=it.a+(it.sub?' · '+it.sub:''); }
           html+='<div class="row-item">'+left+'<span style="color:var(--muted);text-align:right">'+right+'</span></div>';
         });

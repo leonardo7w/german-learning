@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spiel — Perfekt & Präteritum</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="engine.js?v=4"></script>
+<script>
+GAME({
+  id:'perfekt', kind:'aux', tag:'Vergangenheit',
+  title:'Perfekt &amp; Präteritum',
+  subtitle:'haben oder sein? Wähle das Hilfsverb — die Karte zeigt dir Partizip II und Präteritum dazu.',
+  batch:20,
+  browseNote:'<b>sein</b> = Bewegung von A nach B (gehen, fahren) und Zustandsänderung (aufstehen, einschlafen), '+
+    'dazu sein, bleiben, passieren. <b>haben</b> = alles andere, besonders alle Verben mit Akkusativobjekt '+
+    'und alle reflexiven Verben. Denk dran: Verben auf <b>-ieren</b> und untrennbare Vorsilben (be-, ver-, er-, ent-) '+
+    'bekommen <u>kein</u> ge-.',
+  footer:'<nav class="gamenav"><a href="index.html">← Alle Spiele</a>'+
+    '<a href="../index.html">⌂ Hub</a><a href="verbs.html">Verb-Labor →</a></nav>'+
+    '<footer>Zu Lektion 06. Quelle: '+
+    '<a href="https://www.lingoda.com/blog/en/past-participle-german/">Lingoda — Partizip II</a>.</footer>',
+  items:[
+    // sein — Bewegung
+    {id:'gehen',q:'gehen',a:'sein',pp:'gegangen',praet:'ging',en:'to go, walk',group:'sein · Bewegung'},
+    {id:'kommen',q:'kommen',a:'sein',pp:'gekommen',praet:'kam',en:'to come',group:'sein · Bewegung'},
+    {id:'fahren',q:'fahren',a:'sein',pp:'gefahren',praet:'fuhr',en:'to drive, travel',group:'sein · Bewegung'},
+    {id:'fliegen',q:'fliegen',a:'sein',pp:'geflogen',praet:'flog',en:'to fly',group:'sein · Bewegung'},
+    {id:'laufen',q:'laufen',a:'sein',pp:'gelaufen',praet:'lief',en:'to run, walk',group:'sein · Bewegung'},
+    {id:'reisen',q:'reisen',a:'sein',pp:'gereist',praet:'reiste',en:'to travel',group:'sein · Bewegung'},
+    {id:'steigen',q:'steigen',a:'sein',pp:'gestiegen',praet:'stieg',en:'to climb, rise',group:'sein · Bewegung'},
+    {id:'springen',q:'springen',a:'sein',pp:'gesprungen',praet:'sprang',en:'to jump',group:'sein · Bewegung'},
+    {id:'fallen',q:'fallen',a:'sein',pp:'gefallen',praet:'fiel',en:'to fall',group:'sein · Bewegung'},
+    {id:'ankommen',q:'ankommen',a:'sein',pp:'angekommen',praet:'kam an',en:'to arrive',group:'sein · Bewegung'},
+    {id:'umziehen',q:'umziehen',a:'sein',pp:'umgezogen',praet:'zog um',en:'to move house',group:'sein · Bewegung'},
+    // sein — Zustandsänderung & Sonderfälle
+    {id:'aufstehen',q:'aufstehen',a:'sein',pp:'aufgestanden',praet:'stand auf',en:'to get up',group:'sein · Zustand'},
+    {id:'einschlafen',q:'einschlafen',a:'sein',pp:'eingeschlafen',praet:'schlief ein',en:'to fall asleep',group:'sein · Zustand'},
+    {id:'aufwachen',q:'aufwachen',a:'sein',pp:'aufgewacht',praet:'wachte auf',en:'to wake up',group:'sein · Zustand'},
+    {id:'werden',q:'werden',a:'sein',pp:'geworden',praet:'wurde',en:'to become',group:'sein · Zustand'},
+    {id:'wachsen',q:'wachsen',a:'sein',pp:'gewachsen',praet:'wuchs',en:'to grow',group:'sein · Zustand'},
+    {id:'sterben',q:'sterben',a:'sein',pp:'gestorben',praet:'starb',en:'to die',group:'sein · Zustand'},
+    {id:'seinv',q:'sein',a:'sein',pp:'gewesen',praet:'war',en:'to be — beim Sprechen: war!',group:'sein · Zustand'},
+    {id:'bleiben',q:'bleiben',a:'sein',pp:'geblieben',praet:'blieb',en:'to stay',group:'sein · Zustand'},
+    {id:'passieren',q:'passieren',a:'sein',pp:'passiert',praet:'passierte',en:'to happen',group:'sein · Zustand'},
+    // haben — Alltag
+    {id:'habenv',q:'haben',a:'haben',pp:'gehabt',praet:'hatte',en:'to have — beim Sprechen: hatte!',group:'haben · Alltag'},
+    {id:'machen',q:'machen',a:'haben',pp:'gemacht',praet:'machte',en:'to do, make',group:'haben · Alltag'},
+    {id:'sagen',q:'sagen',a:'haben',pp:'gesagt',praet:'sagte',en:'to say',group:'haben · Alltag'},
+    {id:'sehen',q:'sehen',a:'haben',pp:'gesehen',praet:'sah',en:'to see',group:'haben · Alltag'},
+    {id:'geben',q:'geben',a:'haben',pp:'gegeben',praet:'gab',en:'to give',group:'haben · Alltag'},
+    {id:'nehmen',q:'nehmen',a:'haben',pp:'genommen',praet:'nahm',en:'to take',group:'haben · Alltag'},
+    {id:'finden',q:'finden',a:'haben',pp:'gefunden',praet:'fand',en:'to find',group:'haben · Alltag'},
+    {id:'denken',q:'denken',a:'haben',pp:'gedacht',praet:'dachte',en:'to think',group:'haben · Alltag'},
+    {id:'wissen',q:'wissen',a:'haben',pp:'gewusst',praet:'wusste',en:'to know (a fact)',group:'haben · Alltag'},
+    {id:'kennen',q:'kennen',a:'haben',pp:'gekannt',praet:'kannte',en:'to know (a person)',group:'haben · Alltag'},
+    {id:'lesen',q:'lesen',a:'haben',pp:'gelesen',praet:'las',en:'to read',group:'haben · Alltag'},
+    {id:'schreiben',q:'schreiben',a:'haben',pp:'geschrieben',praet:'schrieb',en:'to write',group:'haben · Alltag'},
+    {id:'sprechen',q:'sprechen',a:'haben',pp:'gesprochen',praet:'sprach',en:'to speak',group:'haben · Alltag'},
+    {id:'essen',q:'essen',a:'haben',pp:'gegessen',praet:'aß',en:'to eat',group:'haben · Alltag'},
+    {id:'trinken',q:'trinken',a:'haben',pp:'getrunken',praet:'trank',en:'to drink',group:'haben · Alltag'},
+    {id:'schlafen',q:'schlafen',a:'haben',pp:'geschlafen',praet:'schlief',en:'to sleep',group:'haben · Alltag'},
+    {id:'kaufen',q:'kaufen',a:'haben',pp:'gekauft',praet:'kaufte',en:'to buy',group:'haben · Alltag'},
+    {id:'bringen',q:'bringen',a:'haben',pp:'gebracht',praet:'brachte',en:'to bring',group:'haben · Alltag'},
+    {id:'helfen',q:'helfen',a:'haben',pp:'geholfen',praet:'half',en:'to help (+Dat)',group:'haben · Alltag'},
+    {id:'warten',q:'warten',a:'haben',pp:'gewartet',praet:'wartete',en:'to wait',group:'haben · Alltag'},
+    {id:'treffen',q:'treffen',a:'haben',pp:'getroffen',praet:'traf',en:'to meet',group:'haben · Alltag'},
+    {id:'vergessen',q:'vergessen',a:'haben',pp:'vergessen',praet:'vergaß',en:'to forget — kein ge-!',group:'haben · Alltag'},
+    {id:'verlieren',q:'verlieren',a:'haben',pp:'verloren',praet:'verlor',en:'to lose',group:'haben · Alltag'},
+    {id:'gewinnen',q:'gewinnen',a:'haben',pp:'gewonnen',praet:'gewann',en:'to win',group:'haben · Alltag'},
+    {id:'beginnen',q:'beginnen',a:'haben',pp:'begonnen',praet:'begann',en:'to begin',group:'haben · Alltag'},
+    {id:'verstehen',q:'verstehen',a:'haben',pp:'verstanden',praet:'verstand',en:'to understand — kein ge-!',group:'haben · Alltag'},
+    {id:'besuchen',q:'besuchen',a:'haben',pp:'besucht',praet:'besuchte',en:'to visit — kein ge-!',group:'haben · Alltag'},
+    {id:'bezahlen',q:'bezahlen',a:'haben',pp:'bezahlt',praet:'bezahlte',en:'to pay',group:'haben · Alltag'},
+    {id:'bekommen',q:'bekommen',a:'haben',pp:'bekommen',praet:'bekam',en:'to receive',group:'haben · Alltag'},
+    {id:'erklaeren',q:'erklären',a:'haben',pp:'erklärt',praet:'erklärte',en:'to explain',group:'haben · Alltag'},
+    {id:'einladen',q:'einladen',a:'haben',pp:'eingeladen',praet:'lud ein',en:'to invite',group:'haben · Alltag'},
+    {id:'anrufen',q:'anrufen',a:'haben',pp:'angerufen',praet:'rief an',en:'to call (phone)',group:'haben · Alltag'},
+    {id:'anfangen',q:'anfangen',a:'haben',pp:'angefangen',praet:'fing an',en:'to start',group:'haben · Alltag'},
+    // Arbeit & IT
+    {id:'arbeiten',q:'arbeiten',a:'haben',pp:'gearbeitet',praet:'arbeitete',en:'to work',group:'Arbeit & IT'},
+    {id:'programmieren',q:'programmieren',a:'haben',pp:'programmiert',praet:'programmierte',en:'to program — kein ge-!',group:'Arbeit & IT'},
+    {id:'telefonieren',q:'telefonieren',a:'haben',pp:'telefoniert',praet:'telefonierte',en:'to phone — kein ge-!',group:'Arbeit & IT'},
+    {id:'diskutieren',q:'diskutieren',a:'haben',pp:'diskutiert',praet:'diskutierte',en:'to discuss',group:'Arbeit & IT'},
+    {id:'organisieren',q:'organisieren',a:'haben',pp:'organisiert',praet:'organisierte',en:'to organise',group:'Arbeit & IT'},
+    {id:'installieren',q:'installieren',a:'haben',pp:'installiert',praet:'installierte',en:'to install',group:'Arbeit & IT'},
+    {id:'funktionieren',q:'funktionieren',a:'haben',pp:'funktioniert',praet:'funktionierte',en:'to work, function',group:'Arbeit & IT'},
+    {id:'loesen',q:'lösen',a:'haben',pp:'gelöst',praet:'löste',en:'to solve',group:'Arbeit & IT'},
+    {id:'testen',q:'testen',a:'haben',pp:'getestet',praet:'testete',en:'to test',group:'Arbeit & IT'},
+    {id:'speichern',q:'speichern',a:'haben',pp:'gespeichert',praet:'speicherte',en:'to save (a file)',group:'Arbeit & IT'},
+    {id:'loeschen',q:'löschen',a:'haben',pp:'gelöscht',praet:'löschte',en:'to delete',group:'Arbeit & IT'},
+    {id:'entwickeln',q:'entwickeln',a:'haben',pp:'entwickelt',praet:'entwickelte',en:'to develop — kein ge-!',group:'Arbeit & IT'},
+    {id:'beheben',q:'beheben',a:'haben',pp:'behoben',praet:'behob',en:'to fix (a bug) — kein ge-!',group:'Arbeit & IT'},
+    {id:'pruefen',q:'prüfen',a:'haben',pp:'geprüft',praet:'prüfte',en:'to check',group:'Arbeit & IT'},
+    {id:'verschieben',q:'verschieben',a:'haben',pp:'verschoben',praet:'verschob',en:'to postpone',group:'Arbeit & IT'},
+    {id:'absagen',q:'absagen',a:'haben',pp:'abgesagt',praet:'sagte ab',en:'to cancel',group:'Arbeit & IT'},
+    {id:'vorbereiten',q:'vorbereiten',a:'haben',pp:'vorbereitet',praet:'bereitete vor',en:'to prepare',group:'Arbeit & IT'},
+    {id:'erstellen',q:'erstellen',a:'haben',pp:'erstellt',praet:'erstellte',en:'to create',group:'Arbeit & IT'},
+    {id:'einfuehren',q:'einführen',a:'haben',pp:'eingeführt',praet:'führte ein',en:'to introduce',group:'Arbeit & IT'},
+    {id:'teilnehmen',q:'teilnehmen',a:'haben',pp:'teilgenommen',praet:'nahm teil',en:'to take part',group:'Arbeit & IT'},
+    // Modalverben — im Gespräch fast immer Präteritum
+    {id:'koennen',q:'können',a:'haben',pp:'gekonnt',praet:'konnte',en:'can, to be able — sag: konnte',group:'Modalverben'},
+    {id:'muessen',q:'müssen',a:'haben',pp:'gemusst',praet:'musste',en:'must, to have to — sag: musste',group:'Modalverben'},
+    {id:'wollen',q:'wollen',a:'haben',pp:'gewollt',praet:'wollte',en:'to want — sag: wollte',group:'Modalverben'},
+    {id:'sollen',q:'sollen',a:'haben',pp:'gesollt',praet:'sollte',en:'should — sag: sollte',group:'Modalverben'},
+    {id:'duerfen',q:'dürfen',a:'haben',pp:'gedurft',praet:'durfte',en:'may, to be allowed — sag: durfte',group:'Modalverben'}
+  ]
+});
+</script>
+</body>
+</html>

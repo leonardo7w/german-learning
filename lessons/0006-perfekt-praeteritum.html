@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lektion 6 — Perfekt & Präteritum</title>
+<style>
+  :root{
+    --ink:#1a1a2e; --muted:#5b6172; --line:#e6e9f2; --bg:#ffffff; --page:#eef0f7;
+    --perf:#1f5fb0; --prat:#7a3aa6; --perf-bg:#e7f0fb; --prat-bg:#f2e9fa;
+    --haben:#1d7a46; --sein:#b8521a;
+    --accent:#1f5fb0; --warm:#b8521a; --good:#1d7a46; --good-bg:#e7f5ec; --bad:#c0392b; --bad-bg:#fbeaea;
+  }
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--page); margin:0; line-height:1.6; -webkit-text-size-adjust:100%;}
+  .wrap{max-width:760px; margin:0 auto; padding:22px 18px 80px;}
+  .home{display:inline-block; margin-bottom:6px; font-size:.85rem; color:var(--accent); text-decoration:none;}
+  .eyebrow{color:var(--accent); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.74rem;}
+  h1{font-size:1.9rem; margin:.12em 0 .1em; line-height:1.15;}
+  .lead{color:var(--muted); font-size:1.05rem; margin:.2em 0 0;}
+  .card{background:var(--bg); border:1px solid var(--line); border-radius:14px;
+    padding:20px 22px; margin:16px 0; box-shadow:0 2px 14px rgba(20,24,50,.04);}
+  .warmup{border:1px dashed var(--warm); background:#fdf6f0;}
+  h2{font-size:1.22rem; margin:.1em 0 .5em;}
+  h2 .n{display:inline-grid; place-items:center; min-width:1.7em; height:1.7em; background:var(--accent);
+    color:#fff; border-radius:50%; font-size:.8rem; margin-right:.5em; vertical-align:middle; padding:0 .2em;}
+  h2.wu .n{background:var(--warm);}
+  h3{font-size:1.02rem; margin:1.05em 0 .3em;}
+  p{margin:.55em 0;}
+  .de{font-weight:600;} .en{color:var(--muted);}
+  .pill{display:inline-block; padding:1px 9px; border-radius:20px; font-size:.72rem; font-weight:800; color:#fff; vertical-align:middle;}
+  .pill.perf{background:var(--perf)} .pill.prat{background:var(--prat)}
+  .pill.haben{background:var(--haben)} .pill.sein{background:var(--sein)}
+  .grp{border-radius:10px; padding:12px 14px; margin:8px 0; border:1px solid var(--line);}
+  .grp.perf{background:var(--perf-bg)} .grp.prat{background:var(--prat-bg)}
+  .grp .words{font-weight:700; font-size:1.02rem; margin-top:3px;}
+  table{border-collapse:collapse; width:100%; margin:8px 0; font-size:.9rem;}
+  th,td{border:1px solid var(--line); padding:6px 9px; text-align:left;}
+  th{background:#f0f2f8; font-weight:700; text-align:center;}
+  .big-rule{font-size:1.04rem; text-align:center; padding:13px; background:linear-gradient(135deg,#eef4ff,#f6eefb);
+    border-radius:12px; border:1px solid #dbe6fb; margin:6px 0;}
+  .big-rule b{color:var(--accent);}
+  .klammer{text-align:center; font-size:1.1rem; margin:.7em 0; line-height:2;}
+  .klammer .k{background:#fff3c4; padding:2px 7px; border-radius:6px; font-weight:800;}
+  .tip{background:#fffaf0; border-left:4px solid #e0a72e; padding:10px 14px; border-radius:6px; font-size:.93rem;}
+  .q-block{margin:13px 0; padding:13px 14px; border:1px solid var(--line); border-radius:10px; background:#fafbff;}
+  .q-prompt{font-size:1.05rem; margin-bottom:9px;}
+  .q-prompt b{background:#fff3c4; padding:0 4px; border-radius:4px;}
+  .q-prompt .ctx{color:var(--muted); font-size:.85em;}
+  .opts{display:flex; flex-wrap:wrap; gap:7px;}
+  button.opt{font:inherit; cursor:pointer; border:1.5px solid var(--line); background:#fff;
+    padding:7px 14px; border-radius:9px; transition:.12s; font-weight:700;}
+  button.opt:hover{border-color:var(--accent);}
+  button.opt:disabled{cursor:default;}
+  button.opt.correct{background:var(--good-bg); border-color:var(--good); color:var(--good);}
+  button.opt.wrong{background:var(--bad-bg); border-color:var(--bad); color:var(--bad);}
+  .fb{margin-top:8px; font-size:.92rem; padding:8px 11px; border-radius:7px; display:none;}
+  .fb.show{display:block;} .fb.ok{background:var(--good-bg); color:#155e34;} .fb.no{background:var(--bad-bg); color:#922;}
+  .score{position:sticky; top:0; z-index:5; background:rgba(238,240,247,.93); backdrop-filter:blur(6px);
+    padding:8px 12px; border-radius:0 0 12px 12px; font-weight:700; color:var(--muted); text-align:center; font-size:.9rem;}
+  .score b{color:var(--ink);}
+  .fcgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin-top:8px;}
+  .fc{perspective:600px; height:86px; cursor:pointer;}
+  .fc-inner{position:relative; width:100%; height:100%; transition:transform .4s; transform-style:preserve-3d;}
+  .fc.flip .fc-inner{transform:rotateY(180deg);}
+  .fc-face{position:absolute; inset:0; backface-visibility:hidden; display:grid; place-items:center;
+    border-radius:10px; border:1.5px solid var(--line); padding:6px; text-align:center; font-size:.9rem; font-weight:700;}
+  .fc-back{transform:rotateY(180deg); background:var(--prat); color:#fff; font-size:1.02rem; font-weight:800;}
+  @media (max-width:560px){ .fcgrid{grid-template-columns:1fr 1fr} }
+  .ask{background:#eef4ff; border:1px solid #cfe0ff; border-radius:12px; padding:16px 18px; margin-top:22px;}
+  .ask h3{margin-top:0; color:var(--accent);}
+  .lessonnav{display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;
+    margin:28px 0 4px; padding-top:16px; border-top:1px solid var(--line); font-size:.92rem; font-weight:600;}
+  .lessonnav a{color:var(--accent); text-decoration:none;} .lessonnav .hub{color:var(--muted);}
+  .lessonnav .none{color:#b8bccc;}
+  .related{text-align:center; font-size:.85rem; color:var(--muted); margin:8px 0 0;}
+  .related a{color:var(--accent);}
+  footer{margin-top:18px; color:var(--muted); font-size:.82rem; text-align:center;}
+  a{color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="score" id="scorebar">Punkte: <b id="sc">0</b> / <span id="tot">0</span> &nbsp;·&nbsp; <span id="rank">—</span></div>
+<div class="wrap">
+  <a class="home" href="../index.html">← Hub</a>
+  <div class="eyebrow">Lektion 06 · Zeitformen</div>
+  <h1>Perfekt &amp; Präteritum</h1>
+  <p class="lead">Zwei Vergangenheitsformen, fast dieselbe Bedeutung — aber ein klarer Unterschied im
+  Gebrauch. Wann sagst du <span class="de">ich habe gemacht</span> und wann <span class="de">ich machte</span>?</p>
+
+  <div class="card">
+    <p><b>Dein Ziel.</b> Über Vergangenes zu sprechen brauchst du jeden Tag: im Standup, beim
+    Mittagessen, in der E-Mail an den Kunden. Wer die Vergangenheit nicht sicher bildet, klingt sofort
+    wie ein Anfänger — egal wie gut die Fälle sitzen. Diese Lektion gibt dir <b>eine klare
+    Faustregel</b> und die Formen dazu. Etwa 25 Minuten.</p>
+  </div>
+
+  <!-- AUFWÄRMEN -->
+  <div class="card warmup">
+    <h2 class="wu"><span class="n">↻</span>Aufwärmen: Fälle (30 Sekunden)</h2>
+    <p>Kurze Wiederholung. Deine Präpositionen sitzen — deshalb heute Dativ-Verben und reine
+    Kasus-Bestimmung.</p>
+    <div id="warmup"></div>
+  </div>
+
+  <!-- WISSEN -->
+  <div class="card">
+    <h2><span class="n">i</span>Die Faustregel</h2>
+    <div class="big-rule"><b>Perfekt</b> = gesprochene Sprache.<br>
+      <b>Präteritum</b> = geschriebene, erzählende Sprache.</div>
+    <div class="grp perf"><span class="pill perf">PERFEKT</span> — im Gespräch, am Telefon, in der E-Mail, im Chat
+      <div class="words">Ich <b>habe</b> gestern den Fehler <b>gefunden</b>.</div>
+      <span class="en">Rund 90% der Vergangenheit im Gespräch läuft über das Perfekt.</span></div>
+    <div class="grp prat"><span class="pill prat">PRÄTERITUM</span> — in Büchern, Zeitungen, Berichten, Protokollen
+      <div class="words">Das Team <b>fand</b> den Fehler nach zwei Stunden.</div>
+      <span class="en">Erzählende Texte stehen fast immer im Präteritum.</span></div>
+
+    <div class="tip"><b>Die wichtige Ausnahme:</b> Diese Wörter sagt man <u>auch beim Sprechen</u> im
+      Präteritum, nie im Perfekt:<br>
+      <b>sein</b> → war · <b>haben</b> → hatte · <b>es gibt</b> → es gab ·
+      und alle <b>Modalverben</b>: konnte, musste, wollte, sollte, durfte, mochte.<br>
+      <span class="en">Also: „Ich <b>war</b> müde", nicht „ich bin müde gewesen". Und: „Ich <b>konnte</b>
+      nicht kommen", nicht „ich habe nicht kommen können".</span></div>
+
+    <div class="tip" style="border-left-color:#c0392b"><b>🇨🇭 In Zürich:</b> In der Schweiz und
+      Süddeutschland ist das Perfekt beim Sprechen noch dominanter als im Norden. Im Schweizer Dialekt
+      gibt es das Präteritum praktisch gar nicht. Geschrieben (Hochdeutsch) gilt aber die normale Regel.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">ii</span>Das Perfekt bauen</h2>
+    <p>Zwei Teile: ein <b>Hilfsverb</b> (haben oder sein) auf Position 2 — und das <b>Partizip II</b>
+    ganz am Satzende. Das nennt man die <b>Satzklammer</b>:</p>
+    <p class="klammer">Ich <span class="k">habe</span> gestern mit dem Kunden <span class="k">gesprochen</span>.</p>
+    <p class="klammer">Das Deployment <span class="k">ist</span> gestern Abend <span class="k">gelaufen</span>.</p>
+    <p class="en" style="text-align:center">Alles Weitere steht <i>zwischen</i> den beiden Klammerteilen.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">iii</span>Partizip II bilden</h2>
+    <table>
+      <tr><th>Verbtyp</th><th>Regel</th><th>Beispiel</th></tr>
+      <tr><td>schwach (regelmäßig)</td><td><b>ge-</b> + Stamm + <b>-t</b></td><td>machen → <b>ge</b>mach<b>t</b></td></tr>
+      <tr><td>stark (unregelmäßig)</td><td><b>ge-</b> + Stamm (oft neuer Vokal) + <b>-en</b></td><td>sprechen → <b>ge</b>sproch<b>en</b></td></tr>
+      <tr><td>Stamm auf -t/-d</td><td>ein <b>-e-</b> dazwischen</td><td>arbeiten → gearbeit<b>e</b>t</td></tr>
+      <tr><td>Verben auf <b>-ieren</b></td><td><u>kein</u> ge-</td><td>programmieren → programmier<b>t</b></td></tr>
+      <tr><td>untrennbare Vorsilbe<br><span class="en">be-, ge-, er-, ver-, zer-, ent-, emp-, miss-</span></td>
+          <td><u>kein</u> ge-</td><td>besuchen → besuch<b>t</b><br>verstehen → verstand<b>en</b></td></tr>
+      <tr><td>trennbare Vorsilbe<br><span class="en">auf-, ein-, an-, mit-, vor-…</span></td>
+          <td>ge- kommt in die <b>Mitte</b></td><td>aufstehen → auf<b>ge</b>stand<b>en</b><br>einladen → ein<b>ge</b>lad<b>en</b></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">iv</span>haben oder sein?</h2>
+    <div class="big-rule"><span class="pill sein">SEIN</span> bei <b>Bewegung von A nach B</b> und bei
+      <b>Zustandsänderung</b>.<br><span class="pill haben">HABEN</span> bei allem anderen.</div>
+    <table>
+      <tr><th><span class="pill sein">sein</span></th><th><span class="pill haben">haben</span></th></tr>
+      <tr><td>Bewegung: gehen, kommen, fahren, fliegen, laufen, reisen</td>
+          <td>alle Verben mit Akkusativobjekt: machen, sehen, lesen, bauen</td></tr>
+      <tr><td>Zustandsänderung: aufstehen, einschlafen, aufwachen, wachsen, sterben, werden</td>
+          <td>alle reflexiven Verben: sich freuen, sich kümmern</td></tr>
+      <tr><td>Sonderfälle: sein, bleiben, passieren, geschehen</td>
+          <td>der ganze Rest: arbeiten, schlafen, warten, programmieren</td></tr>
+    </table>
+    <div class="tip"><b>Merkhilfe:</b> Kannst du das Verb auf einer Landkarte verfolgen (A → B) oder
+      ändert sich ein Zustand? Dann <b>sein</b>. Sonst <b>haben</b>.
+      <br><span class="en">Achtung: „bleiben" bewegt sich nicht — nimmt aber trotzdem <i>sein</i>. Einfach merken.</span></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">v</span>Präteritum — die Formen, die du wirklich brauchst</h2>
+    <p>Schwache Verben bekommen <b>-te</b>: machen → ich <b>machte</b>, arbeiten → ich <b>arbeitete</b>.
+    Starke Verben ändern den Vokal und haben in der 1./3. Person Singular <b>keine Endung</b>:
+    gehen → ich <b>ging</b>, er <b>ging</b>.</p>
+    <table>
+      <tr><th>Infinitiv</th><th>Präteritum</th><th>Infinitiv</th><th>Präteritum</th></tr>
+      <tr><td>sein</td><td><b>war</b></td><td>können</td><td><b>konnte</b></td></tr>
+      <tr><td>haben</td><td><b>hatte</b></td><td>müssen</td><td><b>musste</b></td></tr>
+      <tr><td>werden</td><td><b>wurde</b></td><td>wollen</td><td><b>wollte</b></td></tr>
+      <tr><td>es gibt</td><td><b>es gab</b></td><td>dürfen</td><td><b>durfte</b></td></tr>
+      <tr><td>gehen</td><td><b>ging</b></td><td>kommen</td><td><b>kam</b></td></tr>
+      <tr><td>sehen</td><td><b>sah</b></td><td>finden</td><td><b>fand</b></td></tr>
+    </table>
+    <p class="en">Diese Formen brauchst du auch im Gespräch — sie sind die Ausnahme von der Faustregel.
+    Übe sie im Spiel <a href="../games/perfekt.html">Perfekt &amp; Präteritum</a>.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">A</span>Perfekt oder Präteritum?</h2>
+    <p>Welche Form passt in dieser Situation?</p>
+    <div id="partA"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">B</span>haben oder sein?</h2>
+    <p>Welches Hilfsverb bildet das Perfekt?</p>
+    <div id="partB"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">C</span>Partizip II bilden</h2>
+    <p>Achte auf <b>-ieren</b>, untrennbare und trennbare Vorsilben.</p>
+    <div id="partC"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">D</span>Finde den Fehler</h2>
+    <p>Richtig oder falsch?</p>
+    <div id="partD"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">E</span>Szene: Standup im Büro</h2>
+    <p>Du berichtest im Standup, was du gestern gemacht hast. Ergänze das Hilfsverb.</p>
+    <div id="partE"></div>
+  </div>
+
+  <div class="card">
+    <h2><span class="n">F</span>Karteikarten — Präteritum, die Pflichtformen</h2>
+    <p>Diese sagst du auch im Gespräch. Tippe zum Umdrehen.</p>
+    <div class="fcgrid" id="cards"></div>
+  </div>
+
+  <div class="ask">
+    <h3>Ich bin dein Lehrer — frag einfach</h3>
+    <ul>
+      <li>„Gib mir 10 unregelmäßige Verben und frag mich das Partizip II ab."</li>
+      <li>„Lass uns ein Standup auf Deutsch simulieren — ich erzähle von gestern."</li>
+      <li>„Warum heißt es <i>ist gelaufen</i>, aber <i>hat gearbeitet</i>?"</li>
+      <li>„Mein Ergebnis war ___ / ___" — damit ich Lektion 07 abstimme.</li>
+    </ul>
+    <p>Die Begriffe stehen im <a href="../glossary.html">Glossar</a>.</p>
+  </div>
+
+  <nav class="lessonnav">
+    <a href="0005-determiners-der-ein-words.html">← Artikelwörter</a>
+    <a class="hub" href="../index.html">⌂ Alle Lektionen</a>
+    <span class="none">Weiter: bald →</span>
+  </nav>
+  <p class="related">📎 <a href="../reference/0005-perfekt-praeteritum-cheatsheet.html">Spickzettel: Perfekt &amp; Präteritum</a> ·
+    <a href="../games/perfekt.html">Spiel: Perfekt &amp; Präteritum</a> ·
+    <a href="../glossary.html">Glossar</a></p>
+
+  <footer>
+    Quellen:
+    <a href="https://learngerman.dw.com/en/overview">Deutsche Welle</a> ·
+    <a href="https://www.lingoda.com/blog/en/past-participle-german/">Lingoda — Partizip II</a> ·
+    <a href="https://preply.com/en/blog/german-past-tense-explained/">Preply — Perfekt vs. Präteritum</a> ·
+    <a href="https://www.goethe.de/en/spr/ueb.html">Goethe-Institut</a>.
+    <br>Lektion 0006 · Deutsch für Leben &amp; Arbeit in Zürich.
+  </footer>
+</div>
+
+<script>
+let score=0,total=0;
+const scEl=document.getElementById('sc'),totEl=document.getElementById('tot'),rankEl=document.getElementById('rank');
+function rank(){if(total===0)return '—';const p=score/total;
+  return p>=.9?'🏆 C1-reif':p>=.75?'💪 sicheres B2':p>=.5?'📈 auf gutem Weg':'🌱 weiter üben';}
+function tally(){scEl.textContent=score;rankEl.textContent=rank();}
+function makeMC(container,q){
+  total++;totEl.textContent=total;
+  const block=document.createElement('div');block.className='q-block';
+  const prompt=document.createElement('div');prompt.className='q-prompt';prompt.innerHTML=q.prompt;
+  const opts=document.createElement('div');opts.className='opts';
+  const fb=document.createElement('div');fb.className='fb';
+  let done=false;
+  q.options.forEach(opt=>{
+    const b=document.createElement('button');b.className='opt';b.innerHTML=opt.label;
+    if(opt.correct)b.dataset.c='1';
+    b.onclick=()=>{
+      if(done)return;done=true;[...opts.children].forEach(c=>c.disabled=true);
+      if(opt.correct){b.classList.add('correct');score++;tally();fb.className='fb show ok';fb.innerHTML='✓ '+q.explain;}
+      else{b.classList.add('wrong');[...opts.children].forEach(c=>{if(c.dataset.c)c.classList.add('correct');});
+        fb.className='fb show no';fb.innerHTML='✗ '+q.explain;}
+    };
+    opts.appendChild(b);
+  });
+  block.append(prompt,opts,fb);container.appendChild(block);
+}
+const art=(choices,c)=>choices.map(x=>({label:x,correct:x===c}));
+const tense=c=>[['perf','PERFEKT'],['prat','PRÄTERITUM']].map(([k,n])=>({label:'<span class="pill '+k+'">'+n+'</span>',correct:k===c}));
+const aux=c=>['haben','sein'].map(x=>({label:'<span class="pill '+x+'">'+x+'</span>',correct:x===c}));
+const tf=ok=>[{label:'✅ Richtig',correct:ok},{label:'❌ Falsch',correct:!ok}];
+
+// AUFWÄRMEN (Fälle)
+const W=document.getElementById('warmup');
+[
+ ['Sie dankt ___ Kollegin für die Hilfe. <span class="ctx">(fem · danken)</span>',['die','der','den'],'der','„danken" + Dativ; feminin Dativ → <b>der</b> Kollegin.'],
+ ['Das neue Tool hilft ___ Team sehr. <span class="ctx">(neutr · helfen)</span>',['das','dem','des'],'dem','„helfen" + Dativ; neutrum Dativ → <b>dem</b> Team.'],
+ ['Ich habe ___ Fehler sofort gesehen. <span class="ctx">(mask · direktes Objekt)</span>',['der','den','dem'],'den','Direktes Objekt → Akkusativ mask → <b>den</b> Fehler.']
+].forEach(([p,ch,c,e])=>makeMC(W,{prompt:p,options:art(ch,c),explain:e}));
+
+// A — Perfekt oder Präteritum?
+const A=document.getElementById('partA');
+[
+ ['Beim Mittagessen erzählst du einem Kollegen von gestern.','perf','Gespräch → <b>Perfekt</b>: „Ich habe gestern …"'],
+ ['Du schreibst einen Projektbericht über das letzte Quartal.','prat','Bericht, erzählender Text → <b>Präteritum</b>: „Das Team lieferte …"'],
+ ['Du sagst im Gespräch: „Ich ___ gestern sehr müde." <span class="ctx">(sein)</span>','prat','<b>sein</b> steht auch beim Sprechen im Präteritum: „Ich <b>war</b> müde."'],
+ ['Du sagst im Gespräch: „Ich ___ leider nicht kommen." <span class="ctx">(können)</span>','prat','Modalverben immer im Präteritum: „Ich <b>konnte</b> nicht kommen."']
+].forEach(([p,c,e])=>makeMC(A,{prompt:p,options:tense(c),explain:e}));
+
+// B — haben oder sein?
+const B=document.getElementById('partB');
+[
+ ['<b>gehen</b> — ich ___ gegangen','sein','Bewegung von A nach B → <b>sein</b>. ich bin gegangen.'],
+ ['<b>machen</b> — ich ___ gemacht','haben','Verb mit Akkusativobjekt → <b>haben</b>. ich habe gemacht.'],
+ ['<b>fahren</b> — ich ___ gefahren','sein','Bewegung → <b>sein</b>. ich bin gefahren.'],
+ ['<b>lesen</b> — ich ___ gelesen','haben','Akkusativobjekt → <b>haben</b>. ich habe gelesen.'],
+ ['<b>einschlafen</b> — ich ___ eingeschlafen','sein','Zustandsänderung → <b>sein</b>. ich bin eingeschlafen.'],
+ ['<b>programmieren</b> — ich ___ programmiert','haben','Kein Weg, kein Zustandswechsel → <b>haben</b>. ich habe programmiert.']
+].forEach(([p,c,e])=>makeMC(B,{prompt:p,options:aux(c),explain:e}));
+
+// C — Partizip II
+const C=document.getElementById('partC');
+[
+ ['machen → ich habe …',['gemacht','gemachen','gemacht?'],'gemacht','Schwach: ge- + Stamm + -t → <b>gemacht</b>.'],
+ ['sprechen → ich habe …',['gesprecht','gesprochen','gesprachen'],'gesprochen','Stark: ge- + neuer Vokal + -en → <b>gesprochen</b>.'],
+ ['programmieren → ich habe …',['geprogrammiert','programmiert','geprogramiert'],'programmiert','Verben auf <b>-ieren</b> bekommen <u>kein</u> ge- → programmiert.'],
+ ['besuchen → ich habe …',['gebesucht','besucht','besuchen'],'besucht','Untrennbare Vorsilbe <b>be-</b> → kein ge- → besucht.'],
+ ['aufstehen → ich bin …',['geaufstanden','aufgestanden','aufstehen'],'aufgestanden','Trennbare Vorsilbe: ge- kommt in die <b>Mitte</b> → auf<b>ge</b>standen.'],
+ ['arbeiten → ich habe …',['gearbeitet','gearbeit','gearbeiten'],'gearbeitet','Stamm auf -t → ein <b>-e-</b> dazwischen → gearbeit<b>e</b>t.']
+].forEach(([p,ch,c,e])=>makeMC(C,{prompt:p,options:art(ch,c),explain:e}));
+
+// D — Finde den Fehler
+const D=document.getElementById('partD');
+[
+ ['Ich habe gestern nach Bern gefahren.',false,'<b>Falsch.</b> „fahren" ist Bewegung → sein: Ich <b>bin</b> nach Bern gefahren.'],
+ ['Wir haben das Problem schnell gelöst.',true,'<b>Richtig.</b> „lösen" hat ein Akkusativobjekt → haben.'],
+ ['Ich habe den ganzen Tag geprogrammiert.',false,'<b>Falsch.</b> -ieren bekommt kein ge-: Ich habe <b>programmiert</b>.'],
+ ['Sie ist um sieben Uhr aufgestanden.',true,'<b>Richtig.</b> Zustandsänderung → sein, und ge- steht in der Mitte.'],
+ ['Gestern bin ich sehr müde gewesen.',false,'<b>Falsch</b> im Gespräch. „sein" sagt man im Präteritum: Gestern <b>war</b> ich sehr müde.']
+].forEach(([p,ok,e])=>makeMC(D,{prompt:'„'+p+'"',options:tf(ok),explain:e}));
+
+// E — Szene: Standup
+const E=document.getElementById('partE');
+[
+ ['„Gestern ___ ich den Bug behoben."','haben','„beheben" + Akkusativobjekt → habe. (Partizip: behoben, untrennbar → kein ge-.)'],
+ ['„Das Deployment ___ heute Nacht gelaufen."','sein','„laufen" = Bewegung/Verlauf → ist gelaufen.'],
+ ['„Ich ___ lange mit dem Kunden telefoniert."','haben','-ieren, kein Weg → habe telefoniert.'],
+ ['„Danach ___ ich noch ins Review gegangen."','sein','„gehen" = Bewegung → bin gegangen.']
+].forEach(([p,c,e])=>makeMC(E,{prompt:p,options:aux(c),explain:e}));
+
+// F — Karteikarten (Präteritum)
+const cards=[
+ ['sein','war'],['haben','hatte'],['werden','wurde'],
+ ['können','konnte'],['müssen','musste'],['es gibt','es gab']
+];
+const cg=document.getElementById('cards');
+cards.forEach(([f,b])=>{
+  const fc=document.createElement('div'); fc.className='fc';
+  fc.innerHTML='<div class="fc-inner"><div class="fc-face">'+f+'</div><div class="fc-face fc-back">'+b+'</div></div>';
+  fc.onclick=()=>fc.classList.toggle('flip'); cg.appendChild(fc);
+});
+
+tally();
+</script>
+</body>
+</html>

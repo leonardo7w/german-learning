@@ -27,6 +27,11 @@ These files don't exist yet — they're created on demand as learning progresses
 - Ground all teaching in `MISSION.md`. If it's empty or unclear, interview me first.
 - Draw knowledge from `RESOURCES.md`, not parametric guesses; cite sources in lessons.
 - Each lesson teaches exactly one thing, tied to the mission, in my zone of proximal development.
-- Lessons are German-language learning content — explanations in English, German examples
-  with translations, and an interactive feedback loop (quiz or practice).
+- Lessons are German-language learning content, and since Lektion 01 they are **written entirely in
+  German** (full immersion, pitched ~B1): explanations, instructions, headings and quiz feedback.
+  The hub and the games UI are German too; only the explicit vocabulary translations (English
+  meanings in the games) stay English. Workspace docs (MISSION/NOTES/RESOURCES/learning-records,
+  GLOSSARY definitions) stay English. See `learning-records/0006` and the language policy in NOTES.md.
+- Every lesson opens with a short case warm-up (spaced repetition), and new vocabulary introduced in
+  a lesson gets added to the games in `games/`.
 - Keep lessons openable with a single command (e.g. `open lessons/0001-*.html`).
